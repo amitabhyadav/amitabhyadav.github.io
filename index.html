@@ -23,6 +23,66 @@
   ga('send', 'pageview');
 
 </script>
+<style>
+/* Popup container - can be anything you want */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 2px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+	opacity:0.8;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 0.8;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:0.8 ;}
+}
+</style>
+
 	</head>
 	<body class="loading">
 		<div id="wrapper">
@@ -34,8 +94,8 @@
 					<header id="header">
 						<!-- <img src="amitabh_200x200px.png"> -->
 						<h1>Amitabh Yadav</h1>
-						<p>&#x0247;lectronics and computer engineer &nbsp;&bull;&nbsp; geek &nbsp;&bull;&nbsp; out in space</p>
-						<p><a href="http://amitabhyadav.github.io/Main">About Me</a> &bull; <a href="http://amitabhyadav.github.io/blog/post.html">My WeBlog</a> &bull; <a href="http://amitabhyadav.github.io/Gallery">Gallery</a></p>
+						<p>electronics and computer engineer &nbsp;&bull;&nbsp; geek &nbsp;&bull;&nbsp; out in space</p>
+						<p><strong>Hello! Would you like to read my <a href="http://hard-ce.blogspot.com">Blog</a>?! </strong><!-- &bull; <a href="http://amitabhyadav.github.io/Gallery">Gallery</a> --> </p>
 						<nav>
 							<ul>
 								<li><a href="http://www.facebook.com/amitabh95" target="_blank" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
@@ -44,7 +104,14 @@
 								<li><a href="http://www.github.com/amitabhyadav" target="_blank" class="icon fa-github"><span class="label">Github</span></a></li>
 								<li><a href="mailto:amitabhydv@gmail.com" target="_blank" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
 							</ul>
-						</nav><br><h2>&#x25C9; Delft, The Netherlands</h2>
+						</nav><br><h2><div class="popup" onclick="myFunction()">[About Me]<span class="popuptext" id="myPopup">Under Construction :(</span></div></br>&#x25C9; Delft, The Netherlands</h2>
+<script>
+// When the user clicks on div, open the popup
+function myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+}
+</script>
 <!-- <p><a href="#">&beta;io</a> &nbsp; &there4; &nbsp; <a href="#">&#x03EB;esume</a> &nbsp; &#x2235; &nbsp; <a href="#">&psi;eblog</a> &nbsp; &there4; &nbsp; <a href="http://amitabhyadav.github.io/Gallery">&varrho;allery</a></p> -->
 					</header>
 
