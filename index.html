@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<link href='https://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
 		<link rel="icon" href="http//amitabhyadav.github.io/favicon.png">
 		<meta name="keywords" content="Amitabh Yadav, Home Page, Amitabh Yadav Website, Amitabh Yadav Portfolio, Amitabh Yadav CERN, Amitabh Yadav BARC, Amitabh Yadav NASA, Amitabh Yadav Lockheed Martin, Amitabh Yadav Blog, Amitabh Yadav Projects, Amitabh Yadav TU Delft, Amitabh Yadav UPES, Amitabh Yadav Lucknow, Amitabh Yadav India, Amitabh Yadav Scientist, Amitabh Yadav Electronics" />
 		<meta name="description" content="Amitabh Yadav is an Electronics and Computer Engineer. He was born and raised in Lucknow, India and currently resides in Delft, Netherlands where he is pursuing Masters in Computer Engineering from the Delft University of Technology. His course specialisation is in Quantum Computing and Reconfigurable Processor Architectures. Amitabh's ares of research are in study and design of computing systems in High Energy Physics Applications, Micro Satellites & Space Systems and Defence & Early Warning Systems." />
@@ -82,7 +83,63 @@
     to {opacity:0.8 ;}
 }
 </style>
+<style>
+.blinking-cursor {
+  font-weight: 500;
+  font-size: 18px;
+  color: #00FF00;
+  -webkit-animation: 1s blink step-end infinite;
+  -moz-animation: 1s blink step-end infinite;
+  -ms-animation: 1s blink step-end infinite;
+  -o-animation: 1s blink step-end infinite;
+  animation: 1s blink step-end infinite;
+}
 
+@keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #00FF00;
+  }
+}
+
+@-moz-keyframes blink {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #00FF00;
+  }
+}
+
+@-webkit-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #00FF00;
+  }
+}
+
+@-ms-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #00FF00;
+  }
+}
+
+@-o-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #00FF00;
+  }
+}
+</style>
 	</head>
 	<body class="loading">
 		<div id="wrapper">
@@ -94,8 +151,8 @@
 					<header id="header">
 						<!-- <img src="amitabh_200x200px.png"> -->
 						<h1>Amitabh Yadav</h1>
-						<p>electronics and computer engineer &nbsp;&bull;&nbsp; geek &nbsp;&bull;&nbsp; out in space</p>
-						<p><strong>Hello! Would you like to read my <a href="http://hard-ce.blogspot.com">Blog</a>?! </strong><!-- &bull; <a href="http://amitabhyadav.github.io/Gallery">Gallery</a> --> </p>
+						<p>electronics and computer engineer &nbsp;&bull;&nbsp; geek &nbsp;&bull;&nbsp; out in space</p></br>
+						<div><strong>Hello! Would you like to read my <a href="http://hard-ce.blogspot.com">Blog </a><span class="blinking-cursor">&#9612</span><!-- &bull; <a href="http://amitabhyadav.github.io/Gallery">Gallery</a> --> </strong></div>
 						<nav>
 							<ul>
 								<li><a href="http://www.facebook.com/amitabh95" target="_blank" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
