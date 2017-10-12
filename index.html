@@ -24,65 +24,7 @@
   ga('send', 'pageview');
 
 </script>
-<style>
-/* Popup container - can be anything you want */
-.popup {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
 
-/* The actual popup */
-.popup .popuptext {
-    visibility: hidden;
-    width: 160px;
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    border-radius: 5px;
-    padding: 2px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -80px;
-	opacity:0.8;
-}
-
-/* Popup arrow */
-.popup .popuptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-}
-
-/* Toggle this class - hide and show the popup */
-.popup .show {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s;
-}
-
-/* Add animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
-    from {opacity: 0;} 
-    to {opacity: 0.8;}
-}
-
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity:0.8 ;}
-}
-</style>
 <style>
 .blinking-cursor {
   font-weight: 500;
@@ -152,8 +94,7 @@
 					<header id="header">
 						<!-- <img src="amitabh_200x200px.png"> -->
 						<h1>Amitabh Yadav</h1>
-						<p>electronics and computer engineer &nbsp;&bull;&nbsp; geek &nbsp;&bull;&nbsp; out in space</p></br>
-						<div><strong>Hello! Would you like to read my <a href="http://hard-ce.blogspot.com">Blog </a><span class="blinking-cursor">&#9612</span><!-- &bull; <a href="http://amitabhyadav.github.io/Gallery">Gallery</a> --> </strong></div>
+						<p>electronics and computer engineer &nbsp;&bull;&nbsp; geek &nbsp;&bull;&nbsp; out in space</p>
 						<nav>
 							<ul>
 								<li><a href="http://www.facebook.com/amitabh95" target="_blank" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
@@ -162,7 +103,7 @@
 								<li><a href="http://www.github.com/amitabhyadav" target="_blank" class="icon fa-github"><span class="label">Github</span></a></li>
 								<li><a href="mailto:amitabhydv@gmail.com" target="_blank" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
 							</ul>
-						</nav><br><h2><div class="popup" onclick="myFunction()">[My Online Portfolio]<span class="popuptext" id="myPopup">Under Construction :(</span></div></br>&#x25C9; Delft, The Netherlands</h2>
+						</nav><br><h2><a href="http://hard-ce.blogspot.com">[My WeBlog] </a><span class="blinking-cursor">&#9612</span></br><a href="./main/index.html">[My Online Portfolio]</a></br></br>&#x25C9; Delft, Netherland</h2>
 <script>
 // When the user clicks on div, open the popup
 function myFunction() {
