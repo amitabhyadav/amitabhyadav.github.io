@@ -1,18 +1,11 @@
 #ifndef __Schedule_c
 #define __Schedule_c
 
-#define NONPRE
-
 /*
  * NonPreemptive, Time triggered scheduler.
  * Johan Lukkien, 12-01-2011
- * 17-05-2013: guard of inner-while strengthened (with "&& !HPrioPendingTask")
- *             to allow HPrioPendingTask tasks with a higher priority than the currently
- *             running task to execute prior to lower priority tasks.
  *
- * Disclaimer: this code has only been tested for simple cases. There is a race
- *             condition between main program and interrupt routine regarding 
- *             going into sleep mode.
+ * Disclaimer: this code has only been tested for simple cases. 
  * 
  * The scheduler is implemented by an array of tasks called Tasks, 
  * and a couple of functions. 
@@ -27,9 +20,6 @@
  *   InitTasks (): to be called upon the start of the system. Clears the
  *                 data structures.
  *   RegisterTask (): fill a Task structure. Operates under exclusion.
- *                    Activation of tasks is automatic for periodic
- *                    tasks; otherwise, specifying Flag TT will activate upon the next
- *                    timer interrupt. Activate() can also be called from other tasks.
  *                    Parameters have the following meaning.
  *         Phasing:  the number of time units to delay the first activation of a task
  *         Period:   period of a task
@@ -38,17 +28,18 @@
  *         Flags:    TRIGGERED
  *   UnRegisterTask (): remove task from registration
  *         t: the task identifier
- *   HandleTasks (): handle all HPrioPendingTask task. To call from the main program.
  *   TimerIntrpt (): the timer interrupt routine. It counts down units for all 
- *                   TRIGGERED marked tasks.
+ *                   marked tasks.
  *                   Whenever the count for a task reaches 0 the task get triggered.
  */
 
-#include "Clock.h"
 #include "Scheduler.h"
 
 Task Tasks[NUMTASKS];           /* Lower indices: lower priorities           */
-int8_t HPrioPendingTask = 0;            /* Indicates if there is a HPrioPendingTask task      */
+
+/*
+ * Get and set status word (sreg, or r2).
+ */
 
 uint16_t IntDisable (void)
 {
@@ -75,13 +66,13 @@ void InitTasks (void)
 {			
   uint8_t i=NUMTASKS-1; 
   do { 
-    Taskp t = &Tasks[i];
+    Taskp t = &Tasks[i]; 
     t->Flags = t->Activated = t->Invoked = 0;
   } while (i--);
 }
 
 /*
- * Register a task, TRIGGERED only, with flags.
+ * Register a task, TRIGGERED only.
  * Testing and filling in defaults is done.
  * Each priority level has at most one task.
  */
@@ -114,45 +105,18 @@ uint8_t UnRegisterTask (uint8_t t)
   return (E_SUCCESS);
 }  
 
-/* 
- * HandleTasks (): call from main program
- */
-  
-void HandleTasks (void)
-{ 
-  while ((HPrioPendingTask>=0)) {
-	IntDisable();
-	int8_t i=HPrioPendingTask;
-	HPrioPendingTask = -1;  //int8_t i=NUMTASKS-1; HPrioPendingTask = 0;
-	_EINT();
-    while (i>=0) {
-      Taskp t = &Tasks[i];
-      if (t->Activated != t->Invoked) {
-        if (t->Flags & TRIGGERED) {
-          t->Taskf(); t->Invoked++; 
-          if(HPrioPendingTask>i)
-        	  i=HPrioPendingTask;
-        }
-        else t->Invoked = t->Activated;
-      }
-      else i--;
-} } }
-
 interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
 {
-  uint8_t i = NUMTASKS-1;uint8_t j=0;
+  uint8_t i = NUMTASKS-1; 
   do {
     Taskp t = &Tasks[i];
     if (t->Flags & TRIGGERED) { // countdown
       if (t->Remaining-- == 0) {
         t->Remaining = t->Period-1; 
-        t->Activated++;j=i;
-  	  if (HPrioPendingTask<i)
-  		  HPrioPendingTask = i;
+	t->Activated++; t->Taskf(); t->Invoked++;
       }
     }
   } while (i--);
-  if (HPrioPendingTask) ExitLowPowerMode3();
 }
 
 #endif
