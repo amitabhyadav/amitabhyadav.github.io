@@ -149,6 +149,16 @@ uint8_t UnRegisterTask (uint8_t t)
  *   Activate (t, d): activate task t after d time units
  */
 
+uint8_t Activate(uint8_t Prio, uint16_t Ticks)
+{
+
+	Taskp t = &Tasks[Prio];
+	t->Remaining = Ticks;
+	t->Flags = TT | TRIGGERED | DIRECT;
+
+	//RegisterTask (Ticks, 0,Prio2Taskp(Prio)->Taskf,Prio, DIRECT);
+}
+
 void HandleTasks (void)
 { 
   int8_t oldBP = BusyPrio; // Save BusyPrio = current task handling level
@@ -178,10 +188,10 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
       if (t->Remaining-- == 0) {
         t->Activated++;
         if (t->Flags & PERIODIC) {
-	  t->Remaining = t->Period-1; 
+        	t->Remaining = t->Period-1;
         } else {
-	  t->Flags &= ~TT;
-	}
+        	t->Flags &= ~TT;
+        }
         if (t->Flags & DIRECT) {
 	  t->Invoked++; t->Taskf();
   	} else {

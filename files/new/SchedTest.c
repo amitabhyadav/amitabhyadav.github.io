@@ -12,7 +12,6 @@
  * If an UART has been added:    #define UART
  */
 
-#define NONPREBASIC 
 //#define NONPRE
 //#define THREADS
 //#define SEMA
@@ -61,6 +60,7 @@ void BlinkGreen (void)
     /* An event-triggered extension
     Activate (REDBLINKPRIO, TicksPS/2);
     */
+    Activate (REDBLINKPRIO, TicksPS/2);
   }    
   ToggleLeds (GREEN);
 }
