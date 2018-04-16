@@ -9,10 +9,12 @@
  *             condition between main program and interrupt routine regarding 
  *             going into sleep mode.
  * 
+ * 21-08-2013: Extended with non-preemptive tasks which may ``yield'' (FPDS). 
+ *
  * The scheduler is implemented by an array of tasks called Tasks, 
  * and a couple of functions. 
  *
- * Tasks must be declared as TRIGGERED, and pssibly PERIODIC.
+ * Tasks must be declared as TRIGGERED, and possibly PERIODIC.
  * Tasks are triggered (activated) by the timer (periodically or single shot) or 
  * by other tasks. The latter case is called event triggering. 
  *
@@ -21,6 +23,8 @@
  * triggering may come from many different sources.
  *
  * Tasks execute according to their priorities and preempt each other if need be.
+ * Tasks with a flag FPDS run non-preemptive, and may allow other tasks to
+ * preempt by calling Yield().
  *
  * The time resolution is TicksPS. We assume that all kernel functions execute in much
  * less than a single tick thus not causing timing inaccuracy. A proper overhead 
@@ -53,6 +57,9 @@
  *   TimerIntrpt (): the timer interrupt routine. It counts down units for all 
  *                   TT marked tasks.
  *                   Whenever the count for a task reaches 0 the task get triggered.
+ *   Yield (): Allows the currently running task with flag FPDS to indicate
+ *             a preemption point to the scheduler, i.e. allowing preemption
+ *             by higher priority tasks.
  */
 
 #include "Scheduler.h"
@@ -60,6 +67,7 @@
 Task Tasks[NUMTASKS];           /* Lower indices: lower priorities           */
 volatile int8_t BusyPrio;       /* Current priority being served             */
 uint8_t Pending = 0;            /* Indicates if there is a pending task      */ 
+uint8_t NPExec  = 0;		/* Indicates if execution is non-preemptive  */
 
 void HandleTasks (void);
 
@@ -74,7 +82,7 @@ uint16_t IntDisable (void)
 
 void RestoreSW (uint16_t sw)
 {
-  if (Pending && (sw & INTRPT_BIT)) HandleTasks ();
+  if ((Pending && !NPExec) && (sw & INTRPT_BIT)) HandleTasks ();
     // r2 = sw
   asm volatile ("mov.w %0, r2\n\t" :: "r"(sw));
 }  
@@ -149,59 +157,55 @@ uint8_t UnRegisterTask (uint8_t t)
  *   Activate (t, d): activate task t after d time units
  */
 
-uint8_t Activate(uint8_t Prio, uint16_t Ticks)
-{
-
-	Taskp t = &Tasks[Prio];
-	t->Remaining = Ticks;
-	t->Flags = TT | TRIGGERED | DIRECT;
-
-	//RegisterTask (Ticks, 0,Prio2Taskp(Prio)->Taskf,Prio, DIRECT);
-}
-
 void HandleTasks (void)
 { 
   int8_t oldBP = BusyPrio; // Save BusyPrio = current task handling level
 
-  Pending = 0;             // This instance will handle all new
-                           // pending tasks.
-  BusyPrio = NUMTASKS-1;   // Start at highest priority
-  while (BusyPrio != oldBP) { 
-    Taskp CurTask = CurrentTask ();
-    while (CurTask->Activated != CurTask->Invoked) {
-      CurTask->Invoked++; 
-      if (CurTask->Flags & TRIGGERED) {
-        _EINT(); CurTask->Taskf(); _DINT();
-      } else {
-        CurTask->Activated = CurTask->Invoked;
+  while (Pending) {
+    Pending = 0;             // This instance will handle all new
+                             // pending tasks.
+    BusyPrio = NUMTASKS-1;   // Start at highest priority
+    while ((BusyPrio != oldBP) && !Pending) { 
+      Taskp CurTask = CurrentTask ();
+      while ((CurTask->Activated != CurTask->Invoked) && !Pending) {
+        CurTask->Invoked++; 
+        if (CurTask->Flags & TRIGGERED) {
+          NPExec = CurTask->Flags & FPDS;
+          _EINT(); CurTask->Taskf(); _DINT();
+          NPExec = 0;
+        }
+        else CurTask->Activated = CurTask->Invoked;
       }
-    }
-    BusyPrio--;
-} }
+      BusyPrio--;
+} } }
+
+void Yield (void)
+{
+  _DINT();
+  if (NPExec && Pending) {
+    NPExec = 0;
+    HandleTasks();
+    NPExec = FPDS;
+  }
+  _EINT();
+}
 
 interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
 {
   uint8_t i = NUMTASKS-1; 
   do {
     Taskp t = &Tasks[i];
-    if (t->Flags & TT) { // countdown
+    if (t->Flags & TT) // countdown
       if (t->Remaining-- == 0) {
         t->Activated++;
-        if (t->Flags & PERIODIC) {
-        	t->Remaining = t->Period-1;
-        } else {
-        	t->Flags &= ~TT;
-        }
-        if (t->Flags & DIRECT) {
-	  t->Invoked++; t->Taskf();
-  	} else {
-	  Pending |= i>BusyPrio;
-	}
+        if (t->Flags & PERIODIC) t->Remaining = t->Period-1; 
+        else t->Flags &= ~TT;
+        if (t->Flags & DIRECT) { t->Invoked++; t->Taskf(); }
+  	else Pending |= i>BusyPrio;
       }
-    }
   } while (i--);
-  if (Pending) HandleTasks (); /* stay in interrupt context *
-                                * interrupts disabled       */
+  if (Pending && !NPExec) HandleTasks (); /* stay in interrupt context *
+                                           * interrupts disabled       */
 }
 
 #endif
