@@ -18,6 +18,7 @@
 #define BLOCKED    16   /* task state: blocked on synchronization primitive */
 #define THREAD     32   /* type: THREAD (context of task retained)          */
 #define TRIGGERED  64   /* type: TRIGGERED: context created upon triggering */
+#define FPDS      128   /* type: FPDS: preemptive only at preemption points */
 
 #define THRBLKSIZ  256  /* thread context size: 256 bytes                   */
 #define GLOBMEMSIZ 1024 /* space reserved for global stack                  */
@@ -59,6 +60,7 @@ Taskp   Prio2Taskp    (uint8_t Prio);
 #define CurrentTask() (Prio2Taskp(BusyPrio))
 #define CurrentPrio() (BusyPrio)
 uint8_t Activate (uint8_t Prio, uint16_t Ticks);
+void	Yield (void);
 #endif
 
 
