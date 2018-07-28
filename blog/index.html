@@ -19,12 +19,12 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<style>
 		header {
-		padding-top:20px;
+			padding-top:20px;
 		}
 		
 		a:link {
-		color: #39c;
-		text-decoration:none;
+			color: #39c;
+			text-decoration:none;
 		}
 
 		a:visited {
@@ -38,6 +38,32 @@
 		a:active {
 			color: blue;
 		}
+		
+		#overlay {
+			position: fixed;
+			display: none;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(0,0,0,0.8);
+			z-index: 2;
+			cursor: pointer;
+		}
+
+		#text{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			font-size: 40px;
+			text-align:center;
+			color: white;
+			transform: translate(-50%,-50%);
+			-ms-transform: translate(-50%,-50%);
+		}
+		
     </style>
   </head>
   <body>
@@ -50,7 +76,7 @@
 		<p>a blog about <i>physics</i> and <i>computing</i></p><hr>Menu<br><br>
 		
 		<!-- MENU -->
-		<p>&nbsp;&nbsp;&nbsp;&nbsp;| <a href="#"><font color="#3b5998">Contact</font></a> &#10217;<br>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;| <a onclick="on()" href="#"><font color="#3b5998">Contact</font></a> &#10217;<br>
 		&nbsp;&nbsp;&nbsp;&nbsp;| <a href="http://amitabhyadav.github.io/"><font color="#3b5998">About</font></a> &#10217;</p><br>
 		
 		<!-- License -->
@@ -60,7 +86,16 @@
   </header>
   
   <section>
-  
+    <!-- CONTACT OVERLAY -->
+	<div id="overlay" onclick="off()">
+	<div id="text"><u>Contact</u><br><br><div style="font-size:18pt;">Hi! I'm certainly glad to see you here.<br><br>
+
+	You can contact me via e-mail.<br>Feel free to ping, anytime!<br><br>
+
+	<div style="background-color:white;"><a href="mailto:amitabhydv@gmail.com">amitabhydv@gmail.com</a></div><br><div style="font-size:11pt;">(I usually reply within 24 hours.)<br><br></div></div></div>
+	</div>
+	<!-- CONTACT OVERLAY ENDS HERE -->
+
 	<h3>Posts</h3>		
 	
 	<table><col/><tr>
@@ -72,10 +107,21 @@
 	</tr></table> -->
 	
 	</table>
+	<center style="padding-top:50%;"><img src="content.gif" width=25%><br><span style="font-family: Courier New, monospace; font-size:12pt;">Coming Soon</span></center>
+
   </section>
 </div>
     
 <script src="javascripts/scale.fix.js"></script>
+<script>
+function on() {
+    document.getElementById("overlay").style.display = "block";
+}
+
+function off() {
+    document.getElementById("overlay").style.display = "none";
+}
+</script>
     
 </body>
 </html>
