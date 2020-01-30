@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<meta name="keywords" content="Amitabh Yadav, Home Page, Amitabh Yadav Website, Amitabh Yadav Blog, Amitabh Yadav CERN, Amitabh Yadav BARC, Amitabh Yadav NASA, Amitabh Yadav Profile, Amitabh Yadav Lockheed Martin, Amitabh Yadav Blog, Amitabh Yadav TU Delft, Amitabh Yadav UPES, Amitabh Yadav Lucknow, Amitabh Yadav India, Amitabh Yadav Engineer, Amitabh Yadav Electronics, Amitabh Yadav Quantum, Quantum  Computing, QuTech, Delft, Netherlands, Wave and Particles, Cosmic Dance of Waves Particles and Math, physics and computing blog, amitabh computing blog, physics and math blog, Amitabh Yadav quantum computing blog/>
+	<meta name="description" content="Physics, Math and Computing Blog" />
+	<meta name="author" content="Amitabh Yadav">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A case for Silicon Spin-Qubits in Quantum Dots | Waves, Particles and Math</title>
+	<link rel="shortcut icon" type="image/png" href="../../favicon.ico"/>
+	<!-- OG TAGS -->
+	<meta property="og:image" content="../../images/wpm.jpg">
+	<meta property="og:title" content="A case for Silicon Spin-Qubits in Quantum Dots | Waves, Particles and Math"/>
+	<meta property="og:description" content="Physics, Math and Computing Blog"/>
+	<meta property="og:type" content="blog"/>
+	<!-- OG TAGS ENDS HERE-->
+    <link rel="stylesheet" href="../../stylesheets/styles.css">
+    <link rel="stylesheet" href="../../stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<style>
+		header {
+		padding-top:20px;
+		}
+		
+		a:link {
+		color: #39c;
+		text-decoration:none;
+		}
+
+		a:visited {
+			color: #39c;
+		}
+
+		a:hover {
+			text-decoration:underline;
+		}
+
+		a:active {
+			color: blue;
+		}
+    </style>
+  </head>
+  <body>
+  <div class="wrapper">
+  
+  <header>
+		<!-- BLOG TITLE -->
+        <img src="../../images/wpm.jpg" width=95%;>
+        <h2>Cosmic Dance of Waves, Particles and Math</h2>
+		<p>a blog about <i>physics</i> and <i>computing</i></p>
+		&#12296; <a href="../../">Back</a> |
+
+		<!-- License 
+		<hr><p><small><p style="text-align:left"><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png"/></a><div style="font-size:13px; font-family:ariel;"><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a></div></p>Hosted on GitHub Pages</small></p>
+		</p>-->
+		
+  </header>
+  
+  <section>
+  
+  <h3>A case for Silicon Spin-Qubits in Quantum Dots</h3>											<!-- POST TITLE -->
+  <small><i>4 Dec 2018</i></small>												<!-- DATE -->
+  <br>
+    
+	<div id="fb-root">
+</div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.6";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<br />
+<div class="fb-like" data-action="like" data-href="http://amitabhyadav.github.io/blog/post/quantum-computing-a-motivation/spin-qubits-case.html" data-layout="standard" data-share="true" data-show-faces="true">
+</div>
+	
+	<!-- POST --><div style="text-align:justify;">
+	The idea for this blog post is to present a strong case for Si-Spin Qubits as a viable candidate for long-term circuit-based model for quantum computing. There are many factual information presented with respect to Spin Qubits. </br></br>
+
+For a technology to be accepted as capable of performing quantum computation, it must satisfy the Di-Vincenzo's Criteria i.e. it must be/have:</br>
+<ul>
+    <li> A scalable physical system with well characterized qubits.
+    <li> The ability to initialize the states of the qubits to a simple state, such as |000⟩.
+    <li> Long relevant coherence times, much longer than the gate operation time.
+    <li> A “universal” set of quantum gates.
+    <li> A qubit-specific measurement capability.
+</ul></br>
+
+In case of Silicon-Spin Qubits in Quantum Dots, the electron spin-state in quantum dots is described by the Fermi-Hubbard model (Hamiltonian). The initialisation and measurement of the same is performed by Elzerman method and the universal set of quantum gates can be performed by applying microwave pulses to these qubits.</br></br>
+
+The Spin-qubits can prove advantageous because:</br>
+
+1. The standard gate time in case of Spin-Qubits is within 10s of ns while the qubit decoherence time is usually between 100s of micro-seconds (which is nearly an eternity in quantum word). Decoherence is caused by electron's interaction with nuclear spin of the Si/SiGe substrate. Changing the substrate can allow further longer decoherence times up to 10s of Milli-seconds.</br></br>
+
+
+2. The Spin-qubits are one of the most promising candidates for long-term 'scalable' quantum computing. One-qubit occupies very less area on chip (70nm × 70nm). These can be arranged in arrays and has potential to scale to millions of qubits for universal quantum computing (1 billion qubits in 1cm × 1 cm chip area).</br></br>
+
+3.Typically the spin-qubits are operated at temperatures of 10mK, but it has the potential to be operated at 1K to 4K. This is a very important point as classical CMOS can also be used at temperatures up to 4K which would allow manufacturing (in future) classical control and quantum-dot array units to be fabricated on the same silicon die, thus, eliminating complicated wiring for controlling these qubits (True Quantum Integrated Circuits). These cryo-electronics would have to be faster, less noisy and must have very low power dissipation.</br></br>
+
+
+4. Manufacturability of Spin-qubits is an important criteria. The current manufacturing is done by 300mm technology, which is an already perfected technology (such as, by Intel).</br></br></br>
+
+
+It is however, also important to remember that current quantum computing technologies are prone to high error rates and qubit decoherence. While the error-rates in spin-qubits are better than superconducting qubits; for the Spin-Qubit processor to function as a NISQ-era (Noisy Intermediate Scale Quantum) device (without quantum error correction); gate single-qubit gate error rates up to 10^(-5) or better (which currently, is not possible).</br></br></br>
+
+The above points seem very promising, but there are important problems that lie ahead:</br></br>
+
+
+1. Fabrication is an imperfect process and qubits are very sensitive. The Spin-qubit model involves tunneling a single electron into a quantum dot by applying gate-voltage and manipulation of the electron by means of AC pulses. Fabrication would not be perfect hence, these gate-voltages (to control electro-chemical potential) would vary for different qubits. Uniformity is essential. Further, the current research Spin-qubits are arranged linearly, which allow qubit mapping, only with it's neighboring qubits. The next steps (for next 2-5 years) would be arranging the same as a 2D arrays for better mapping; to allow better execution of quantum algorithms</br></br>
+
+
+2. Scalable control is perhaps one of the most important considerations for actually using a qubit. It is shown that 40+ connection lines is required for using a Si-Spin 5-qubit chip, among which 14 are high-bandwidth (fast signal) connections. At this scaling rate, the number of classical control channels required to use qubits would explode, and is therefore, absolutely undesirable.</br>
+	</div>
+	<!-- POST ENDS HERE -->
+</br>
+<div class="fb-comments" data-href="http://amitabhyadav.github.io/blog/post/quantum-computing-a-motivation/spin-qubits-case.html" data-numposts="5">
+</div><br><hr>
+<p style="text-align:left;">
+Navigation Links: | <a href="../../">Archive</a> &#10217; | <a href="http://amitabhyadav.github.io/">About</a> &#10217; <span style="float:right;"><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png"/></a></span></p>
+<p><span style="float:right; text-align:right; padding-left:60%;">
+<small>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a><br>(Hosted on GitHub Pages)</small>
+</span>
+</p>
+</section>
+</div>
+    
+<script src="javascripts/scale.fix.js"></script>
+    
+</body>
+</html>
