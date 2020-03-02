@@ -127,7 +127,7 @@ p.ex1 {
         <!-- <p class="view"><h5>1 Cyclotron Road,</br> Berkeley CA, 92720-0001 U.S.A.</h5> -->
 		<hr>Menu
 		<p></br>&nbsp;&nbsp;&nbsp;&nbsp;| <a href="http://amitabhyadav.github.io/blog/">Blog</a> &#10217;<br>
-		&nbsp;&nbsp;&nbsp;&nbsp;| <a href="#">Course Notes</font></a> &#10217;</br>
+		&nbsp;&nbsp;&nbsp;&nbsp;| <a href="readreviewed/">Read & Reviewed</font></a> &#10217;</br>
 		&nbsp;&nbsp;&nbsp;&nbsp;| <a href="./bio.html">Biography</font></a> &#10217;</p></br>
 		<p><small>Hosted on GitHub Pages</br>
 		&copy; 2018, 2019, 2020 Amitabh Yadav.</small></p>
