@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-163163196-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-163163196-1');
+</script>
+<!-- The following line adds the favicon -->
+<link rel="shortcut icon" href="https://advancedquantumalgorithms.github.io/favicon.png" />
+<html lang="en">
+<title>RAIDR: Retention-aware Intelligent DRAM Refresh | Amitabh&#39;s Weblog</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="RAIDR is an intelligent method of adapting the DRAM memory refresh time to the refresh rate profile data of DRAM cells, which varies due to process variation...">
+<meta name="author" content="Amitabh Yadav">
+<meta name="generator" content="Jekyll v4.0.0">
+<link rel="canonical" href="http://localhost:4000/raidr-retention-aware-intelligent-dram-refresh/">
+<link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
+
+<link rel="stylesheet" href="/assets/css/index.css">
+
+<link rel="stylesheet" href="/assets/css/classes.css">
+<link rel="stylesheet" href="/assets/css/sidebar.css" media="screen and (min-width: 70em)">
+<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="Amitabh's Weblog">
+
+
+
+</head>
+<body>
+<header class="icons">
+  
+    <a href="/" class="title">Amitabh&#39;s Weblog</a>
+  
+  
+    <div class="hidden description"><font face="Playfair Display" size="2">C E R E V I E W</font></div>
+  
+  <hr>
+  
+    
+  <nav>
+  <a aria-label="Home" href="/" ><span aria-hidden="true" >Home</span></a>
+  <a aria-label="Categories" href="/categories/" ><span aria-hidden="true" >Categories</span></a>
+  <a aria-label="About" href="/about/" ><span aria-hidden="true" >About</span></a>
+  
+  </nav>
+
+
+    
+
+  
+</header>
+
+<article>
+  <header>
+  
+    <div class="categories">MEMORY</div>
+  
+  <h1><a href="/raidr-retention-aware-intelligent-dram-refresh/">RAIDR: Retention-aware Intelligent DRAM Refresh</a></h1><time datetime="2020-04-05T00:00:00-07:00">April 05, 2020</time> 
+</header>
+
+  <p>RAIDR is an intelligent method of adapting the DRAM memory refresh time to the refresh rate profile data of DRAM cells, which varies due to process variations. This allows the refresh rate not to remain constant i.e. determined by the weakest DRAM cell, but now it varies across the DRAM for different ‘Bins’. Based on the refresh rate of DRAM cells, the mechanism groups the DRAM cell rows into retention time bins, which is implemented using the Bloom filters implemented in the memory controller (low area overhead and no overflows). Bins with Weak DRAM cells, get refreshed more often than the one with good DRAM Cells.</p>
+
+<h3 id="why-this-problem-is-important-to-deal-with">Why this problem is important to deal with?</h3>
+<ol>
+  <li>The refresh rate causes power consumption to increase.</li>
+  <li>Memory cannot be accessed during refresh i.e. denial of service.</li>
+  <li>Scaling the size of memory would increase the problem of refresh rate.</li>
+  <li>Only less than 1000 cells (out of 10e11) require refresh less than 256ms refresh, still the complete memory is refreshed every 64ms.</li>
+</ol>
+
+<h3 id="strengths-of-paper-and-mechanisms">Strengths of paper and mechanisms</h3>
+<ol>
+  <li>With only 2 retention time bins (1.25 KB) implemented in the memory controller, there is a 74.6% refresh reduction, 16.1% average DRAM power reduction, and 8.6% average system performance improvement.</li>
+</ol>
+
+<h3 id="weaknesses-of-paper-and-mechanism">Weaknesses of paper and mechanism</h3>
+
+<h3 id="detailed-comments">Detailed comments</h3>
+<ol>
+  <li>DRAM Cells store data in Capacitors. Over time, the capacitor loses charge. Therefore, data stored in DRAM is periodically read-out and rewritten, This is called DRAM Memory Refresh.</li>
+</ol>
+
+<h3 id="ideas-for-improvement">Ideas for improvement</h3>
+
+<h3 id="lessons-learned">Lessons learned</h3>
+<p><strong>Reference:</strong> Liu, Jamie, et al. <em>“RAIDR: Retention-aware intelligent DRAM refresh.”</em> ACM SIGARCH Computer Architecture News 40.3 (2012): 1-12.</p>
+
+  
+</article>
+
+
+  <footer class="related">
+  	<div class="previous"><span>Previous Post</span><a href="/machine-learning-in-high-energy-physics/">Machine Learning in High Energy Physics</a></div>
+	<div class="next"><span>Next Post</span><a href="/ImageNet-Classification-with-Deep-Convolutional-Neural-Networks-AlexNet/">ImageNet Classification with Deep Convolutional Neural Networks: AlexNet</a></div>
+  </footer>
+
+
+</body>
+</html>

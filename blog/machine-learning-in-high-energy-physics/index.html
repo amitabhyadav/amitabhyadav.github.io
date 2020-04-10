@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-163163196-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-163163196-1');
+</script>
+<!-- The following line adds the favicon -->
+<link rel="shortcut icon" href="https://advancedquantumalgorithms.github.io/favicon.png" />
+<html lang="en">
+<title>Machine Learning in High Energy Physics | Amitabh&#39;s Weblog</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Event Size, Data Volume and Complexity of recorded data will present both, qualitative and quantitative, new challenges in the post-Higgs Boson era in Partic...">
+<meta name="author" content="Amitabh Yadav">
+<meta name="generator" content="Jekyll v4.0.0">
+<link rel="canonical" href="http://localhost:4000/machine-learning-in-high-energy-physics/">
+<link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
+
+<link rel="stylesheet" href="/assets/css/index.css">
+
+<link rel="stylesheet" href="/assets/css/classes.css">
+<link rel="stylesheet" href="/assets/css/sidebar.css" media="screen and (min-width: 70em)">
+<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="Amitabh's Weblog">
+
+
+
+</head>
+<body>
+<header class="icons">
+  
+    <a href="/" class="title">Amitabh&#39;s Weblog</a>
+  
+  
+    <div class="hidden description"><font face="Playfair Display" size="2">C E R E V I E W</font></div>
+  
+  <hr>
+  
+    
+  <nav>
+  <a aria-label="Home" href="/" ><span aria-hidden="true" >Home</span></a>
+  <a aria-label="Categories" href="/categories/" ><span aria-hidden="true" >Categories</span></a>
+  <a aria-label="About" href="/about/" ><span aria-hidden="true" >About</span></a>
+  
+  </nav>
+
+
+    
+
+  
+</header>
+
+<article>
+  <header>
+  
+    <div class="categories">HIGH ENERGY PHYSICS, MACHINE LEARNING</div>
+  
+  <h1><a href="/machine-learning-in-high-energy-physics/">Machine Learning in High Energy Physics</a></h1><time datetime="2020-04-04T00:00:00-07:00">April 04, 2020</time> 
+</header>
+
+  <p>Event Size, Data Volume and Complexity of recorded data will present both, qualitative and quantitative, new challenges in the post-Higgs Boson era in Particle Physics. Computational resource utilization and algorithm efficiency would be the bottleneck that may limit the reach of Physics. Machine Learning is the currently the explored candidate to address both these issues.</p>
+
+<p>In this article, we discuss the Machine Learning (ML) applications in High Energy Physics (HEP), HEP-ML software, Hardware constraints for Training and Inference and, HEP-ML roadmap.</p>
+
+<p><img src="..\images\ml4hep_bkgrnd.png" alt="Detector" /></p>
+
+<p>The targeted areas where ML can find applications for HEP, specifically Large Hadron Collider (LHC) research include:</p>
+<ol>
+  <li>Performance gains for Track Reconstruction and Analysis.</li>
+  <li>Reduce execution time for computationally expensive subroutines in event simulation, pattern recognition and calibration.</li>
+  <li>Real-time algorithms such as, Trigger (such as, L1 and HLT).</li>
+  <li>Reduction in data footprint with data compression, placement and access.</li>
+</ol>
+
+<h3 id="what-does-the-lhc-do-exactly">What does the LHC do exactly?</h3>
+<p>The challenge is to find rare events from the extremely high ‘pile up’ expected from the LHC. Probe the Standard Model, fundamental tests and search for new physics, by hunting for rare events in the background of extremely complex traces left behind due to proton bunch collisions.</p>
+
+<h3 id="how-was-ml-used-prior-at-the-lhc">How was ML used prior at the LHC?</h3>
+<p>Designed to work on large data-sets to reduce the complexity of data and find rare features/events. State-of-the-art implementations for event and particle identification, energy estimation and particle identification.</p>
+
+<p>The main ML algorithms currently used in particle physics are:</p>
+<ul>
+  <li>Boosted Decision Trees (BDT)</li>
+  <li>Neural Networks (NN)
+BDTs and NNs are mainly used for classification and regression in search for new particles by selecting relevant attributes/features from the data (which is signal and background events, usually has high pileup + noise).</li>
+</ul>
+
+<p><strong>Classification:</strong> Supervised Learning, and prediction discrete valued output. For example, for classification of events and particles in data.</p>
+
+<p><strong>Regression:</strong> Supervised Learning, by prediction continuous valued output. For example, to estimate energy of particle based on multiple measurements from multiple detectors.</p>
+
+<p>Training the model is the most expensive step, considering time to develop the model and time to train. Inference is usually inexpensive.</p>
+
+<h3 id="what-is-the-role-for-deep-learning-at-lhc">What is the role for Deep Learning at LHC?</h3>
+<p>Deep Learning (DL) is useful when we have for large data-sets, with large number of features, symmetries and complex non-linear input-output dependencies. The main DL architectures used in particle physics are:</p>
+<ul>
+  <li>Fully Connected Network (FCN)</li>
+  <li>Convolutional Neural Network (CNN)</li>
+  <li>Recurrent Neural Network (RNN)
+Generative models are employed as well, to mimic multidimensional distributions to generate new instances, such as:</li>
+  <li>Variational Autoencoders (VAE)</li>
+  <li>Generative Adversarial Networks (GAN)
+ML is also used for time series analysis and prediction, which is less relevant to HEP but is useful when quality of data and compute monitoring is essential, specially when time is an important aspect, such as, in event reconstruction.</li>
+</ul>
+
+<h3 id="targeted-areas-for-machine-learning-applications-and-research-for-hep">Targeted areas for Machine Learning Applications and Research for HEP</h3>
+<ol>
+  <li><strong>Detector Simulation:</strong> New particles are discovered by comparing the recorded collision data with the predictions from Standard Model/beyond-standard Model physics. Detector Simulator, such as GEANT, help in simulation of particle trajectory and compare with the recorded data. The detector response along with known particle-matter iteration results, one can proceed to discover new particles. The HL-LHC would require simulation of up to trillions of events, that may help in testing the hypothesis. Simulation one proton-proton collision for LHC takes several minutes, which in addition to higher computational resource requirements, would scale many fold for HL-LHC simulations.</li>
+  <li><strong>Read-time analysis and Triggering:</strong></li>
+  <li><strong>Object Reconstruction, Identification and Calibration:</strong></li>
+  <li><strong>End-to-end Deep Learning:</strong></li>
+  <li><strong>Sustainable Matrix Element Method:</strong></li>
+  <li><strong>Matrix Element Machine Learning Method:</strong></li>
+  <li><strong>Learning the Standard Model:</strong></li>
+  <li><strong>Theory Applications:</strong></li>
+  <li><strong>Uncertainity Assignment:</strong></li>
+  <li><strong>Monitoring the Detectors, Hardware Anomaly and Preemptive Maintenance:</strong></li>
+  <li><strong>Computing Resource Optimization and Control of Networks and Productive Workflows:</strong></li>
+</ol>
+
+<h3 id="hep-machine-learning-software">HEP Machine Learning Software</h3>
+
+<h3 id="hardware-resources-and-computing-constraints">Hardware Resources and Computing Constraints</h3>
+
+<h3 id="hep-ml-roadmap-2017-2022">HEP ML Roadmap (2017-2022)</h3>
+
+<p><strong>Reference:</strong> Albertsson, Kim, et al. <em>“Machine learning in high energy physics community white paper.”</em> Journal of Physics: Conference Series. Vol. 1085. No. 2. IOP Publishing, 2018.</p>
+
+  
+</article>
+
+
+  <footer class="related">
+  	<div class="previous"></div>
+	<div class="next"><span>Next Post</span><a href="/raidr-retention-aware-intelligent-dram-refresh/">RAIDR: Retention-aware Intelligent DRAM Refresh</a></div>
+  </footer>
+
+
+</body>
+</html>

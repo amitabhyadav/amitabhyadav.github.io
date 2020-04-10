@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-163163196-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-163163196-1');
+</script>
+<!-- The following line adds the favicon -->
+<link rel="shortcut icon" href="https://advancedquantumalgorithms.github.io/favicon.png" />
+<html lang="en">
+<title>Processing in Memory: A workload driven perspective | Amitabh&#39;s Weblog</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Performance gap between Memory (DRAM latencies) and Processor due to technology scaling is the motivation to investigate Processing in Memory (PIM) architect...">
+<meta name="author" content="Amitabh Yadav">
+<meta name="generator" content="Jekyll v4.0.0">
+<link rel="canonical" href="http://localhost:4000/processing-in-memory-a-workload-driven-perspective/">
+<link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
+
+<link rel="stylesheet" href="/assets/css/index.css">
+
+<link rel="stylesheet" href="/assets/css/classes.css">
+<link rel="stylesheet" href="/assets/css/sidebar.css" media="screen and (min-width: 70em)">
+<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="Amitabh's Weblog">
+
+
+
+</head>
+<body>
+<header class="icons">
+  
+    <a href="/" class="title">Amitabh&#39;s Weblog</a>
+  
+  
+    <div class="hidden description"><font face="Playfair Display" size="2">C E R E V I E W</font></div>
+  
+  <hr>
+  
+    
+  <nav>
+  <a aria-label="Home" href="/" ><span aria-hidden="true" >Home</span></a>
+  <a aria-label="Categories" href="/categories/" ><span aria-hidden="true" >Categories</span></a>
+  <a aria-label="About" href="/about/" ><span aria-hidden="true" >About</span></a>
+  
+  </nav>
+
+
+    
+
+  
+</header>
+
+<article>
+  <header>
+  
+    <div class="categories">COMPUTER ARCHITECTURE, MEMORY</div>
+  
+  <h1><a href="/processing-in-memory-a-workload-driven-perspective/">Processing in Memory: A workload driven perspective</a></h1><time datetime="2020-04-07T00:00:00-07:00">April 07, 2020</time> 
+</header>
+
+  <p>Performance gap between Memory (DRAM latencies) and Processor due to technology scaling is the motivation to investigate <em>Processing in Memory (PIM)</em> architectures, also known as <em>Near Data Processing</em>. Energy, Performance and Cost must be optimized. PIM tackles this by bringing computation to the data (and removing the data movement latencies). PIM is both: Completely new architectures and varying degree of architectural modifications in Memory Subsystems. This paper discusses the application of PIM in real-world applications (such as, Machine Learning, Data analytics, genome sequencing etc.), how to design the programming framework and the challenge of adoption of the new framework among the developer community.</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<ol>
+  <li>
+    <p>Data moves from the Memory to the CPU via the <em>memory channel</em> (a pin-limited off-chip Bus e.g. <em>double data-rate</em> Memories aka <em>DDR</em> use a 64-bit memory channel.)</p>
+  </li>
+  <li>
+    <p>The CPU issues request to the <em>Memory Controller</em>, which issues command across the memory channel to the DRAM.</p>
+  </li>
+  <li>
+    <p>The DRAM then reads the data and moves across the memory channel to the CPU (where the data has to travel through the memory hierarchy into the CPU’s register).<sup id="fnref:2"><a href="#fn:2" class="footnote">1</a></sup></p>
+
+  </li>
+  <li>
+    <p>Therefore, we need to rethink the computer architecture. PIM is one of such methods. The idea is almost 40 years old, but the technology was not mature enough to integrate a Memory with Processor elements. Technology such as 3D Stacked Memory (combining DRAM <em>Memory layers</em> connected using through-layer <em>via</em> along with a <em>logic layer</em>), and more-computation friendly <em>resistive memory technologies</em>, makes it possible to embed general-purpose computation directly within the memory.</p>
+  </li>
+  <li>
+    <p>Challenges:</p>
+  </li>
+</ol>
+
+<ul>
+  <li>Identification of application properties that can benefit from PIM architectures.</li>
+  <li>Making the architecture heterogeneous requires understanding of: a) architectural constraints (area, energy limitations along with the logic that is implementable within the memory), and b) application properties, such as memory access patterns and shared-data across different functions.</li>
+  <li>Therefore we need to understand the partition between PIM logic and CPU driven logic, establish the interfaces and mechanism for programming (while trying to stay close to the conventional programming model).</li>
+</ul>
+
+<h2 id="overview-of-pim">Overview of PIM</h2>
+
+<h2 id="opportunities-in-pim-applications">Opportunities in PIM applications</h2>
+
+<h2 id="key-issues-in-programming-pim-architectures">Key Issues in Programming PIM architectures</h2>
+
+<h2 id="related-work">Related Work</h2>
+
+<h2 id="future-challenges">Future Challenges</h2>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<hr />
+
+<h2 id="lessons-learnt">Lessons Learnt</h2>
+
+<h2 id="pros-and-cons-of-the-paper">Pros and Cons of the Paper</h2>
+
+<h2 id="improvement-ideas">Improvement Ideas</h2>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:2">
+      <p><strong>Memory Bottleneck:</strong> Moving large amount of data for High-Performance and Data-Intense applications causes the bottleneck on energy and performance of the processor. The limited size of memory channel limits the number of access requests that can be issued in parallel, and the Random access patterns often leads to inefficient caching. The total cost of computation (in terms of performance and energy) is dominated by the cost of data movement. <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+  
+</article>
+
+
+  <footer class="related">
+  	<div class="previous"><span>Previous Post</span><a href="/ImageNet-Classification-with-Deep-Convolutional-Neural-Networks-AlexNet/">ImageNet Classification with Deep Convolutional Neural Networks: AlexNet</a></div>
+	<div class="next"><span>Next Post</span><a href="/Reiterating-Quantum-Algorithmic-approach/">Reiterating Quantum Algorithmic approach with the twist of structurality</a></div>
+  </footer>
+
+
+</body>
+</html>
