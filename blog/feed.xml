@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2020-04-09T23:19:20-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Amitabh’s Weblog</title><subtitle>C E R E V I E W</subtitle><author><name>Amitabh Yadav</name></author><entry><title type="html">Reiterating Quantum Algorithmic approach with the twist of structurality</title><link href="http://localhost:4000/Reiterating-Quantum-Algorithmic-approach/" rel="alternate" type="text/html" title="Reiterating Quantum Algorithmic approach with the twist of structurality" /><published>2020-04-08T00:00:00-07:00</published><updated>2020-04-08T00:00:00-07:00</updated><id>http://localhost:4000/Reiterating-Quantum-Algorithmic-approach</id><content type="html" xml:base="http://localhost:4000/Reiterating-Quantum-Algorithmic-approach/">&lt;p&gt;Back in February, Andras GILYEN’s talks, at Simon’s Institute in Berkeley, on Quantum Algorithms was enlightening for me, therefore I decided to transcribe a detailed account of methods and techniques Andras presented. Besides an overview, the talk discusses the more recently discovered applications, such as Singular Value Transformation. The characteristics of quantum algorithms that render ‘exponential speed-up’ such as the primitive Deutsch-Jozsa Algorithm (to determine balanced versus constant functions) along with numerous techniques developed later can be generalized to better understand and develop diverse applications, for example Convex Optimization.&lt;/p&gt;</content><author><name>Amitabh Yadav</name></author><category term="Quantum Computing" /><category term="Quantum Algorithms" /><summary type="html">Back in February, Andras GILYEN’s talks, at Simon’s Institute in Berkeley, on Quantum Algorithms was enlightening for me, therefore I decided to transcribe a detailed account of methods and techniques Andras presented. Besides an overview, the talk discusses the more recently discovered applications, such as Singular Value Transformation. The characteristics of quantum algorithms that render ‘exponential speed-up’ such as the primitive Deutsch-Jozsa Algorithm (to determine balanced versus constant functions) along with numerous techniques developed later can be generalized to better understand and develop diverse applications, for example Convex Optimization.</summary></entry><entry><title type="html">Processing in Memory: A workload driven perspective</title><link href="http://localhost:4000/processing-in-memory-a-workload-driven-perspective/" rel="alternate" type="text/html" title="Processing in Memory: A workload driven perspective" /><published>2020-04-07T00:00:00-07:00</published><updated>2020-04-07T00:00:00-07:00</updated><id>http://localhost:4000/processing-in-memory-a-workload-driven-perspective</id><content type="html" xml:base="http://localhost:4000/processing-in-memory-a-workload-driven-perspective/">&lt;p&gt;Performance gap between Memory (DRAM latencies) and Processor due to technology scaling is the motivation to investigate &lt;em&gt;Processing in Memory (PIM)&lt;/em&gt; architectures, also known as &lt;em&gt;Near Data Processing&lt;/em&gt;. Energy, Performance and Cost must be optimized. PIM tackles this by bringing computation to the data (and removing the data movement latencies). PIM is both: Completely new architectures and varying degree of architectural modifications in Memory Subsystems. This paper discusses the application of PIM in real-world applications (such as, Machine Learning, Data analytics, genome sequencing etc.), how to design the programming framework and the challenge of adoption of the new framework among the developer community.&lt;/p&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Data moves from the Memory to the CPU via the &lt;em&gt;memory channel&lt;/em&gt; (a pin-limited off-chip Bus e.g. &lt;em&gt;double data-rate&lt;/em&gt; Memories aka &lt;em&gt;DDR&lt;/em&gt; use a 64-bit memory channel.)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The CPU issues request to the &lt;em&gt;Memory Controller&lt;/em&gt;, which issues command across the memory channel to the DRAM.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The DRAM then reads the data and moves across the memory channel to the CPU (where the data has to travel through the memory hierarchy into the CPU’s register).&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Therefore, we need to rethink the computer architecture. PIM is one of such methods. The idea is almost 40 years old, but the technology was not mature enough to integrate a Memory with Processor elements. Technology such as 3D Stacked Memory (combining DRAM &lt;em&gt;Memory layers&lt;/em&gt; connected using through-layer &lt;em&gt;via&lt;/em&gt; along with a &lt;em&gt;logic layer&lt;/em&gt;), and more-computation friendly &lt;em&gt;resistive memory technologies&lt;/em&gt;, makes it possible to embed general-purpose computation directly within the memory.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Challenges:&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Identification of application properties that can benefit from PIM architectures.&lt;/li&gt;
+  &lt;li&gt;Making the architecture heterogeneous requires understanding of: a) architectural constraints (area, energy limitations along with the logic that is implementable within the memory), and b) application properties, such as memory access patterns and shared-data across different functions.&lt;/li&gt;
+  &lt;li&gt;Therefore we need to understand the partition between PIM logic and CPU driven logic, establish the interfaces and mechanism for programming (while trying to stay close to the conventional programming model).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;overview-of-pim&quot;&gt;Overview of PIM&lt;/h2&gt;
+
+&lt;h2 id=&quot;opportunities-in-pim-applications&quot;&gt;Opportunities in PIM applications&lt;/h2&gt;
+
+&lt;h2 id=&quot;key-issues-in-programming-pim-architectures&quot;&gt;Key Issues in Programming PIM architectures&lt;/h2&gt;
+
+&lt;h2 id=&quot;related-work&quot;&gt;Related Work&lt;/h2&gt;
+
+&lt;h2 id=&quot;future-challenges&quot;&gt;Future Challenges&lt;/h2&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;lessons-learnt&quot;&gt;Lessons Learnt&lt;/h2&gt;
+
+&lt;h2 id=&quot;pros-and-cons-of-the-paper&quot;&gt;Pros and Cons of the Paper&lt;/h2&gt;
+
+&lt;h2 id=&quot;improvement-ideas&quot;&gt;Improvement Ideas&lt;/h2&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;&lt;strong&gt;Memory Bottleneck:&lt;/strong&gt; Moving large amount of data for High-Performance and Data-Intense applications causes the bottleneck on energy and performance of the processor. The limited size of memory channel limits the number of access requests that can be issued in parallel, and the Random access patterns often leads to inefficient caching. The total cost of computation (in terms of performance and energy) is dominated by the cost of data movement. &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content><author><name>Amitabh Yadav</name></author><category term="computer architecture" /><category term="in-memory computing" /><category term="3d ram" /><category term="memristor" /><category term="processing in memory" /><category term="pim architectures" /><summary type="html">Performance gap between Memory (DRAM latencies) and Processor due to technology scaling is the motivation to investigate Processing in Memory (PIM) architectures, also known as Near Data Processing. Energy, Performance and Cost must be optimized. PIM tackles this by bringing computation to the data (and removing the data movement latencies). PIM is both: Completely new architectures and varying degree of architectural modifications in Memory Subsystems. This paper discusses the application of PIM in real-world applications (such as, Machine Learning, Data analytics, genome sequencing etc.), how to design the programming framework and the challenge of adoption of the new framework among the developer community. Introduction Data moves from the Memory to the CPU via the memory channel (a pin-limited off-chip Bus e.g. double data-rate Memories aka DDR use a 64-bit memory channel.) The CPU issues request to the Memory Controller, which issues command across the memory channel to the DRAM. The DRAM then reads the data and moves across the memory channel to the CPU (where the data has to travel through the memory hierarchy into the CPU’s register).1 Therefore, we need to rethink the computer architecture. PIM is one of such methods. The idea is almost 40 years old, but the technology was not mature enough to integrate a Memory with Processor elements. Technology such as 3D Stacked Memory (combining DRAM Memory layers connected using through-layer via along with a logic layer), and more-computation friendly resistive memory technologies, makes it possible to embed general-purpose computation directly within the memory. Challenges: Identification of application properties that can benefit from PIM architectures. Making the architecture heterogeneous requires understanding of: a) architectural constraints (area, energy limitations along with the logic that is implementable within the memory), and b) application properties, such as memory access patterns and shared-data across different functions. Therefore we need to understand the partition between PIM logic and CPU driven logic, establish the interfaces and mechanism for programming (while trying to stay close to the conventional programming model). Overview of PIM Opportunities in PIM applications Key Issues in Programming PIM architectures Related Work Future Challenges Conclusion Lessons Learnt Pros and Cons of the Paper Improvement Ideas Memory Bottleneck: Moving large amount of data for High-Performance and Data-Intense applications causes the bottleneck on energy and performance of the processor. The limited size of memory channel limits the number of access requests that can be issued in parallel, and the Random access patterns often leads to inefficient caching. The total cost of computation (in terms of performance and energy) is dominated by the cost of data movement. &amp;#8617;</summary></entry><entry><title type="html">ImageNet Classification with Deep Convolutional Neural Networks: AlexNet</title><link href="http://localhost:4000/ImageNet-Classification-with-Deep-Convolutional-Neural-Networks-AlexNet/" rel="alternate" type="text/html" title="ImageNet Classification with Deep Convolutional Neural Networks: AlexNet" /><published>2020-04-06T00:00:00-07:00</published><updated>2020-04-06T00:00:00-07:00</updated><id>http://localhost:4000/ImageNet-Classification-with-Deep-Convolutional-Neural-Networks-AlexNet</id><content type="html" xml:base="http://localhost:4000/ImageNet-Classification-with-Deep-Convolutional-Neural-Networks-AlexNet/">&lt;p&gt;&lt;img src=&quot;../images/cnn.jpeg&quot; alt=&quot;CNN for digit recognition&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;AlexNet, an application using Convolutional Neural Networks (CNN) for classifying images, famously won the 2012 ImageNet LSVRC-2012 competition by a large margin (15.3% VS 26.2% (second place) error rates).&lt;/p&gt;
+
+&lt;p&gt;The main contributions of the paper are as follows:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Largest trained CNN model as of 2012. The dataset used for training was on the subsets of ImageNet.&lt;/li&gt;
+  &lt;li&gt;A highly-optimized GPU implementation of 2D convolution and associated operations used in training CNN.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The AlexNet consists of 8 layers: 5 convolution and 3 fully-connected layers. The main features of AlexNet are:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;ReLU Non-Linearity: The Deep CNN using ReLU instead of the traditional $ f(x) = tanh(x) $ or $ f(x) = (1 +e^{−x})^{−1} $&lt;/li&gt;
+  &lt;li&gt;Training on Multiple GPUs&lt;/li&gt;
+  &lt;li&gt;Local Response Normalization&lt;/li&gt;
+  &lt;li&gt;Overlapping Pooling&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/alexnet-cnn.png&quot; alt=&quot;AlexNet CNN&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;** Strengths of paper and mechanisms**
+** Weaknesses of paper and mechanism**
+** Detailed comments**
+** Ideas for improvement**
+** Lessons learned**&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Reference:&lt;/strong&gt; Krizhevsky, Alex, Ilya Sutskever, and Geoffrey E. Hinton. &lt;em&gt;“Imagenet classification with deep convolutional neural networks.”&lt;/em&gt; Advances in neural information processing systems. 2012.&lt;/p&gt;</content><author><name>Amitabh Yadav</name></author><category term="machine learning" /><category term="convolutional neural networks" /><category term="alexnet" /><summary type="html">AlexNet, an application using Convolutional Neural Networks (CNN) for classifying images, famously won the 2012 ImageNet LSVRC-2012 competition by a large margin (15.3% VS 26.2% (second place) error rates). The main contributions of the paper are as follows: Largest trained CNN model as of 2012. The dataset used for training was on the subsets of ImageNet. A highly-optimized GPU implementation of 2D convolution and associated operations used in training CNN. The AlexNet consists of 8 layers: 5 convolution and 3 fully-connected layers. The main features of AlexNet are: ReLU Non-Linearity: The Deep CNN using ReLU instead of the traditional $ f(x) = tanh(x) $ or $ f(x) = (1 +e^{−x})^{−1} $ Training on Multiple GPUs Local Response Normalization Overlapping Pooling ** Strengths of paper and mechanisms** ** Weaknesses of paper and mechanism** ** Detailed comments** ** Ideas for improvement** ** Lessons learned** Reference: Krizhevsky, Alex, Ilya Sutskever, and Geoffrey E. Hinton. “Imagenet classification with deep convolutional neural networks.” Advances in neural information processing systems. 2012.</summary></entry><entry><title type="html">RAIDR: Retention-aware Intelligent DRAM Refresh</title><link href="http://localhost:4000/raidr-retention-aware-intelligent-dram-refresh/" rel="alternate" type="text/html" title="RAIDR: Retention-aware Intelligent DRAM Refresh" /><published>2020-04-05T00:00:00-07:00</published><updated>2020-04-05T00:00:00-07:00</updated><id>http://localhost:4000/raidr-retention-aware-intelligent-dram-refresh</id><content type="html" xml:base="http://localhost:4000/raidr-retention-aware-intelligent-dram-refresh/">&lt;p&gt;RAIDR is an intelligent method of adapting the DRAM memory refresh time to the refresh rate profile data of DRAM cells, which varies due to process variations. This allows the refresh rate not to remain constant i.e. determined by the weakest DRAM cell, but now it varies across the DRAM for different ‘Bins’. Based on the refresh rate of DRAM cells, the mechanism groups the DRAM cell rows into retention time bins, which is implemented using the Bloom filters implemented in the memory controller (low area overhead and no overflows). Bins with Weak DRAM cells, get refreshed more often than the one with good DRAM Cells.&lt;/p&gt;
+
+&lt;h3 id=&quot;why-this-problem-is-important-to-deal-with&quot;&gt;Why this problem is important to deal with?&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;The refresh rate causes power consumption to increase.&lt;/li&gt;
+  &lt;li&gt;Memory cannot be accessed during refresh i.e. denial of service.&lt;/li&gt;
+  &lt;li&gt;Scaling the size of memory would increase the problem of refresh rate.&lt;/li&gt;
+  &lt;li&gt;Only less than 1000 cells (out of 10e11) require refresh less than 256ms refresh, still the complete memory is refreshed every 64ms.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;strengths-of-paper-and-mechanisms&quot;&gt;Strengths of paper and mechanisms&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;With only 2 retention time bins (1.25 KB) implemented in the memory controller, there is a 74.6% refresh reduction, 16.1% average DRAM power reduction, and 8.6% average system performance improvement.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;weaknesses-of-paper-and-mechanism&quot;&gt;Weaknesses of paper and mechanism&lt;/h3&gt;
+
+&lt;h3 id=&quot;detailed-comments&quot;&gt;Detailed comments&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;DRAM Cells store data in Capacitors. Over time, the capacitor loses charge. Therefore, data stored in DRAM is periodically read-out and rewritten, This is called DRAM Memory Refresh.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;ideas-for-improvement&quot;&gt;Ideas for improvement&lt;/h3&gt;
+
+&lt;h3 id=&quot;lessons-learned&quot;&gt;Lessons learned&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Reference:&lt;/strong&gt; Liu, Jamie, et al. &lt;em&gt;“RAIDR: Retention-aware intelligent DRAM refresh.”&lt;/em&gt; ACM SIGARCH Computer Architecture News 40.3 (2012): 1-12.&lt;/p&gt;</content><author><name>Amitabh Yadav</name></author><category term="computer architecture" /><category term="dram memory" /><category term="dram refresh" /><summary type="html">RAIDR is an intelligent method of adapting the DRAM memory refresh time to the refresh rate profile data of DRAM cells, which varies due to process variations. This allows the refresh rate not to remain constant i.e. determined by the weakest DRAM cell, but now it varies across the DRAM for different ‘Bins’. Based on the refresh rate of DRAM cells, the mechanism groups the DRAM cell rows into retention time bins, which is implemented using the Bloom filters implemented in the memory controller (low area overhead and no overflows). Bins with Weak DRAM cells, get refreshed more often than the one with good DRAM Cells. Why this problem is important to deal with? The refresh rate causes power consumption to increase. Memory cannot be accessed during refresh i.e. denial of service. Scaling the size of memory would increase the problem of refresh rate. Only less than 1000 cells (out of 10e11) require refresh less than 256ms refresh, still the complete memory is refreshed every 64ms. Strengths of paper and mechanisms With only 2 retention time bins (1.25 KB) implemented in the memory controller, there is a 74.6% refresh reduction, 16.1% average DRAM power reduction, and 8.6% average system performance improvement. Weaknesses of paper and mechanism Detailed comments DRAM Cells store data in Capacitors. Over time, the capacitor loses charge. Therefore, data stored in DRAM is periodically read-out and rewritten, This is called DRAM Memory Refresh. Ideas for improvement Lessons learned Reference: Liu, Jamie, et al. “RAIDR: Retention-aware intelligent DRAM refresh.” ACM SIGARCH Computer Architecture News 40.3 (2012): 1-12.</summary></entry><entry><title type="html">Machine Learning in High Energy Physics</title><link href="http://localhost:4000/machine-learning-in-high-energy-physics/" rel="alternate" type="text/html" title="Machine Learning in High Energy Physics" /><published>2020-04-04T00:00:00-07:00</published><updated>2020-04-04T00:00:00-07:00</updated><id>http://localhost:4000/machine-learning-in-high-energy-physics</id><content type="html" xml:base="http://localhost:4000/machine-learning-in-high-energy-physics/">&lt;p&gt;Event Size, Data Volume and Complexity of recorded data will present both, qualitative and quantitative, new challenges in the post-Higgs Boson era in Particle Physics. Computational resource utilization and algorithm efficiency would be the bottleneck that may limit the reach of Physics. Machine Learning is the currently the explored candidate to address both these issues.&lt;/p&gt;
+
+&lt;p&gt;In this article, we discuss the Machine Learning (ML) applications in High Energy Physics (HEP), HEP-ML software, Hardware constraints for Training and Inference and, HEP-ML roadmap.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;..\images\ml4hep_bkgrnd.png&quot; alt=&quot;Detector&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The targeted areas where ML can find applications for HEP, specifically Large Hadron Collider (LHC) research include:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Performance gains for Track Reconstruction and Analysis.&lt;/li&gt;
+  &lt;li&gt;Reduce execution time for computationally expensive subroutines in event simulation, pattern recognition and calibration.&lt;/li&gt;
+  &lt;li&gt;Real-time algorithms such as, Trigger (such as, L1 and HLT).&lt;/li&gt;
+  &lt;li&gt;Reduction in data footprint with data compression, placement and access.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;what-does-the-lhc-do-exactly&quot;&gt;What does the LHC do exactly?&lt;/h3&gt;
+&lt;p&gt;The challenge is to find rare events from the extremely high ‘pile up’ expected from the LHC. Probe the Standard Model, fundamental tests and search for new physics, by hunting for rare events in the background of extremely complex traces left behind due to proton bunch collisions.&lt;/p&gt;
+
+&lt;h3 id=&quot;how-was-ml-used-prior-at-the-lhc&quot;&gt;How was ML used prior at the LHC?&lt;/h3&gt;
+&lt;p&gt;Designed to work on large data-sets to reduce the complexity of data and find rare features/events. State-of-the-art implementations for event and particle identification, energy estimation and particle identification.&lt;/p&gt;
+
+&lt;p&gt;The main ML algorithms currently used in particle physics are:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Boosted Decision Trees (BDT)&lt;/li&gt;
+  &lt;li&gt;Neural Networks (NN)
+BDTs and NNs are mainly used for classification and regression in search for new particles by selecting relevant attributes/features from the data (which is signal and background events, usually has high pileup + noise).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Classification:&lt;/strong&gt; Supervised Learning, and prediction discrete valued output. For example, for classification of events and particles in data.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Regression:&lt;/strong&gt; Supervised Learning, by prediction continuous valued output. For example, to estimate energy of particle based on multiple measurements from multiple detectors.&lt;/p&gt;
+
+&lt;p&gt;Training the model is the most expensive step, considering time to develop the model and time to train. Inference is usually inexpensive.&lt;/p&gt;
+
+&lt;h3 id=&quot;what-is-the-role-for-deep-learning-at-lhc&quot;&gt;What is the role for Deep Learning at LHC?&lt;/h3&gt;
+&lt;p&gt;Deep Learning (DL) is useful when we have for large data-sets, with large number of features, symmetries and complex non-linear input-output dependencies. The main DL architectures used in particle physics are:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Fully Connected Network (FCN)&lt;/li&gt;
+  &lt;li&gt;Convolutional Neural Network (CNN)&lt;/li&gt;
+  &lt;li&gt;Recurrent Neural Network (RNN)
+Generative models are employed as well, to mimic multidimensional distributions to generate new instances, such as:&lt;/li&gt;
+  &lt;li&gt;Variational Autoencoders (VAE)&lt;/li&gt;
+  &lt;li&gt;Generative Adversarial Networks (GAN)
+ML is also used for time series analysis and prediction, which is less relevant to HEP but is useful when quality of data and compute monitoring is essential, specially when time is an important aspect, such as, in event reconstruction.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;targeted-areas-for-machine-learning-applications-and-research-for-hep&quot;&gt;Targeted areas for Machine Learning Applications and Research for HEP&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Detector Simulation:&lt;/strong&gt; New particles are discovered by comparing the recorded collision data with the predictions from Standard Model/beyond-standard Model physics. Detector Simulator, such as GEANT, help in simulation of particle trajectory and compare with the recorded data. The detector response along with known particle-matter iteration results, one can proceed to discover new particles. The HL-LHC would require simulation of up to trillions of events, that may help in testing the hypothesis. Simulation one proton-proton collision for LHC takes several minutes, which in addition to higher computational resource requirements, would scale many fold for HL-LHC simulations.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Read-time analysis and Triggering:&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Object Reconstruction, Identification and Calibration:&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;End-to-end Deep Learning:&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Sustainable Matrix Element Method:&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Matrix Element Machine Learning Method:&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Learning the Standard Model:&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Theory Applications:&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Uncertainity Assignment:&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Monitoring the Detectors, Hardware Anomaly and Preemptive Maintenance:&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Computing Resource Optimization and Control of Networks and Productive Workflows:&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;hep-machine-learning-software&quot;&gt;HEP Machine Learning Software&lt;/h3&gt;
+
+&lt;h3 id=&quot;hardware-resources-and-computing-constraints&quot;&gt;Hardware Resources and Computing Constraints&lt;/h3&gt;
+
+&lt;h3 id=&quot;hep-ml-roadmap-2017-2022&quot;&gt;HEP ML Roadmap (2017-2022)&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Reference:&lt;/strong&gt; Albertsson, Kim, et al. &lt;em&gt;“Machine learning in high energy physics community white paper.”&lt;/em&gt; Journal of Physics: Conference Series. Vol. 1085. No. 2. IOP Publishing, 2018.&lt;/p&gt;</content><author><name>Amitabh Yadav</name></author><category term="machine learning" /><category term="particle physics" /><category term="high energy physics" /><summary type="html">Event Size, Data Volume and Complexity of recorded data will present both, qualitative and quantitative, new challenges in the post-Higgs Boson era in Particle Physics. Computational resource utilization and algorithm efficiency would be the bottleneck that may limit the reach of Physics. Machine Learning is the currently the explored candidate to address both these issues. In this article, we discuss the Machine Learning (ML) applications in High Energy Physics (HEP), HEP-ML software, Hardware constraints for Training and Inference and, HEP-ML roadmap. The targeted areas where ML can find applications for HEP, specifically Large Hadron Collider (LHC) research include: Performance gains for Track Reconstruction and Analysis. Reduce execution time for computationally expensive subroutines in event simulation, pattern recognition and calibration. Real-time algorithms such as, Trigger (such as, L1 and HLT). Reduction in data footprint with data compression, placement and access. What does the LHC do exactly? The challenge is to find rare events from the extremely high ‘pile up’ expected from the LHC. Probe the Standard Model, fundamental tests and search for new physics, by hunting for rare events in the background of extremely complex traces left behind due to proton bunch collisions. How was ML used prior at the LHC? Designed to work on large data-sets to reduce the complexity of data and find rare features/events. State-of-the-art implementations for event and particle identification, energy estimation and particle identification. The main ML algorithms currently used in particle physics are: Boosted Decision Trees (BDT) Neural Networks (NN) BDTs and NNs are mainly used for classification and regression in search for new particles by selecting relevant attributes/features from the data (which is signal and background events, usually has high pileup + noise). Classification: Supervised Learning, and prediction discrete valued output. For example, for classification of events and particles in data. Regression: Supervised Learning, by prediction continuous valued output. For example, to estimate energy of particle based on multiple measurements from multiple detectors. Training the model is the most expensive step, considering time to develop the model and time to train. Inference is usually inexpensive. What is the role for Deep Learning at LHC? Deep Learning (DL) is useful when we have for large data-sets, with large number of features, symmetries and complex non-linear input-output dependencies. The main DL architectures used in particle physics are: Fully Connected Network (FCN) Convolutional Neural Network (CNN) Recurrent Neural Network (RNN) Generative models are employed as well, to mimic multidimensional distributions to generate new instances, such as: Variational Autoencoders (VAE) Generative Adversarial Networks (GAN) ML is also used for time series analysis and prediction, which is less relevant to HEP but is useful when quality of data and compute monitoring is essential, specially when time is an important aspect, such as, in event reconstruction. Targeted areas for Machine Learning Applications and Research for HEP Detector Simulation: New particles are discovered by comparing the recorded collision data with the predictions from Standard Model/beyond-standard Model physics. Detector Simulator, such as GEANT, help in simulation of particle trajectory and compare with the recorded data. The detector response along with known particle-matter iteration results, one can proceed to discover new particles. The HL-LHC would require simulation of up to trillions of events, that may help in testing the hypothesis. Simulation one proton-proton collision for LHC takes several minutes, which in addition to higher computational resource requirements, would scale many fold for HL-LHC simulations. Read-time analysis and Triggering: Object Reconstruction, Identification and Calibration: End-to-end Deep Learning: Sustainable Matrix Element Method: Matrix Element Machine Learning Method: Learning the Standard Model: Theory Applications: Uncertainity Assignment: Monitoring the Detectors, Hardware Anomaly and Preemptive Maintenance: Computing Resource Optimization and Control of Networks and Productive Workflows: HEP Machine Learning Software Hardware Resources and Computing Constraints HEP ML Roadmap (2017-2022)</summary></entry></feed>

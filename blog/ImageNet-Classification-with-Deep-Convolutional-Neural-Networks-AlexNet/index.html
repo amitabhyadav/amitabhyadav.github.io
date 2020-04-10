@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-163163196-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-163163196-1');
+</script>
+<!-- The following line adds the favicon -->
+<link rel="shortcut icon" href="https://advancedquantumalgorithms.github.io/favicon.png" />
+<html lang="en">
+<title>ImageNet Classification with Deep Convolutional Neural Networks: AlexNet | Amitabh&#39;s Weblog</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="AlexNet, an application using Convolutional Neural Networks (CNN) for classifying images, famously won the 2012 ImageNet LSVRC-2012 competition by a large ma...">
+<meta name="author" content="Amitabh Yadav">
+<meta name="generator" content="Jekyll v4.0.0">
+<link rel="canonical" href="http://localhost:4000/ImageNet-Classification-with-Deep-Convolutional-Neural-Networks-AlexNet/">
+<link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
+
+<link rel="stylesheet" href="/assets/css/index.css">
+
+<link rel="stylesheet" href="/assets/css/classes.css">
+<link rel="stylesheet" href="/assets/css/sidebar.css" media="screen and (min-width: 70em)">
+<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="Amitabh's Weblog">
+
+
+
+</head>
+<body>
+<header class="icons">
+  
+    <a href="/" class="title">Amitabh&#39;s Weblog</a>
+  
+  
+    <div class="hidden description"><font face="Playfair Display" size="2">C E R E V I E W</font></div>
+  
+  <hr>
+  
+    
+  <nav>
+  <a aria-label="Home" href="/" ><span aria-hidden="true" >Home</span></a>
+  <a aria-label="Categories" href="/categories/" ><span aria-hidden="true" >Categories</span></a>
+  <a aria-label="About" href="/about/" ><span aria-hidden="true" >About</span></a>
+  
+  </nav>
+
+
+    
+
+  
+</header>
+
+<article>
+  <header>
+  
+    <div class="categories">MACHINE LEARNING</div>
+  
+  <h1><a href="/ImageNet-Classification-with-Deep-Convolutional-Neural-Networks-AlexNet/">ImageNet Classification with Deep Convolutional Neural Networks: AlexNet</a></h1><time datetime="2020-04-06T00:00:00-07:00">April 06, 2020</time> 
+</header>
+
+  <p><img src="../images/cnn.jpeg" alt="CNN for digit recognition" /></p>
+
+<p>AlexNet, an application using Convolutional Neural Networks (CNN) for classifying images, famously won the 2012 ImageNet LSVRC-2012 competition by a large margin (15.3% VS 26.2% (second place) error rates).</p>
+
+<p>The main contributions of the paper are as follows:</p>
+<ol>
+  <li>Largest trained CNN model as of 2012. The dataset used for training was on the subsets of ImageNet.</li>
+  <li>A highly-optimized GPU implementation of 2D convolution and associated operations used in training CNN.</li>
+</ol>
+
+<p>The AlexNet consists of 8 layers: 5 convolution and 3 fully-connected layers. The main features of AlexNet are:</p>
+<ul>
+  <li>ReLU Non-Linearity: The Deep CNN using ReLU instead of the traditional $ f(x) = tanh(x) $ or $ f(x) = (1 +e^{−x})^{−1} $</li>
+  <li>Training on Multiple GPUs</li>
+  <li>Local Response Normalization</li>
+  <li>Overlapping Pooling</li>
+</ul>
+
+<p><img src="../images/alexnet-cnn.png" alt="AlexNet CNN" /></p>
+
+<p>** Strengths of paper and mechanisms**
+** Weaknesses of paper and mechanism**
+** Detailed comments**
+** Ideas for improvement**
+** Lessons learned**</p>
+
+<p><strong>Reference:</strong> Krizhevsky, Alex, Ilya Sutskever, and Geoffrey E. Hinton. <em>“Imagenet classification with deep convolutional neural networks.”</em> Advances in neural information processing systems. 2012.</p>
+
+  
+</article>
+
+
+  <footer class="related">
+  	<div class="previous"><span>Previous Post</span><a href="/raidr-retention-aware-intelligent-dram-refresh/">RAIDR: Retention-aware Intelligent DRAM Refresh</a></div>
+	<div class="next"><span>Next Post</span><a href="/processing-in-memory-a-workload-driven-perspective/">Processing in Memory: A workload driven perspective</a></div>
+  </footer>
+
+
+</body>
+</html>
