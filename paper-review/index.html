@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Theme created by Amitabh Yadav at CERN for personal use. Feel free to use it. -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="an archIVE of REsearch Summaries (resXiv)" />
+<meta name="author" content="Amitabh Yadav">
+<title>resXiv research paper summaries</title>
+<meta name="author" content="Amitabh Yadav">
+<link rel="stylesheet" href="./assets/style_home.css">
+
+<!-- mathJax -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+<body style="margin-left:2%;margin-right:2%;">
+</br>
+
+<!-- Header and Subtitle -->
+<h2><span style="color:red;">|</span> resχiv </h2>
+<div style="font-family:monospace;font-size:11pt;color:gray;" id="subtitle"></div>
+</br></br>
+<!-- END of Header and Subtitle -->
+
+<!-- Paper Status -->
+<p>Click the column headers to sort the table by Year, Institute/PI, Category or, by Conference/Journal. </p>
+<table style="width:100%;border:none;background-color: #D6EAF8;color:#000000;">
+  <tr style="border:none;">
+	<td style="border: none;"><div title="Click the column headers to sort the table. ">Currently: <strong><span id="sortStatus">Unsorted</span><span id="ascdec"></span></strong>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-family:monospace;font-size:11pt;" >[<a href=".">reset</a>]</span></div></td>
+	    <td style="border: none;text-align:right;">Total Papers: <strong><span id="numRows"></span></stong></td>
+  </tr>
+</table>
+</br>
+<!-- END of Header and Subtitle -->
+
+<!-- TABLE begins here -->
+<table id="myTable">
+  <tr>
+   <!--When a header is clicked, run the sortTable function, with a parameter, 0 for sorting by Year, 1 for sorting by Research Paper Title:-->  
+	<th title="Click here to sort by Year." onclick="sortTable(0)">[Year] </span>
+	<th title="There is no point in sorting by paper title. Sorting by Year Instead." onclick="sortTable(1)">[Research Title]</th>
+	<th title="Click here to sort by Institute/PI." onclick="sortTable(2)">[Institute/PI]</th>
+	<th title="Click here to sort by Category" onclick="sortTable(3)">[Category]</th>
+	<th title="Click here to sort by Conference/Journal." onclick="sortTable(4)">[Conference/Journal]</th>
+  </tr>
+<!-- Edit below this, keep adding new rows on the Top -->
+
+    <tr>
+	<td>2021</td>
+	<td><a href="articles/the-hardware-lottery-google/index.html">The hardware lottery</a></td>
+	<td>Google Brain, Sara Hooker</td>
+	<td title="Computer Architecture">comp-arch</td>
+	<td>Communications of the ACM</td>
+  </tr>
+
+  <tr>
+	<td>2021</td>
+	<td><a href="articles/gemmini-berkeley-shao/index.html">Gemmini: Enabling Systematic Deep-Learning Architecture Evaluation via Full-Stack Integration</a></td>
+	<td>Berkeley, Yakun Sophia Shao</td>
+	<td title="Computer Architecture">comp-arch</td>
+	<td>Design Automation Conference ACM/IEEE</td>
+  </tr>
+
+<!-- No need to edit below this, unless you know what you are doing. -->
+</table>
+<!-- END TABLE-->
+
+
+<!-- fixed buttons -->
+<div style="position: fixed; bottom: 2px; right: 5px; margin: 0 auto;"><span style="font-size:11pt;background-color:transparent;"> &copy; 2022-<span id="showyear"></span><a href="https://amitabhyadav.com"> Amitabh Yadav</a></span></div>
+<button onclick="goToTop()" id="topbutton" style="position: fixed; top: 2px;  right: 152px; margin: 0 auto;  border: 2px solid;font-size:16px;" class="noprint">Top</button>
+<button onclick="toggleDarkMode()" style="position: fixed; top: 2px;  right: 10px; margin: 0 auto; border: 2px solid;font-size:16px;" class="noprint">Toggle Dark Mode</button>
+<!-- END fixed buttons -->
+
+<!-- javascripts -->
+<script>
+function sortTable(n) {
+  if (n==1){
+	n =0;
+	}
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("myTable");
+  switching = true;
+  //Set the sorting direction to ascending:
+  dir = "asc"; 
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /*check if the two rows should switch place,
+      based on the direction, asc or desc:*/
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch= true;
+          document.getElementById("ascdec").innerHTML="&#9650;";  /* UPtriangle */
+		if(n == 0){
+			document.getElementById("sortStatus").innerHTML="by Year";
+			document.getElementById("ascdec").innerHTML=" &#9650;";  /* UPtriangle */
+		} else if (n==1) {
+			document.getElementById("sortStatus").innerHTML="by Year";
+			document.getElementById("ascdec").innerHTML=" &#9650;";  /* UPtriangle */ 
+		} else if (n==2) {
+			document.getElementById("sortStatus").innerHTML="by Institute/PI";
+			document.getElementById("ascdec").innerHTML=" &#9650;";  /* UPtriangle */
+		} else if (n ==3) {
+			document.getElementById("sortStatus").innerHTML="by Category";
+			document.getElementById("ascdec").innerHTML=" &#9650;";  /* UPtriangle */
+		}
+		else if (n ==4) {
+			document.getElementById("sortStatus").innerHTML="by Conference/Journal";
+			document.getElementById("ascdec").innerHTML=" &#9650;";  /* UPtriangle */
+		}
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch = true;
+		if(n == 0){
+			document.getElementById("sortStatus").innerHTML="by Year";
+			document.getElementById("ascdec").innerHTML=" &#9660;";  /* DOWN triangle */
+		} else if (n==1) {
+			document.getElementById("sortStatus").innerHTML="by Year";
+			document.getElementById("ascdec").innerHTML=" &#9660;";  /* DOWN triangle */
+		} else if (n==2) {
+			document.getElementById("sortStatus").innerHTML="by Institute/PI";
+			document.getElementById("ascdec").innerHTML=" &#9660;";  /* DOWN triangle */ 
+		} else if (n ==3) {
+			document.getElementById("sortStatus").innerHTML="by Category";
+			document.getElementById("ascdec").innerHTML=" &#9660;";  /* DOWN triangle */
+		}
+		else if (n ==4) {
+			document.getElementById("sortStatus").innerHTML="by Conference/Journal";
+			document.getElementById("ascdec").innerHTML=" &#9660;";  /* DOWN triangle */
+		}
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      //Each time a switch is done, increase this count by 1:
+      switchcount ++;      
+    } else {
+      /*If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again.*/
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+
+function numberOfPapers() {
+	  table = document.getElementById("myTable");
+	  numberOfRows = table.rows.length;
+	  document.getElementById("numRows").innerHTML=numberOfRows - 1; /* -1 for the top column */
+}
+
+numberOfPapers();
+</script>
+
+<script>
+function toggleDarkMode() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");   
+}
+</script>
+
+<script>
+const year = new Date().getFullYear();
+document.getElementById("showyear").innerHTML = year-2000;
+</script>
+
+<script>
+function goToTop() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+<script>
+var i = 0;
+var txt = 'a REsearch Summary archIVE';
+var speed = 100;
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("subtitle").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+typeWriter()
+</script>
+
+<!-- END javascripts -->
+</body>
+</html>
