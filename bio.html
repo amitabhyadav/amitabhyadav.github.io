@@ -107,15 +107,14 @@ p.ex1 {
 
 .info {color: orange;}
 
-$glitch-bg-color: #ffffff;
-
+@import url(https://fonts.googleapis.com/css?family=Press+Start+2P);
 .glitch {
+  font-family: 'Press Start 2P';
   position: relative;
   margin: 0 auto;
+  background: #ffffff;
 }
-
-.glitch::before,
-.glitch::after {
+.glitch::before, .glitch::after {
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   animation-direction: alternate-reverse;
@@ -125,75 +124,152 @@ $glitch-bg-color: #ffffff;
   clip: rect(0, 900px, 0, 0);
   content: attr(data-text);
 }
-
 .glitch::after {
   animation-name: glitch-animation;
   animation-duration: 4s;
   left: 4px;
   text-shadow: -1px 0 #ffa800;
-  background: $glitch-bg-color;
+  background: #ffffff;
 }
-
 .glitch::before {
   animation-name: glitch-animation-2;
   animation-duration: 6s;
   left: -4px;
   text-shadow: 1px 0 #00d8ff;
-  background: $glitch-bg-color;
+  background: #ffffff;
 }
-
-@mixin rect($top, $bottom) {
-  clip: rect($top, 9999px, $bottom, 0);
-}
-
 /* Expanded Animations */
 @keyframes glitch-animation {
-  0% { @include rect(42px, 44px); }
-  5% { @include rect(12px, 59px); }
-  10% { @include rect(48px, 29px); }
-  15.0% { @include rect(42px, 73px); }
-  20% { @include rect(63px, 27px); }
-  25% { @include rect(34px, 55px); }
-  30.0% { @include rect(86px, 73px); }
-  35% { @include rect(20px, 20px); }
-  40% { @include rect(26px, 60px); }
-  45% { @include rect(25px, 66px); }
-  50% { @include rect(57px, 98px); }
-  55.0% { @include rect(5px, 46px); }
-  60.0% { @include rect(82px, 31px); }
-  65% { @include rect(54px, 27px); }
-  70% { @include rect(28px, 99px); }
-  75% { @include rect(45px, 69px); }
-  80% { @include rect(23px, 85px); }
-  85.0% { @include rect(54px, 84px); }
-  90% { @include rect(45px, 47px); }
-  95% { @include rect(37px, 20px); }
-  100% { @include rect(4px, 91px); }
+  0% {
+    clip: rect(42px, 9999px, 44px, 0);
+  }
+  5% {
+    clip: rect(12px, 9999px, 59px, 0);
+  }
+  10% {
+    clip: rect(48px, 9999px, 29px, 0);
+  }
+  15% {
+    clip: rect(42px, 9999px, 73px, 0);
+  }
+  20% {
+    clip: rect(63px, 9999px, 27px, 0);
+  }
+  25% {
+    clip: rect(34px, 9999px, 55px, 0);
+  }
+  30% {
+    clip: rect(86px, 9999px, 73px, 0);
+  }
+  35% {
+    clip: rect(20px, 9999px, 20px, 0);
+  }
+  40% {
+    clip: rect(26px, 9999px, 60px, 0);
+  }
+  45% {
+    clip: rect(25px, 9999px, 66px, 0);
+  }
+  50% {
+    clip: rect(57px, 9999px, 98px, 0);
+  }
+  55% {
+    clip: rect(5px, 9999px, 46px, 0);
+  }
+  60% {
+    clip: rect(82px, 9999px, 31px, 0);
+  }
+  65% {
+    clip: rect(54px, 9999px, 27px, 0);
+  }
+  70% {
+    clip: rect(28px, 9999px, 99px, 0);
+  }
+  75% {
+    clip: rect(45px, 9999px, 69px, 0);
+  }
+  80% {
+    clip: rect(23px, 9999px, 85px, 0);
+  }
+  85% {
+    clip: rect(54px, 9999px, 84px, 0);
+  }
+  90% {
+    clip: rect(45px, 9999px, 47px, 0);
+  }
+  95% {
+    clip: rect(37px, 9999px, 20px, 0);
+  }
+  100% {
+    clip: rect(4px, 9999px, 91px, 0);
+  }
+}
+@keyframes glitch-animation-2 {
+  0% {
+    clip: rect(65px, 9999px, 100px, 0);
+  }
+  5% {
+    clip: rect(52px, 9999px, 74px, 0);
+  }
+  10% {
+    clip: rect(79px, 9999px, 85px, 0);
+  }
+  15% {
+    clip: rect(75px, 9999px, 5px, 0);
+  }
+  20% {
+    clip: rect(67px, 9999px, 61px, 0);
+  }
+  25% {
+    clip: rect(14px, 9999px, 79px, 0);
+  }
+  30% {
+    clip: rect(1px, 9999px, 66px, 0);
+  }
+  35% {
+    clip: rect(86px, 9999px, 30px, 0);
+  }
+  40% {
+    clip: rect(23px, 9999px, 98px, 0);
+  }
+  45% {
+    clip: rect(85px, 9999px, 72px, 0);
+  }
+  50% {
+    clip: rect(71px, 9999px, 75px, 0);
+  }
+  55% {
+    clip: rect(2px, 9999px, 48px, 0);
+  }
+  60% {
+    clip: rect(30px, 9999px, 16px, 0);
+  }
+  65% {
+    clip: rect(59px, 9999px, 50px, 0);
+  }
+  70% {
+    clip: rect(41px, 9999px, 62px, 0);
+  }
+  75% {
+    clip: rect(2px, 9999px, 82px, 0);
+  }
+  80% {
+    clip: rect(47px, 9999px, 73px, 0);
+  }
+  85% {
+    clip: rect(3px, 9999px, 27px, 0);
+  }
+  90% {
+    clip: rect(26px, 9999px, 55px, 0);
+  }
+  95% {
+    clip: rect(42px, 9999px, 97px, 0);
+  }
+  100% {
+    clip: rect(38px, 9999px, 49px, 0);
+  }
 }
 
-@keyframes glitch-animation-2 {
-  0% { @include rect(65px, 100px); }
-  5% { @include rect(52px, 74px); }
-  10% { @include rect(79px, 85px); }
-  15.0% { @include rect(75px, 5px); }
-  20% { @include rect(67px, 61px); }
-  25% { @include rect(14px, 79px); }
-  30.0% { @include rect(1px, 66px); }
-  35% { @include rect(86px, 30px); }
-  40% { @include rect(23px, 98px); }
-  45% { @include rect(85px, 72px); }
-  50% { @include rect(71px, 75px); }
-  55.0% { @include rect(2px, 48px); }
-  60.0% { @include rect(30px, 16px); }
-  65% { @include rect(59px, 50px); }
-  70% { @include rect(41px, 62px); }
-  75% { @include rect(2px, 82px); }
-  80% { @include rect(47px, 73px); }
-  85.0% { @include rect(3px, 27px); }
-  90% { @include rect(26px, 55px); }
-  95% { @include rect(42px, 97px); }
-  100% { @include rect(38px, 49px); }
-}
 
 </style>
 <!-- Global site tag (gtag.js) - Google Analytics -->
