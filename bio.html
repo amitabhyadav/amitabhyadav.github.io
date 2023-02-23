@@ -106,6 +106,92 @@ p.ex1 {
 .btn:hover {}
 
 .info {color: orange;}
+		
+.glitch {
+  position: relative;
+  margin: 0 auto;
+}
+
+.glitch::before,
+.glitch::after {
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-direction: alternate-reverse;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  clip: rect(0, 900px, 0, 0);
+  content: attr(data-text);
+}
+
+.glitch::after {
+  animation-name: glitch-animation;
+  animation-duration: 4s;
+  left: 4px;
+  text-shadow: -1px 0 #ffa800;
+  background: $glitch-bg-color;
+}
+
+.glitch::before {
+  animation-name: glitch-animation-2;
+  animation-duration: 6s;
+  left: -4px;
+  text-shadow: 1px 0 #00d8ff;
+  background: $glitch-bg-color;
+}
+
+@mixin rect($top, $bottom) {
+  clip: rect($top, 9999px, $bottom, 0);
+}
+
+/* Expanded Animations */
+@keyframes glitch-animation {
+  0% { @include rect(42px, 44px); }
+  5% { @include rect(12px, 59px); }
+  10% { @include rect(48px, 29px); }
+  15.0% { @include rect(42px, 73px); }
+  20% { @include rect(63px, 27px); }
+  25% { @include rect(34px, 55px); }
+  30.0% { @include rect(86px, 73px); }
+  35% { @include rect(20px, 20px); }
+  40% { @include rect(26px, 60px); }
+  45% { @include rect(25px, 66px); }
+  50% { @include rect(57px, 98px); }
+  55.0% { @include rect(5px, 46px); }
+  60.0% { @include rect(82px, 31px); }
+  65% { @include rect(54px, 27px); }
+  70% { @include rect(28px, 99px); }
+  75% { @include rect(45px, 69px); }
+  80% { @include rect(23px, 85px); }
+  85.0% { @include rect(54px, 84px); }
+  90% { @include rect(45px, 47px); }
+  95% { @include rect(37px, 20px); }
+  100% { @include rect(4px, 91px); }
+}
+
+@keyframes glitch-animation-2 {
+  0% { @include rect(65px, 100px); }
+  5% { @include rect(52px, 74px); }
+  10% { @include rect(79px, 85px); }
+  15.0% { @include rect(75px, 5px); }
+  20% { @include rect(67px, 61px); }
+  25% { @include rect(14px, 79px); }
+  30.0% { @include rect(1px, 66px); }
+  35% { @include rect(86px, 30px); }
+  40% { @include rect(23px, 98px); }
+  45% { @include rect(85px, 72px); }
+  50% { @include rect(71px, 75px); }
+  55.0% { @include rect(2px, 48px); }
+  60.0% { @include rect(30px, 16px); }
+  65% { @include rect(59px, 50px); }
+  70% { @include rect(41px, 62px); }
+  75% { @include rect(2px, 82px); }
+  80% { @include rect(47px, 73px); }
+  85.0% { @include rect(3px, 27px); }
+  90% { @include rect(26px, 55px); }
+  95% { @include rect(42px, 97px); }
+  100% { @include rect(38px, 49px); }
+}
 
 </style>
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -123,7 +209,7 @@ p.ex1 {
       <header>
 	<img src="picay.jpg">
         <h1>Amitabh Yadav</h1>
-		<h4><a href="https://newscenter.lbl.gov/2020/01/29/connecting-the-dots-researcher-works-to-adapt-image-recognition-technique-into-the-quantum-realm/">Researcher/Engineer</br>at CERN and Berkeley Lab, CA</a></h4><!--M.Sc. <a href="http://www.tudelft.nl/en/">TU Delft</a></br>B.Tech. <a href="http://www.upes.ac.in/">UPES, Dehradun</a>-->
+		<h4><a href="https://newscenter.lbl.gov/2020/01/29/connecting-the-dots-researcher-works-to-adapt-image-recognition-technique-into-the-quantum-realm/">Researcher/Engineer</br>at CERN</a></h4><!--M.Sc. <a href="http://www.tudelft.nl/en/">TU Delft</a></br>B.Tech. <a href="http://www.upes.ac.in/">UPES, Dehradun</a>-->
         <!-- <p class="view"><h5>1 Cyclotron Road,</br> Berkeley CA, 92720-0001 U.S.A.</h5> -->
 		<hr>Menu
 		<p></br>
@@ -149,9 +235,9 @@ p.ex1 {
 
 	<span style="font-size:24px"><strong>personal bio</strong></span>
 	<p class="ex1">
-	I am a <script type="text/javascript"> document.write(new Date().getFullYear() - 1995); </script> y/o researcher in Computing and Physics. I grew up in India, mostly in the northern plains in Lucknow and later, in the lower Himalayas in Dehradun. After college, I moved to Geneva, Switzerland where I worked as an experimental physicist at CERN. Soon after that, I moved to Delft, Netherlands to continue my Masters. I worked on theoretical aspects of enabling a scalable implementation of Quantum Processors. After graduating I continued on a parallel track of exploring applications of Quantum Systems in High Energy Physics experiments at LBNL/UC Berkeley. Currently, I work at CERN.</br></br>
+	I am a <script type="text/javascript"> document.write(new Date().getFullYear() - 1995); </script> y/o researcher in Computing and Physics. I grew up in India, mostly in the northern plains in Lucknow and later, in the lower Himalayas in Dehradun. After college, I moved to Geneva, Switzerland where I worked as an experimental physicist at CERN. Soon after that, I moved to Delft, Netherlands to continue my Masters. I worked on theoretical aspects of enabling a scalable implementation of Quantum Processors. After graduating I continued on a parallel track of exploring applications of Quantum Systems in High Energy Physics experiments at LBNL/UC Berkeley. Currently, I work on digital ASIC design for reliable mordern computing systems at CERN.</br></br>
 
-I like cycling off-road, bike-packing and hiking. This comes alongside my hobbies as ranging from a nature lover to exploring ancient cities with intriguing historical backgrounds. I am a native Hindi speaker, fluent in English and a moderate-level French speaker. </br>
+In my spare time, I work on <span class="glitch" data-text="black">white</span> hat hacking on networks and systems. I like cycling off-road, bike-packing and hiking. This comes alongside my hobbies as ranging from a nature lover to exploring ancient cities with intriguing historical backgrounds. I am a native Hindi speaker, fluent in English and a moderate-level French speaker. </br>
 </p></br>
 
 <span style="font-size:24px;"><strong>education</strong></span></br></br>
