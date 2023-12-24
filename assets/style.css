@@ -464,3 +464,23 @@ input[type="email"] {
     border: 1pt solid var(--background-color); 
 }
 
+/* Comment show/hide */
+
+.comment-btn-click
+{
+    padding: 10px 20px;
+    min-width: 100px;
+    background-color: #f66464;
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50px;
+    font-size: 17px;
+}
+
+.comment-block {
+    display: none;
+}
+
+

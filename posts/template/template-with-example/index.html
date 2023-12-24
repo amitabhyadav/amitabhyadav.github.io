@@ -35,6 +35,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
     <!-- Disqus Comments -->
     <script src="//amitabhydv.disqus.com/embed.js" async></script>
+    <!-- jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
     <!-- Google Analytics starts here -->
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MJFK7Q82Z8"></script   >
@@ -55,9 +57,9 @@
         <div class="share-icons no-print">
             <!-- Icons can be implemented using images, font icons like Font Awesome, or SVGs -->
             <a href="../../../"><span style="color: #159BD6;">[ ARTICLES ]</span></a>
-            <a href="../../../books">BOOKS</a>
+            <!--<a href="../../../books">BOOKS</a>
             <a href="../../../videos/">VIDEOS</a>
-            <a href="../../../photographs/">PHOTOGRAPHS</a>
+            <a href="../../../photographs/">PHOTOGRAPHS</a> -->
             <a href="https://www.linkedin.com/in/amitabhx"><img src="../../../assets/icons/linkedin-icon.svg" alt="LinkedIn" style="position: relative; top: 4px;"></a>
             <a href="https://www.x.com/squareonehouse"><img src="../../../assets/icons/x-social-icon.svg" alt="Twitter" style="position: relative; top: 4px; left: -10px;"></a>
             <a href="https://www.instagram.com/squareone.house"><img src="../../../assets/icons/instagram-icon.svg" alt="Instagram" style="position: relative; top: 4px; left: -21px;"></a>
@@ -207,9 +209,9 @@ greet("Alice");
 
     <!-- All text in the article must end here -->
 </p>
-</article><br><center>...</center><br>
-
-<div id="disqus_thread" class="no-print"></div>
+</article><br>
+<a href="" class="comment-btn-click">Show Comments</a>
+<div id="disqus_thread" class="no-print comment-block"></div>
 <script>
     /**
     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
@@ -269,6 +271,16 @@ function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
+</script>
+<!-- Comment block show/hide -->
+<script type="text/javascript">
+        var $clickme = $('.comment-btn-click'),
+    $box = $('.box');
+        //$box.hide();
+        $clickme.click(function (e) {
+            $(this).text(($(this).text() === 'Show Comments' ? 'Hide Comments' : 'Show Comments')).next('.comment-block').slideToggle(); ;
+            e.preventDefault();
+        });
 </script>
 </body>
 </html>

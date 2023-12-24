@@ -35,6 +35,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
     <!-- Disqus Comments -->
     <script src="//amitabhydv.disqus.com/embed.js" async></script>
+    <!-- jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
     <!-- Google Analytics starts here -->
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MJFK7Q82Z8"></script   >
@@ -146,9 +148,9 @@
 
     <!-- All text in the article must end here -->
 </p>
-</article><br><center>...</center><br>
-
-<div id="disqus_thread" class="no-print"></div>
+</article><br>
+<a href="" class="comment-btn-click">Show Comments</a>
+<div id="disqus_thread" class="no-print comment-block"></div>
 <script>
     /**
     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
@@ -208,6 +210,16 @@ function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
+</script>
+<!-- Comment block show/hide -->
+<script type="text/javascript">
+        var $clickme = $('.comment-btn-click'),
+    $box = $('.box');
+        //$box.hide();
+        $clickme.click(function (e) {
+            $(this).text(($(this).text() === 'Show Comments' ? 'Hide Comments' : 'Show Comments')).next('.comment-block').slideToggle(); ;
+            e.preventDefault();
+        });
 </script>
 </body>
 </html>
