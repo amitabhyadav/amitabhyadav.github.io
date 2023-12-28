@@ -129,6 +129,16 @@
 
         <!-- Article 7 -->
         <tr class="article" data-category="Technology" data-tags="Research">
+                <td><div class="image-card"><img src="posts/2023/agile-hardware-for-soc/assets/images/agile-methodology.webp" alt="Frank Rosenblatt with Perceptron"></div></td>
+                <td>
+                    <a href="posts/2023/agile-hardware-for-soc/"><h2 class="article-title">An outlook on Agile Hardware Development Methodology for accelerating full-stack development of Deep Learning SoCs</h2></a>
+                    <h5>February 03, 2023</h5>
+                    <p>In modern Deep Learning accelerators, the computer architecture used to train a deep learning model affects the model’s accuracy, speed and even its ability to generalise to new data. This creates a massive multi-dimensional design space to find pareto-optimal configuration per use-case. Additionally, new ISAs need new software and compilers. How do we navigate this maze of infinite possibilities? What is Agile development for hardware all about?</p>
+                </td>
+        </tr>
+
+        <!-- Article 7 -->
+        <tr class="article" data-category="Technology" data-tags="Research">
                 <td><div class="image-card"><img src="posts/2023/the-hardware-lottery/assets/images/frank_rosenblatt_perceptron_1.jpeg" alt="Frank Rosenblatt with Perceptron"></div></td>
                 <td>
                     <a href="posts/2023/the-hardware-lottery/"><h2 class="article-title">The Hardware Lottery: We may be trying to build a ladder to the Moon</h2></a>
@@ -177,7 +187,7 @@
     </table>
 </br></br></br>
 
-<center class="no-print">&#169; 2023 Amitabh Yadav</center>
+<center class="no-print">&#169; 2023-<span id="currentYear"></span> Amitabh Yadav</center>
 </div>
 </div>
 </div>
@@ -208,6 +218,14 @@
         alert('Right click disabled on this image.'); // Optional: Alert the user
     }, false);
 });
+</script>
+<script>
+// Getting the current year
+const currentYear = new Date().getFullYear();
+// Finding the span element by its ID
+const yearSpan = document.getElementById("currentYear");
+// Setting the content of the span element to the current year
+yearSpan.textContent = currentYear-2000;
 </script>
 </body>
 </html>

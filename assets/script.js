@@ -137,6 +137,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
         alert('Right click disabled on this image.'); // Optional: Alert the user
     }, false);
 });
-
-
-
