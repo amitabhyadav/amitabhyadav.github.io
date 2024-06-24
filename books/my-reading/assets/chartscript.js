@@ -1,7 +1,7 @@
 // Sample reading data
 const readingData = [
     { date: "2024-06-25", minutes: 35, pages: 25, book: "Build: An Unorthodox Guide to Making Things Worth Making", author: "Tony Fadell", genre: "Enterpreneurship" },
-    //{ date: "2023-12-01", minutes: 20, pages: 8, book: "Book 3", author: "Author 1", genre: "Non-Fiction" },
+    { date: "2024-06-26", minutes: 20, pages: 14, book: "Build: An Unorthodox Guide to Making Things Worth Making", author: "Tony Fadell", genre: "Enterpreneurship" },
     //{ date: "2023-11-01", minutes: 20, pages: 8, book: "Book 3", author: "Author 1", genre: "Biography" },
     //{ date: "2023-10-02", minutes: 45, pages: 20, book: "Book 2", author: "Author 2", genre: "Fiction" },
     //{ date: "2023-09-02", minutes: 8, pages: 4, book: "Book 2", author: "Author 2", genre: "Non-Fiction" },
@@ -169,7 +169,7 @@ document.getElementById('endDate').addEventListener('change', () => {
 // Predefined range setters
 function setLastMonth() {
     const endDate = new Date();
-    const startDate = new Date(endDate.getFullYear(), endDate.getMonth() - 1, endDate.getDate());
+    const startDate = new Date(endDate.getFullYear(), endDate.getMonth(), endDate.getDate());
     updateCharts(startDate, endDate);
 }
 
@@ -204,7 +204,7 @@ function summarizeReadingData(readingData) {
     }
 
     // Calculating the time span from January 1st, 2022
-    const startDate = new Date("2022-01-01");
+    const startDate = new Date("2024-06-25");
     const endDate = new Date();
     const timeDiff = endDate - startDate;
     const daysDiff = timeDiff / (1000 * 60 * 60 * 24);
