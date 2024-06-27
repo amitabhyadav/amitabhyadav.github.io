@@ -1,125 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Amitabh's Notes / EPFL Statement of Purpose</title>
-    <link rel="stylesheet" href="../../assets/style.css">
-    <style>
-        .pdf-container {
-            width: 100%;
-            height: 600px; /* Adjust height as needed */
-            border: none;
-            overflow: hidden;
-        }
-
-        .pdf-container iframe {
-            width: 100%;
-            height: 100%;
-        }
-    </style>
-    <!-- for mathjax -->
-    <script>
-        MathJax = {
-            loader: {
-             load: [
-              'input/tex-base', '[tex]/newcommand', '[tex]/action',
-              'output/chtml'
-             ]
-            },
-            tex: {
-             tags: "all", // should be 'ams', 'none', or 'all'
-             inlineMath: [['$', '$'], ['\\(', '\\)']],
-             packages: ['base', 'newcommand', 'action']
-            }
-        };
-    </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js"></script>
-    <!-- for code and syntax highlighting -->
-    <!-- Highlight.js Library -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
-    <!-- Disqus Comments -->
-    <script src="//amitabhydv.disqus.com/embed.js" async></script>
-    <!-- Chart JS-->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Google Analytics starts here -->
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MJFK7Q82Z8"></script   >
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-MJFK7Q82Z8');
-    </script>
-    <!-- Google Analytics ends here -->
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amitabh's Notes / Reading Stats</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
-<header class="site-header">
-    <div class="header-content">
-        <div class="site-name"><a href="../../" style="text-decoration: none; color:inherit;">Amitabh's Notes</a></div>
-        <span class="print-only" style="display: none;">&#169; 2023 Amitabh Yadav</span>
-        <div class="share-icons no-print">
-            <!-- Icons can be implemented using images, font icons like Font Awesome, or SVGs -->
-            <a href="../../">ARTICLES</a>
-            <!-- <a href="../../books">BOOKS</a>
-            <a href="../../videos/">VIDEOS</a>
-            <a href="../../photographs/">PHOTOGRAPHS</a>-->
-            <a href=""><span style="color: #159BD6;">[ READING STATS ]</span></a>
-            <a href="https://www.linkedin.com/in/amitabhx"><img src="../../assets/icons/linkedin-icon.svg" alt="LinkedIn" style="position: relative; top: 4px;"></a>
-            <a href="https://www.x.com/squareonehouse"><img src="../../assets/icons/x-social-icon.svg" alt="Twitter" style="position: relative; top: 4px; left: -10px;"></a>
-            <a href="https://www.instagram.com/squareone.house"><img src="../../assets/icons/instagram-icon.svg" alt="Instagram" style="position: relative; top: 4px; left: -21px;"></a>
-            <a href="https://www.youtube.com/@squareonehouse"><img src="../../assets/icons/youtube-icon.svg" alt="Twitter" style="position: relative; top: 4px; left: -32px;"></a>
-            
-            <!-- Add more icons as needed -->
+    <header>
+        <h3>Amitabh's Notes / Reading Stats</h3>
+    </header>
+    <main>
+        <div id="buttons" style="text-align: center; margin-bottom: 20px;">
+            <button onclick="filterData('all')">All</button>
+            <button onclick="filterData('last6months')">Last 6 months</button>
+            <button onclick="filterData('thisYear')">This Year</button>
+            <button onclick="filterData('2024')">2024</button>
+            <button onclick="filterData('2023')">2023</button>
+            <button onclick="filterData('2022')">2022</button>
         </div>
-    </div>
-</header>
-
-</br>
-<div class="article-container"><div class="all-articles">
-<!-- Content Goes Here -->
-</br>
-<div id="readingSummary"></div>
-</br>
-
-<!-- Date Range Inputs -->
-<label for="startDate">Start Date:</label>
-<input type="date" id="startDate">&nbsp;&nbsp;
-<label for="endDate">End Date:</label>
-<input type="date" id="endDate">
-<!-- <button onclick="updateCharts()">Update Charts</button>-->
-
-<!-- Predefined Range Buttons -->
-<button onclick="setLastMonth()">Last Month</button>
-<button onclick="setLast6Months()">Last 6 Months</button>
-<button onclick="setYear(2024)">2024</button>
-<!--<button onclick="setYear(2022)">2022</button>-->
-
-</br></br></br>
-
-<!-- Charts -->
-<canvas id="lineChart"></canvas></br>
-<div style="width=:300px; height: 300px; justify-content:center; display: flex;"><canvas id="pieChart"></canvas></div>
-
-</div></div>
-
-
-<!-- Footer Stuff -->
-
-<div class="theme-toggle-container no-print">
-<div class="theme-switch">
-    <label id="switch" class="switch">
-        <input type="checkbox" id="theme-toggle">
-        <span class="slider round"></span>
-    </label>
-</div>
-</div>
-<img class="no-print no-show" src="../../assets/mainImages/amitabhsnotes.png" style="position: fixed; bottom:-10px; right:0%; width: 160px; display: block;" >
-<span class="no-print no-show" style="position: fixed; bottom:0%; right:0%; display: none; color:lightgrey;">&#169; 2023 Amitabh Yadav</span>
-<script>hljs.highlightAll();</script>
-<script src="../../assets/script.js"></script><!-- used for dark/light theme transition and reading time calculation-->
-<script src="assets/chartscript.js"></script>
+        <section id="summary"></section>
+        <div id="click-text" style="text-align: center; margin-bottom: 10px;"></div>
+        <section id="line-chart"></section>
+        <section id="reading-per-month"></section>
+        <div style="display: flex; justify-content: space-between;">
+            <section id="reading-per-weekday" style="flex: 1;"></section>
+            <section id="pie-chart" style="flex: 1;"></section>
+        </div>
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div id="left-table" style="flex: 1;"></div>
+            <div id="right-table" style="flex: 1;"></div>
+        </div>
+        <div><br>
+            <center style="font-size: 12px;">Page idea inspired by <a href="https://derlin.github.io/reading-stats/">Lucy Linder's Reading Stats</a></center>
+        </div>
+    </main>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
