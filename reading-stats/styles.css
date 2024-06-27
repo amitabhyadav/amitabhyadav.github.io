@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #f8f8f8;
+    padding: 5px;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: #159BD6;
+}
+
+main {
+    padding: 20px;
+}
+
+#summary h2 {
+    margin-top: 0;
+}
+
+#left-table table,
+#right-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#left-table th,
+#right-table th,
+#left-table td,
+#right-table td {
+    padding: 10px;
+    text-align: left;
+}
+
+#left-table th,
+#right-table th {
+    border-bottom: 2px solid #ddd;
+}
+
+#left-table td a,
+#right-table td a {
+    color: #159BD6;
+    text-decoration: none;
+}
+
+#left-table td a:hover,
+#right-table td a:hover {
+    text-decoration: underline;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+button.selected {
+    background-color: black;
+    color: white;
+}
+
+button:not(.selected) {
+    background-color: white;
+    color: black;
+}
+
+#left-table,
+#right-table {
+    margin-top: 20px;
+}
