@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
             I finished <span style="color: softmagenta;">${totalBooks}</span> books. <br>
             I read about <span style="color: softmagenta;">${totalPages}</span> pages in <span style="color: softmagenta;">${totalMinutes}</span> minutes,
             which is equivalent to <span style="color: softmagenta;">${Math.floor(totalMinutes / 60)}</span> hours and <span style="color: softmagenta;">${totalMinutes % 60}</span> minutes of non-stop reading. <br>
-            I missed <span style="color: softmagenta;">${missedDays}</span> days (no reading at all), and read less than ten minutes <span style="color: softmagenta;">${lessThanTenMinutes}</span> times.
+            I missed <span style="color: softmagenta;">${missedDays}</span> days (no reading at all), and read less than ten minutes <span style="color: softmagenta;">${lessThanTenMinutes}</span> times.<br>...
             </p>
         `;
 
@@ -161,9 +161,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const lineTracePages = {
             x: dates,
             y: pages,
+            text: hoverText,
             mode: 'lines+markers',
             name: 'Pages',
-            hoverinfo: 'skip' // Turn off hover for pages
+            hoverinfo: 'text',
+            hovertemplate: '%{text}<extra></extra>'
+            //hoverinfo: 'skip' // Turn off hover for pages
         };
 
         const shapes = [];
@@ -174,8 +177,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const [book, author] = bookKey.split('-');
             if (bookData.startDate && bookData.endDate) {
                 let bookText = book;
-                if (bookText.length > 100) {
-                    bookText = bookText.substring(0, 100) + '...';
+                if (bookText.length > 40) {
+                    bookText = bookText.substring(0, 40) + '...';
                 }
                 shapes.push({
                     type: 'rect',
@@ -186,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     x1: bookData.endDate,
                     y1: 1,
                     fillcolor: colors[colorIndex % colors.length],
-                    opacity: 0.5,
+                    opacity: 0.45,
                     line: {
                         width: 0
                     },
@@ -249,7 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'Genre Distribution'
         }, config);
 
-        let leftTableHtml = '<h3>Reading Journal</h3><table><tr><th>Book Name</th><th>Author</th><th>Start Date</th><th>End Date</th><th>Total Days</th><th>Pages</th><th>Hours</th></tr>';
+        let leftTableHtml = '<h3>Reading Journal</h3><table><tr><th>Book Name</th><th>Author</th><th>Started</th><th>Ended</th><th>Days</th><th>Pages</th><th>Hours</th></tr>';
         bookMap.forEach((bookData, bookKey) => {
             const [book, author] = bookKey.split('-');
             leftTableHtml += `<tr><td><a href="${bookData.urlBook}" target="_blank">${book}</a></td><td><a href="${bookData.urlAuthor}" target="_blank">${author}</a></td><td>${bookData.startDate}</td><td>${bookData.endDate}</td><td>${bookData.totalDays}</td><td>${bookData.pages}</td><td>${Math.floor(bookData.minutes / 60)}h:${bookData.minutes % 60}m</td></tr>`;
@@ -342,6 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
             y: weekdaySums,
             type: 'bar',
             text: weekdayMeans.map(mean => `μ = ${mean.toFixed(2)}`),
+            textangle: -90,
             textposition: 'auto',
             hoverinfo: 'text',
             hovertext: weekdays.map((weekday, i) => `Sum: ${weekdaySums[i]}<br>Mean: ${weekdayMeans[i].toFixed(2)}<br>Median: ${weekdayMedians[i]}<br>Min: ${weekdayMins[i]}<br>Max: ${weekdayMaxs[i]}`)
