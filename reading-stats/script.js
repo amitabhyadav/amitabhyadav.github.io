@@ -375,7 +375,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     timeText = `<span style="color: softmagenta;">${entry.minutes} minutes</span>`;
                 }
-                const displayText = `On ${formattedDate} (${new Date(date).toLocaleDateString('en-US', { weekday: 'long' })}), I read ${timeText} of <a href="${entry.urlBook}" style="color: softmagenta;">${entry.book}</a> by <a href="${entry.urlAuthor}" style="color: softmagenta;">${entry.author}</a> of ${entry.genre} genre.`;
+                const displayText = `On ${formattedDate} (${new Date(date).toLocaleDateString('en-US', { weekday: 'long' })}), I read ${timeText} of <a href="${entry.urlBook}" style="color: softmagenta;">${entry.book}</a> by <a href="${entry.urlAuthor}" style="color: softmagenta;">${entry.author}</a>.`;
                 const displayElement = document.getElementById('click-text');
                 if (!displayElement) {
                     const newDisplayElement = document.createElement('div');
