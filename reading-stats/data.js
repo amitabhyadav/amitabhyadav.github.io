@@ -11,5 +11,7 @@ const readingData = [
 // Wishlist data
 const wishlistData = [
     { book: "Guns, Germs and Steel: A Short History of Everybody for the Last 13,000 Years", author: "Jared Diamond", genre: "History", 'url-book': 'https://www.goodreads.com/book/show/430146.Guns_Germs_and_Steel', 'url-author': 'https://www.goodreads.com/author/show/256.Jared_Diamond'},
+    { book: "The Art of Statistics", author: "David Spiegelhalter", genre: "Mathematics", 'url-book': 'https://www.goodreads.com/book/show/39813845-the-art-of-statistics', 'url-author': 'https://www.goodreads.com/author/show/1126543.David_Spiegelhalter'},
+    { book: "A Curious History of Sex", author: "Kate Lister", genre: "Sex", 'url-book': 'https://www.goodreads.com/book/show/50773748-a-curious-history-of-sex', 'url-author': 'https://www.goodreads.com/author/show/20022921.Kate_Lister'},
     // ... more data ...
 ];
