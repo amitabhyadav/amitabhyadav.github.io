@@ -3,7 +3,7 @@
 const readingData = [
     // ... add new data here ...
     //{ date: "2025-01-03", minutes: 175, pages: 60, book: "The Education of an Idealist", author: "Samantha Power", genre: "Memoir", status: "completed", 'url-book': 'https://www.goodreads.com/book/show/42872088-the-education-of-an-idealist', 'url-author': 'https://www.goodreads.com/author/show/13271.Samantha_Power' },
-    { date: "2025-01-05", minutes: 30, pages: 13, book: "The Education of an Idealist", author: "Samantha Power", genre: "Memoir", status: "reading", 'url-book': 'https://www.goodreads.com/book/show/42872088-the-education-of-an-idealist', 'url-author': 'https://www.goodreads.com/author/show/13271.Samantha_Power' },    
+    { date: "2025-01-05", minutes: 30, pages: 13, book: "The Education of an Idealist", author: "Samantha Power", genre: "Memoir", status: "completed", 'url-book': 'https://www.goodreads.com/book/show/42872088-the-education-of-an-idealist', 'url-author': 'https://www.goodreads.com/author/show/13271.Samantha_Power' },    
     { date: "2025-01-04", minutes: 67, pages: 26, book: "The Education of an Idealist", author: "Samantha Power", genre: "Memoir", status: "reading", 'url-book': 'https://www.goodreads.com/book/show/42872088-the-education-of-an-idealist', 'url-author': 'https://www.goodreads.com/author/show/13271.Samantha_Power' },        
     { date: "2025-01-03", minutes: 75, pages: 34, book: "The Education of an Idealist", author: "Samantha Power", genre: "Memoir", status: "reading", 'url-book': 'https://www.goodreads.com/book/show/42872088-the-education-of-an-idealist', 'url-author': 'https://www.goodreads.com/author/show/13271.Samantha_Power' },
     { date: "2025-01-02", minutes: 26, pages: 11, book: "The Education of an Idealist", author: "Samantha Power", genre: "Memoir", status: "reading", 'url-book': 'https://www.goodreads.com/book/show/42872088-the-education-of-an-idealist', 'url-author': 'https://www.goodreads.com/author/show/13271.Samantha_Power' },
@@ -17,6 +17,11 @@ const wishlistData = [
     { book: "A Curious History of Sex", author: "Kate Lister", genre: "Sex", 'url-book': 'https://www.goodreads.com/book/show/50773748-a-curious-history-of-sex', 'url-author': 'https://www.goodreads.com/author/show/20022921.Kate_Lister'},
     { book: "Human Acts", author: "Han Kang", genre: "Fiction", 'url-book': 'https://www.goodreads.com/book/show/30091914-human-acts', 'url-author': 'https://www.goodreads.com/author/show/4119155.Han_Kang'},
     { book: "The Vegetarian", author: "Han Kang", genre: "Fiction", 'url-book': 'https://www.goodreads.com/book/show/25489025-the-vegetarian', 'url-author': 'https://www.goodreads.com/author/show/4119155.Han_Kang'},
-    
+    { book: "Dune (#1)", author: "Frank Herbert", genre: "Fiction", 'url-book': 'https://www.goodreads.com/book/show/25772375-dune', 'url-author': 'https://www.goodreads.com/author/show/58.Frank_Herbert'},
+    { book: "Dune: Messiah (#2)", author: "Frank Herbert", genre: "Fiction", 'url-book': 'https://www.goodreads.com/book/show/34326633-dune-messiah', 'url-author': 'https://www.goodreads.com/author/show/58.Frank_Herbert'},
+    { book: "Children of Dune (#3)", author: "Frank Herbert", genre: "Fiction", 'url-book': 'https://www.goodreads.com/book/show/11323606-children-of-dune', 'url-author': 'https://www.goodreads.com/author/show/58.Frank_Herbert'},
+    { book: "God Emperor of Dune (#4)", author: "Frank Herbert", genre: "Fiction", 'url-book': 'https://www.goodreads.com/book/show/44439415-god-emperor-of-dune', 'url-author': 'https://www.goodreads.com/author/show/58.Frank_Herbert'},
+    { book: "Heretics of Dune (#5)", author: "Frank Herbert", genre: "Fiction", 'url-book': 'https://www.goodreads.com/book/show/44492287-heretics-of-dune', 'url-author': 'https://www.goodreads.com/author/show/58.Frank_Herbert'},
+    { book: "Chapterhouse: Dune (#6)", author: "Frank Herbert", genre: "Fiction", 'url-book': 'https://www.goodreads.com/book/show/44439416-chapterhouse', 'url-author': 'https://www.goodreads.com/author/show/58.Frank_Herbert'},
     // ... more data ...
 ];
