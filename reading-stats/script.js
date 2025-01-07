@@ -156,7 +156,14 @@ document.addEventListener('DOMContentLoaded', () => {
             name: 'Minutes',
             text: hoverText,
             hoverinfo: 'text',
-            hovertemplate: '%{text}<extra></extra>'
+            hovertemplate: '%{text}<extra></extra>',
+            line: {
+              color: 'red'
+            },
+            marker: {
+              size: 6,
+              color: 'red'
+            }
         };
 
         const lineTracePages = {
@@ -168,6 +175,13 @@ document.addEventListener('DOMContentLoaded', () => {
             hoverinfo: 'text',
             hovertemplate: '%{text}<extra></extra>'
             //hoverinfo: 'skip' // Turn off hover for pages
+            line: {
+              color: 'blue'
+            },
+            marker: {
+              size: 6,
+              color: 'blue'
+            }
         };
 
         const shapes = [];
@@ -204,13 +218,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const layout = {
             title: 'Reading Progress (per Day)',
+            hovermode: 'closest',
             xaxis: {
-                title: 'Time'
+                title: 'Time',
+                showspikes: true,
+                spikemode: 'across',     // or 'toaxis' or 'across'
+                spikesnap: 'data',
+                spikedash: 'dot',        // dotted style
+                spikethickness: 1,
+                spikecolor: '#999'
             },
             yaxis: {
                 title: 'Minutes/Pages',
                 showticklabels: true,
-                tickformat: ',d'
+                tickformat: ',d',
+                showspikes: true,
+                spikemode: 'across',
+                spikesnap: 'data',
+                spikedash: 'dot',
+                spikethickness: 1,
+                spikecolor: '#999'
             },
             showlegend: true,
             shapes: shapes,
