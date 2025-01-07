@@ -1,8 +1,12 @@
 body {
+    display: flex;          /* Make the body a flex container */
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: flex-start; /* Align items along the main axis (vertical, in this case) */
+    align-items: center;    /* Center all items horizontally */
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    max-width: 1800px;
+    max-width: 1500px;
 }
 
 header {
