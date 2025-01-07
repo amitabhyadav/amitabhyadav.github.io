@@ -256,7 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let leftTableHtml = '<h3>Reading Journal</h3><table><tr><th>Book Name</th><th>Author</th><th>Started</th><th>Ended</th><th>Days</th><th>Pages</th><th>Hours</th><th>Progress</th></tr>';
         bookMap.forEach((bookData, bookKey) => {
     const [book, author] = bookKey.split('-');
-    const endDate = bookData.endDate ? bookData.endDate : 'In Progress';
+    const endDate = bookData.endDate ? bookData.endDate : 'Currently Reading';
 
     // Compute progress (0-100%)
     const progressPercent = (bookData.totalPages > 0)
@@ -275,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <!-- New column: small progress bar -->
         <td>
           <div style="width: 100px; background-color: #f0f0f0; border: 1px solid #ccc;">
-            <div style="height: 10px; width: ${progressPercent}%; background-color: #8e44ad;"></div>
+            <div style="height: 10px; width: ${progressPercent}%; background-color: #00e118;"></div>
           </div>
           <span style="font-size: 0.8em; margin-left: 5px;">${progressPercent}%</span>
         </td>
@@ -317,8 +317,17 @@ leftTableHtml += '</table>';
         const monthMins = months.map(month => Math.min(...monthMinutes[month]));
         const monthMaxs = months.map(month => Math.max(...monthMinutes[month]));
 
+        // Create a nicely formatted x-axis label (e.g. "Jan, 2025")
+        const formattedMonths = months.map(m => {
+            const [yyyy, mm] = m.split('-'); // e.g. "2025", "1"
+            // Construct a Date using yyyy, mm-1 (JS months are 0-based)
+            const d = new Date(parseInt(yyyy), parseInt(mm) - 1, 1);
+            // e.g. "Jan 2025"
+            return d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+        });
+
         const monthTrace = {
-            x: months,
+            x: formattedMonths,
             y: monthSums,
             type: 'bar',
             text: monthMeans.map(mean => `μ = ${mean.toFixed(2)}`),
