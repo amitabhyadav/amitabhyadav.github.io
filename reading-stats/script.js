@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const summaryText = `
             <h2 style="text-align: center;">Overview</h2>
             <p style="text-align: center;">
-            From ${startDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })} to ${endDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })} (${duration.totalYears} years ${duration.totalMonths} months and ${duration.totalDays} days),
+            From <span style="color: blue;">${startDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span> to <span style="color: blue;">${endDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span> (${duration.totalYears} years ${duration.totalMonths} months and ${duration.totalDays} days),
             I finished <span style="color: red;">${totalBooks}</span> books. <br>
             I read about <span style="color: red;">${totalPages}</span> pages in <span style="color: red;">${totalMinutes}</span> minutes,
             which is equivalent to <span style="color: red;">${Math.floor(totalMinutes / 60)}</span> hours and <span style="color: red;">${totalMinutes % 60}</span> minutes of non-stop reading. <br>
