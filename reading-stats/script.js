@@ -86,7 +86,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     endDate: null, 
                     totalDays: 0,
                     urlBook: entry['url-book'],
-                    urlAuthor: entry['url-author']
+                    urlAuthor: entry['url-author'],
+                    totalPages: entry.totalpages || 0
                 });
             }
 
@@ -252,12 +253,36 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'Genre Distribution'
         }, config);
 
-        let leftTableHtml = '<h3>Reading Journal</h3><table><tr><th>Book Name</th><th>Author</th><th>Started</th><th>Ended</th><th>Days</th><th>Pages</th><th>Hours</th></tr>';
+        let leftTableHtml = '<h3>Reading Journal</h3><table><tr><th>Book Name</th><th>Author</th><th>Started</th><th>Ended</th><th>Days</th><th>Pages</th><th>Hours</th><th>Progress</th></tr>';
         bookMap.forEach((bookData, bookKey) => {
-            const [book, author] = bookKey.split('-');
-            leftTableHtml += `<tr><td><a href="${bookData.urlBook}" target="_blank">${book}</a></td><td><a href="${bookData.urlAuthor}" target="_blank">${author}</a></td><td>${bookData.startDate}</td><td>${bookData.endDate}</td><td>${bookData.totalDays}</td><td>${bookData.pages}</td><td>${Math.floor(bookData.minutes / 60)}h:${bookData.minutes % 60}m</td></tr>`;
-        });
-        leftTableHtml += '</table>';
+    const [book, author] = bookKey.split('-');
+    const endDate = bookData.endDate ? bookData.endDate : 'In Progress';
+
+    // Compute progress (0-100%)
+    const progressPercent = (bookData.totalPages > 0)
+        ? Math.round((bookData.pages / bookData.totalPages) * 100)
+        : 0;
+
+    leftTableHtml += `
+      <tr>
+        <td><a href="${bookData.urlBook}" target="_blank">${book}</a></td>
+        <td><a href="${bookData.urlAuthor}" target="_blank">${author}</a></td>
+        <td>${bookData.startDate || 'N/A'}</td>
+        <td>${endDate}</td>
+        <td>${bookData.totalDays}</td>
+        <td>${bookData.pages}</td>
+        <td>${Math.floor(bookData.minutes / 60)}h:${bookData.minutes % 60}m</td>
+        <!-- New column: small progress bar -->
+        <td>
+          <div style="width: 100px; background-color: #f0f0f0; border: 1px solid #ccc;">
+            <div style="height: 10px; width: ${progressPercent}%; background-color: #8e44ad;"></div>
+          </div>
+          <span style="font-size: 0.8em; margin-left: 5px;">${progressPercent}%</span>
+        </td>
+      </tr>
+    `;
+});
+leftTableHtml += '</table>';
         document.getElementById('left-table').innerHTML = leftTableHtml;
 
         let rightTableHtml = '<h3>Reading Wishlist</h3><table><tr><th>Book Name</th><th>Author</th><th>Genre</th></tr>';
