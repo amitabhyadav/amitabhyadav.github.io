@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
             dates.push(entry.date);
             minutes.push(entry.minutes);
             pages.push(entry.pages);
-            const text = `${entry.minutes} minutes, ${entry.pages} pages read from\n${entry.book} by ${entry.author}`;
+            const text = `${entry.minutes} min, ${entry.pages} pages [\n${entry.book} by ${entry.author}]`;
             hoverText.push(text);
             entriesMap.set(entry.date, { minutes: entry.minutes, book: entry.book, author: entry.author, urlBook: entry['url-book'], urlAuthor: entry['url-author'] });
         });
