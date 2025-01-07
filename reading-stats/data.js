@@ -15,8 +15,8 @@ const readingData = [
 // Wishlist data
 const wishlistData = [
     { book: "Guns, Germs and Steel: A Short History of Everybody for the Last 13,000 Years", author: "Jared Diamond", genre: "History", 'url-book': 'https://www.goodreads.com/book/show/430146.Guns_Germs_and_Steel', 'url-author': 'https://www.goodreads.com/author/show/256.Jared_Diamond'},
-    { book: "The Art of Statistics", author: "David Spiegelhalter", genre: "Mathematics", 'url-book': 'https://www.goodreads.com/book/show/39813845-the-art-of-statistics', 'url-author': 'https://www.goodreads.com/author/show/1126543.David_Spiegelhalter'},
-    { book: "A Curious History of Sex", author: "Kate Lister", genre: "Sex", 'url-book': 'https://www.goodreads.com/book/show/50773748-a-curious-history-of-sex', 'url-author': 'https://www.goodreads.com/author/show/20022921.Kate_Lister'},
+    { book: "The Art of Statistics", author: "David Spiegelhalter", genre: "Non-Fiction", 'url-book': 'https://www.goodreads.com/book/show/39813845-the-art-of-statistics', 'url-author': 'https://www.goodreads.com/author/show/1126543.David_Spiegelhalter'},
+    { book: "A Curious History of Sex", author: "Kate Lister", genre: "Non-Fiction", 'url-book': 'https://www.goodreads.com/book/show/50773748-a-curious-history-of-sex', 'url-author': 'https://www.goodreads.com/author/show/20022921.Kate_Lister'},
     { book: "Human Acts", author: "Han Kang", genre: "Fiction", 'url-book': 'https://www.goodreads.com/book/show/30091914-human-acts', 'url-author': 'https://www.goodreads.com/author/show/4119155.Han_Kang'},
     { book: "The Vegetarian", author: "Han Kang", genre: "Fiction", 'url-book': 'https://www.goodreads.com/book/show/25489025-the-vegetarian', 'url-author': 'https://www.goodreads.com/author/show/4119155.Han_Kang'},
     { book: "Dune (#1)", author: "Frank Herbert", genre: "Sci-Fi", 'url-book': 'https://www.goodreads.com/book/show/25772375-dune', 'url-author': 'https://www.goodreads.com/author/show/58.Frank_Herbert'},
