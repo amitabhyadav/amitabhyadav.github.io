@@ -1,9 +1,8 @@
 body {
-    align-items: center;    /* Center all items horizontally */
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    max-width: 1500px;
+    max-width: 1700px;
 }
 
 header {
