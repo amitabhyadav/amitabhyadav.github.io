@@ -173,8 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mode: 'lines+markers',
             name: 'Pages',
             hoverinfo: 'text',
-            hovertemplate: '%{text}<extra></extra>'
-            //hoverinfo: 'skip' // Turn off hover for pages
+            hovertemplate: '%{text}<extra></extra>',
             line: {
               color: 'blue'
             },
@@ -182,6 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
               size: 6,
               color: 'blue'
             }
+            //hoverinfo: 'skip' // Turn off hover for pages
         };
 
         const shapes = [];
