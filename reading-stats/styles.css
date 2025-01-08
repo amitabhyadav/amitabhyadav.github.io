@@ -123,7 +123,10 @@
 
     /* Hide Unwanted Additional Charts */
     #pie-venue,
-    #pie-location {
+    #pie-location,
+    #reading-per-month,
+    .pie-charts-container, 
+    #right-table {
       display: none;
     }
 
