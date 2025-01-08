@@ -358,7 +358,9 @@ document.addEventListener('DOMContentLoaded', () => {
         Plotly.react(pieChart, [{
             values: genreCounts,
             labels: genres,
-            type: 'pie'
+            type: 'pie',
+            textinfo: 'label+percent',
+            showlegend: false
         }], {
             title: 'Genre Distribution'
         }, config);
