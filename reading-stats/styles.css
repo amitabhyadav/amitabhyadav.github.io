@@ -1,79 +1,159 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    max-width: 1700px;
-}
+/* Global Styles */
+    body {
+      font-family: Helvetica, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      box-sizing: border-box;
+    }
 
-header {
-    background-color: #f8f8f8;
-    padding: 5px;
-    text-align: center;
-}
+    a {
+      text-decoration: none;
+      color: #159BD6;
+    }
 
-a {
-    text-decoration: none;
-    color: #159BD6;
-}
+    h2, h1 {
+      text-align: center;
+    }
 
-main {
-    padding: 20px;
-}
+    /* Button Container */
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
 
-#summary h2 {
-    margin-top: 0;
-}
+    /* Button Styles */
+    button {
+      padding: 8px 15px;
+      margin: 5px;
+      border: none;
+      cursor: pointer;
+      border: 1px solid black;
+      border-radius: 5px;
+      flex: 1 0 auto;
+    }
 
-#left-table table,
-#right-table table {
-    width: 100%;
-    border-collapse: collapse;
-}
+    button.selected {
+      background-color: black;
+      color: white;
+    }
 
-#left-table th,
-#right-table th,
-#left-table td,
-#right-table td {
-    padding: 10px;
-    text-align: left;
-}
+    button:not(.selected) {
+      background-color: white;
+      color: black;
+    }
 
-#left-table th,
-#right-table th {
-    border-bottom: 2px solid #ddd;
-}
+    /* Table Styles */
+    table {
+      width: 100%;
+      border-collapse: collapse; /* Ensures borders are collapsed for cleaner look */
+    }
+    td, th {
+      padding: 8px 12px; /* Increased padding for better readability */
+      border: none;
+      text-align: left;
+    }
 
-#left-table td a,
-#right-table td a {
-    color: #159BD6;
-    text-decoration: none;
-}
+    th {
+      /* background-color: #F2F2F2; */
+      border-bottom: 1.5px solid #000; /* Adds only the bottom border to header cells */
+    }
 
-#left-table td a:hover,
-#right-table td a:hover {
-    text-decoration: underline;
-}
+    /* Chart Containers */
+    .chart-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
 
-button {
-    padding: 10px 20px;
-    margin: 5px;
-    border: none;
-    cursor: pointer;
-    border: 1px solid black;
-    border-radius: 5px;
-}
+    .chart {
+      box-sizing: border-box;
+      padding: 10px;
+    }
 
-button.selected {
-    background-color: black;
-    color: white;
-}
+    #line-chart {
+      width: 100%;
+      height: 450px;
+    }
 
-button:not(.selected) {
-    background-color: white;
-    color: black;
-}
+    #reading-per-month {
+      width: 80%;
+      height: 450px;
+      margin: 2.5%;
+    }
 
-#left-table,
-#right-table {
-    margin-top: 20px;
-}
+    #reading-per-weekday {
+      width: 60%;
+      height: 450px;
+      margin: 2.5%;
+    }
+
+    /* Pie Charts Container */
+    .pie-charts-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    #pie-chart, #pie-booktype, #rating-chart {
+      width: 30%;
+      height: 500px;
+    }
+
+    /* Tables Side by Side */
+    .tables-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    #left-table, #right-table {
+      width: 48%;
+      margin: 0.8%;
+    }
+
+    /* Hide Unwanted Additional Charts */
+    #pie-venue,
+    #pie-location {
+      display: none;
+    }
+
+    /* Summary and Click Text */
+    #summary, #click-text {
+      width: 80%; /* Increased width from 100% to 80% */
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 1450px) {
+      #reading-per-month, #reading-per-weekday,
+      #pie-chart, #pie-booktype,
+      #left-table, #right-table {
+        width: 100%;
+        margin: 0 0 20px 0;
+      }
+
+      .button-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      button {
+        width: 80%;
+        margin: 5px 0;
+      }
+
+      #summary, #click-text {
+        width: 100%;
+      }
+    }
