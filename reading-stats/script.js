@@ -320,7 +320,7 @@ document.addEventListener('DOMContentLoaded', () => {
         values: Object.values(venueCounts),
         labels: Object.keys(venueCounts),
         type: 'pie',
-        hoverinfo: 'label+value',
+        hoverinfo: 'label+percent',
         textinfo: 'none',
         showlegend: false
     }];
@@ -334,7 +334,7 @@ document.addEventListener('DOMContentLoaded', () => {
         values: Object.values(booktypeCounts),
         labels: Object.keys(booktypeCounts),
         type: 'pie',
-        hoverinfo: 'label+value',
+        hoverinfo: 'label+percent',
         textinfo: 'none',
         showlegend: false
     }];
@@ -348,7 +348,7 @@ document.addEventListener('DOMContentLoaded', () => {
         values: Object.values(locationCounts),
         labels: Object.keys(locationCounts),
         type: 'pie',
-        hoverinfo: 'label+value',
+        hoverinfo: 'label+percent',
         textinfo: 'none',
         showlegend: false
     }];
