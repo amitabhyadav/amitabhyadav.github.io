@@ -36,6 +36,23 @@ document.addEventListener('DOMContentLoaded', () => {
         return filteredData;
     }
 
+    function formatDate(dateStr, fallback = 'In Progress') {
+      // If null/undefined, return fallback (or 'N/A', etc.)
+      if (!dateStr) return fallback;
+
+      // Expecting dateStr = "YYYY-MM-DD"
+      const parts = dateStr.split('-');
+      if (parts.length !== 3) {
+        // If there's any unexpected format, just return the raw dateStr or fallback
+        return dateStr;
+      }
+
+      const [year, month, day] = parts; // e.g. ["2025", "01", "01"]
+      // Reassemble as DD.MM.YYYY
+      return `${day}.${month}.${year}`;
+    }
+
+
     function updateVisualizations(filter) {
         const filteredData = filterReadingData(filter);
         if (filteredData.length === 0) {
@@ -284,6 +301,9 @@ document.addEventListener('DOMContentLoaded', () => {
         bookMap.forEach((bookData, bookKey) => {
     const [book, author] = bookKey.split('-');
     const endDate = bookData.endDate ? bookData.endDate : 'Currently Reading';
+    // Format started and ended date
+    const startedDate = formatDate(bookData.startDate, 'N/A'); 
+    const endedDate   = formatDate(bookData.endDate, 'Currently Reading');
 
     // Compute progress (0-100%)
     const progressPercent = (bookData.totalPages > 0)
@@ -294,8 +314,8 @@ document.addEventListener('DOMContentLoaded', () => {
       <tr>
         <td><a href="${bookData.urlBook}" target="_blank">${book}</a></td>
         <td><a href="${bookData.urlAuthor}" target="_blank">${author}</a></td>
-        <td>${bookData.startDate || 'N/A'}</td>
-        <td>${endDate}</td>
+        <td>${startedDate}</td>
+        <td>${endedDate}</td>
         <td>${bookData.totalDays}</td>
         <td>${bookData.pages}</td>
         <td>${Math.floor(bookData.minutes / 60)}h:${bookData.minutes % 60}m</td>
