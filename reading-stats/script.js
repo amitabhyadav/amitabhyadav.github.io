@@ -447,7 +447,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <td>${endedDate}</td>
         <td>${bookData.totalDays}</td>
         <td>${bookData.pages}</td>
-        <td>${Math.floor(bookData.minutes / 60)}h ${bookData.minutes % 60}m</td>
+        <td>${Math.floor(bookData.minutes / 60)}h${bookData.minutes % 60}m</td>
         <!-- New column: small progress bar -->
         <td>
           <div style="width: 100px; background-color: #f0f0f0; border: 1px solid #ccc;">
