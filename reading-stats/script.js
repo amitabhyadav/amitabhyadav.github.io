@@ -334,7 +334,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 textangle: -90,
                 font: {
                     size: 12,
-                    color: 'white'
+                    color: 'black'
                 },
                 align: 'left',
                 valign: 'middle',
