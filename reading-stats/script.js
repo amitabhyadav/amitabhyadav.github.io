@@ -297,6 +297,66 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'Genre Distribution'
         }, config);
 
+    const venueCounts = {};
+    const locationCounts = {};
+    const booktypeCounts = {};
+
+    filteredData.forEach(entry => {
+        const venue = entry.venue || 'Unknown';
+        const location = entry.location || 'Unknown';
+        const booktype = entry.booktype || 'Unknown';
+
+        if (!venueCounts[venue]) venueCounts[venue] = 0;
+        if (!locationCounts[location]) locationCounts[location] = 0;
+        if (!booktypeCounts[booktype]) booktypeCounts[booktype] = 0;
+
+        venueCounts[venue]++;
+        locationCounts[location]++;
+        booktypeCounts[booktype]++;
+    });
+
+    // Pie #1: Venue
+    const venueData = [{
+        values: Object.values(venueCounts),
+        labels: Object.keys(venueCounts),
+        type: 'pie',
+        hoverinfo: 'label+value',
+        textinfo: 'none',
+        showlegend: false
+    }];
+
+    Plotly.react('pie-venue', venueData, {
+        title: 'Venue Distribution',
+    }, { displayModeBar: false });
+
+    // Pie #2: Book Type
+    const booktypeData = [{
+        values: Object.values(booktypeCounts),
+        labels: Object.keys(booktypeCounts),
+        type: 'pie',
+        hoverinfo: 'label+value',
+        textinfo: 'none',
+        showlegend: false
+    }];
+
+    Plotly.react('pie-booktype', booktypeData, {
+        title: 'Book Type Distribution',
+    }, { displayModeBar: false });
+
+    // Pie #3: Location
+    const locationData = [{
+        values: Object.values(locationCounts),
+        labels: Object.keys(locationCounts),
+        type: 'pie',
+        hoverinfo: 'label+value',
+        textinfo: 'none',
+        showlegend: false
+    }];
+
+    Plotly.react('pie-location', locationData, {
+        title: 'Location Distribution',
+    }, { displayModeBar: false });
+
         let leftTableHtml = '<h3>Reading Journal</h3><table><tr><th>Book Name</th><th>Author</th><th>Started</th><th>Ended</th><th>Days</th><th>Pages</th><th>Hours</th><th>Progress</th></tr>';
         bookMap.forEach((bookData, bookKey) => {
     const [book, author] = bookKey.split('-');
