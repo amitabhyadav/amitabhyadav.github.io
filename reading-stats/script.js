@@ -304,15 +304,16 @@ document.addEventListener('DOMContentLoaded', () => {
     filteredData.forEach(entry => {
         const venue = entry.venue || 'Unknown';
         const location = entry.location || 'Unknown';
-        const booktype = entry.booktype || 'Unknown';
-
         if (!venueCounts[venue]) venueCounts[venue] = 0;
         if (!locationCounts[location]) locationCounts[location] = 0;
-        if (!booktypeCounts[booktype]) booktypeCounts[booktype] = 0;
-
         venueCounts[venue]++;
         locationCounts[location]++;
-        booktypeCounts[booktype]++;
+
+        if (entry.status === "started") {
+            const booktype = entry.booktype || 'Unknown';
+            if (!booktypeCounts[booktype]) booktypeCounts[booktype] = 0;
+            booktypeCounts[booktype]++;
+        }
     });
 
     // Pie #1: Venue
