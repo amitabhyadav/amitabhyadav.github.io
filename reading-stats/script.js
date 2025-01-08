@@ -52,6 +52,69 @@ document.addEventListener('DOMContentLoaded', () => {
       return `${day}.${month}.${year}`;
     }
 
+    function computeRatings(readingData) {
+        // 1. Sort data by date ascending
+        const sortedData = readingData.slice().sort((a, b) => new Date(a.date) - new Date(b.date));
+
+        const ratings = [];
+        let currentRating = 50; // start rating
+
+        const A = 0.4;    // reward factor
+        const B = 2;      // skip penalty
+        const M = 20;     // baseline minutes
+        const MIN_R = 0;  
+        const MAX_R = 100;
+
+        for (let i = 0; i < sortedData.length; i++) {
+            const entry = sortedData[i];
+            const dateStr = entry.date;
+            const minutes = entry.minutes || 0;
+
+            // If we skip or read 0
+            let n_d = (minutes === 0) ? 1 : 0;
+            let delta = A * (minutes - M) - B * n_d;
+
+            // New rating
+            currentRating = currentRating + delta;
+            // clamp
+            currentRating = Math.max(MIN_R, Math.min(MAX_R, currentRating));
+
+            // store rating along with date
+            ratings.push({
+                date: dateStr,
+                rating: currentRating
+            });
+        }
+
+        return ratings;
+    }
+
+    function plotRatingOverTime(ratings) {
+        const dates = ratings.map(r => r.date);
+        const ratingVals = ratings.map(r => r.rating);
+
+        const trace = {
+            x: dates,
+            y: ratingVals,
+            mode: 'lines+markers',
+            name: 'Reading Rating',
+            line: { color: 'green' },
+            hoverinfo: 'y' // or 'x+y'
+        };
+
+        const layout = {
+            title: 'Reading Rating Over Time',
+            xaxis: {
+                title: 'Date'
+            },
+            yaxis: {
+                title: 'Rating',
+                range: [0, 100] // if you want 0-100 scale
+            }
+        };
+
+        Plotly.newPlot('rating-chart', [trace], layout, {displayModeBar: false});
+    }
 
     function updateVisualizations(filter) {
         const filteredData = filterReadingData(filter);
@@ -548,6 +611,8 @@ leftTableHtml += '</table>';
     }
 
     // Initial load
+    const ratings = computeRatings(readingData);
+    plotRatingOverTime(ratings);
     document.querySelector('button[onclick="filterData(\'all\')"]').classList.add('selected');
     updateVisualizations('all');
 });
