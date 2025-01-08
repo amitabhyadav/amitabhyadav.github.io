@@ -227,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
             dates.push(entry.date);
             minutes.push(entry.minutes);
             pages.push(entry.pages);
-            const text = `${entry.minutes} min, ${entry.pages} pages [\n${entry.book} by ${entry.author}]`;
+            const text = `${entry.minutes} mins, ${entry.pages} pages [\n${entry.book} by ${entry.author} ]`;
             hoverText.push(text);
             entriesMap.set(entry.date, { minutes: entry.minutes, book: entry.book, author: entry.author, urlBook: entry['url-book'], urlAuthor: entry['url-author'] });
         });
@@ -447,7 +447,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <td>${endedDate}</td>
         <td>${bookData.totalDays}</td>
         <td>${bookData.pages}</td>
-        <td>${Math.floor(bookData.minutes / 60)}h:${bookData.minutes % 60}m</td>
+        <td>${Math.floor(bookData.minutes / 60)}h ${bookData.minutes % 60}m</td>
         <!-- New column: small progress bar -->
         <td>
           <div style="width: 100px; background-color: #f0f0f0; border: 1px solid #ccc;">
