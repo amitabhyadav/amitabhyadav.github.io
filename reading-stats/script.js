@@ -336,7 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
         labels: Object.keys(booktypeCounts),
         type: 'pie',
         hoverinfo: 'label+percent',
-        textinfo: 'none',
+        textinfo: 'label+value',
         showlegend: false
     }];
 
