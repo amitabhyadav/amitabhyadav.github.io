@@ -388,7 +388,7 @@ document.addEventListener('DOMContentLoaded', () => {
         labels: Object.keys(venueCounts),
         type: 'pie',
         hoverinfo: 'label+percent',
-        textinfo: 'none',
+        textinfo: 'label',
         showlegend: false
     }];
 
@@ -416,7 +416,7 @@ document.addEventListener('DOMContentLoaded', () => {
         labels: Object.keys(locationCounts),
         type: 'pie',
         hoverinfo: 'label+percent',
-        textinfo: 'none',
+        textinfo: 'label',
         showlegend: false
     }];
 
