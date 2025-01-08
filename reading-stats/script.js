@@ -333,7 +333,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 showarrow: false,
                 textangle: -90,
                 font: {
-                    size: 10,
+                    size: 12,
                     color: 'white'
                 },
                 align: 'left',
