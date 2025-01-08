@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const currentDate = new Date();
+    const currentDate = new Date(); 
 
     function calculateDuration(startDate, endDate) {
         const years = endDate.getFullYear() - startDate.getFullYear();
