@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
             y: ratingVals,
             mode: 'lines+markers',
             name: 'Reading Rating',
-            line: { color: 'green' },
+            line: { color: 'red' },
             hoverinfo: 'y' // or 'x+y'
         };
 
