@@ -103,17 +103,42 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const layout = {
-            title: 'Reading Rating Over Time',
-            xaxis: {
-                title: 'Time',
-                ticks: 'outside',     // show tick marks
-                showticklabels: false // hide the actual date text
-            },
-            yaxis: {
-                title: 'Rating'
-            }
+          title: {
+            text: `Reading Rating Over Time 
+                   <span id="ratingInfo" 
+                         style="color:blue; font-size: 14px; cursor: pointer; margin-left: 8px;">
+                     [info]
+                   </span>`,
+            x: 0.02,   // move title a bit left or right if needed
+          },
+          xaxis: {
+            title: 'Time',
+            ticks: 'outside',
+            showticklabels: false,
+          },
+          yaxis: {
+            title: 'Rating'
+          }
         };
-        Plotly.newPlot('rating-chart', [trace], layout, {displayModeBar: false});
+
+        Plotly.newPlot('rating-chart', [trace], layout, {displayModeBar: false})
+            .then((chartDiv) => {
+            // chartDiv is the DOM node for #rating-chart
+            const infoSpan = chartDiv.querySelector('#ratingInfo');
+            if (infoSpan) {
+              infoSpan.addEventListener('click', () => {
+                // Show your "in window" popup with the explanation
+                // Option A: Just use alert()
+                alert(`Reading Rating System Explanation:
+
+        I assign myself a daily rating based on how much I read compared to a personal baseline. 
+        Each day, I record my reading progress. 
+        If I meet or exceed my baseline, the rating gradually goes up. 
+        If I skip days or read far below, my rating decreases until I rebuild the habit.
+                `);
+                });
+            }
+          });
     }
 
     function updateVisualizations(filter) {
