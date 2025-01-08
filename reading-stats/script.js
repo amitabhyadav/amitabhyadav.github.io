@@ -149,8 +149,8 @@ document.addEventListener('DOMContentLoaded', () => {
             Plotly.newPlot('reading-per-month', [], {});
             Plotly.newPlot('reading-per-weekday', [], {});
             Plotly.newPlot('pie-chart', [], {});
-            document.getElementById('left-table').innerHTML = '<h3>Reading Journal</h3><table><tr><th>Book Name</th><th>Author</th><th>Start Date</th><th>End Date</th><th>Total Days</th><th>Pages</th><th>Hours</th></tr></table>';
-            document.getElementById('right-table').innerHTML = '<h3>Reading Wishlist</h3><table><tr><th>Book Name</th><th>Author</th><th>Genre</th></tr></table>';
+            document.getElementById('left-table').innerHTML = '<h3>Reading Journal</h3><table><tr><th>Book</th><th>Author</th><th>Start Date</th><th>End Date</th><th>Total Days</th><th>Pages</th><th>Hours</th></tr></table>';
+            document.getElementById('right-table').innerHTML = '<h3>Reading Wishlist</h3><table><tr><th>Book</th><th>Author</th><th>Genre</th></tr></table>';
             return;
         }
 
