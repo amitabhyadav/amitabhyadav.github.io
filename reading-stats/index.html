@@ -1,48 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amitabh's Notes / Reading Stats</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="shortcut icon" type="image/png" href="../assets/icons/favicon.png"/>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amitabh's Notes / Reading Stats</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/icons/favicon.png"/>
+  <script src="https://cdn.plot.ly/plotly-2.20.0.min.js"></script>
 </head>
 <body>
-    <header>
-        <h3>Amitabh's Notes / Reading Stats</h3>
-    </header>
-    <main>
-        <div id="buttons" style="text-align: center; margin-bottom: 20px;">
-            <button onclick="filterData('all')">All</button>
-            <button onclick="filterData('last6months')">Last 6 months</button>
-            <button onclick="filterData('thisYear')">This Year</button>
-            <!-- <button onclick="filterData('2024')">2024</button> 
-            <button onclick="filterData('2023')">2023</button>
-            <button onclick="filterData('2022')">2022</button> -->
-        </div>
-        <section id="summary"></section>
-        <center style="font-size: 14px;">Click a point to see details</center></br>
-        <div id="click-text" style="text-align: center; margin-bottom: 10px;"></div>
-        <section id="line-chart"></section>
-        <section id="reading-per-month"></section>
-        <div style="display: flex; justify-content: space-between;">
-            <section id="reading-per-weekday" style="flex: 1;"></section>
-            <section id="pie-chart" style="flex: 1;"></section>
-        </div>
-        <div style="display: flex; justify-content: space-between; margin: 20px 0;">
-            <section id="pie-venue" style="flex: 1; min-width: 250px;"></section>
-            <section id="pie-booktype" style="flex: 1; min-width: 250px;"></section>
-            <section id="pie-location" style="flex: 1; min-width: 250px;"></section>
-        </div>
-        <div style="display: flex; justify-content: space-between; gap: 20px;">
-            <div id="left-table" style="flex: 1;"></div>
-            <div id="right-table" style="flex: 1;"></div>
-        </div>
-        <div><center><section id="rating-chart" style="flex: 1; width: 450px; height: 275px; display: none;></section></center></div>
-        <div><center style="font-size: 12px; display: block;">Page idea inspired by <a href="https://derlin.github.io/reading-stats/">Lucy Linder's Reading Stats</a></center></div>
-    </main>
-    <script src="data.js"></script>
-    <script src="script.js"></script>
+
+<!-- Buttons to filter data -->
+<div style="width:100%; background-color: #f2f2f2;">
+  <h2>Amitabh's Notes / Reading Stats</h2>
+</div><hr></br>
+<div class="button-container">
+<button onclick="filterData('all')">All</button>
+<button onclick="filterData('last6months')">Last 6 months</button>
+<button onclick="filterData('thisYear')">This Year</button>
+<!--<button onclick="filterData('2027')">2027</button>
+<button onclick="filterData('2026')">2026</button>
+<button onclick="filterData('2025')">2025</button> -->
+</div>
+
+<div id="summary"></div>
+<div style="font-size: 11pt;"><i>Click a point to see details</i></div><br>
+<div id="click-text"></div>
+<div id="line-chart"></div>
+
+<!-- Main charts -->
+ <div class="chart-container">
+    
+    <div id="reading-per-month" class="chart"></div>
+    <div id="reading-per-weekday" class="chart"></div>
+  </div>
+
+<!-- Additional charts -->
+  <div class="pie-charts-container">
+    <div id="pie-chart" class="chart"></div> 
+    <div id="pie-booktype" class="chart"></div>
+    <div id="rating-chart"></div>
+
+  </div>
+<div id="pie-venue" style="width:50%; height:300px;"></div>
+<div id="pie-location" style="width:50%; height:300px;"></div>
+<!-- <div id="rating-chart" style="width:20%; height:300px;"></div> -->
+
+<!-- Tables -->
+  <div class="tables-container">
+    <div id="left-table"></div>
+    <div id="right-table"></div>
+  </div>
+
+<!-- Credits --></br>
+<div><center style="font-size: 11pt; display: block;">Page idea inspired by <a href="https://derlin.github.io/reading-stats/">Lucy Linder's Reading Stats</a></center></div></br>
+
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+
 </body>
 </html>
