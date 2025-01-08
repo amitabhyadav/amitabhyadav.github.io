@@ -566,7 +566,7 @@ document.addEventListener('DOMContentLoaded', () => {
             y: weekdaySums,
             type: 'bar',
             text: weekdayMeans.map(m => `μ = ${m.toFixed(2)}`),
-            textangle: -90,
+            textangle: 0,
             textposition: 'auto',
             hoverinfo: 'text',
             hovertext: weekdays.map((w,i) => `Sum: ${weekdaySums[i]}<br>Mean: ${weekdayMeans[i].toFixed(2)}<br>Median: ${weekdayMedians[i]}<br>Min: ${weekdayMins[i]}<br>Max: ${weekdayMaxs[i]}`)
