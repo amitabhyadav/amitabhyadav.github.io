@@ -119,37 +119,8 @@ document.addEventListener('DOMContentLoaded', () => {
         Plotly.newPlot('rating-chart', [trace], layout, {displayModeBar: false})
     }
 
-    function groupDataByDate(data) {
-        // key: date string (e.g. "2025-01-08"), value: aggregated object
-        const groupedMap = new Map();
-
-        data.forEach(entry => {
-            const date = entry.date;
-            if (!groupedMap.has(date)) {
-                // Initialize an aggregated record for this date
-                groupedMap.set(date, {
-                    date,
-                    minutes: 0,
-                    pages: 0,
-                    // If you also need other sums or counts, add them here
-                    rawEntries: [] // optional: to store individual logs if needed
-                });
-            }
-            const aggregated = groupedMap.get(date);
-            aggregated.minutes += entry.minutes;
-            aggregated.pages   += entry.pages;
-            aggregated.rawEntries.push(entry); // store the original entries (optional)
-        });
-
-        // Return an array of aggregated objects
-        return Array.from(groupedMap.values());
-    }
-
-
     function updateVisualizations(filter) {
         const filteredData = filterReadingData(filter);
-        const dailyGroupedData = groupDataByDate(filteredData);
-        dailyGroupedData.sort((a, b) => new Date(a.date) - new Date(b.date));
         if (filteredData.length === 0) {
             document.getElementById('summary').innerHTML = `<h2 style="text-align: center;">Overview</h2><p style="text-align: center;">No data available for the selected period.</p>`;
             Plotly.newPlot('line-chart', [], {});
@@ -167,10 +138,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let totalMinutes = 0;
         let totalPages = 0;
-        dailyGroupedData.forEach(day => {
-            totalMinutes += day.minutes;
-            totalPages += day.pages;
-        });
         let totalBooks = 0;
         let lessThanTenMinutes = 0;
         let bookMap = new Map();
@@ -250,12 +217,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.getElementById('summary').innerHTML = summaryText;
 
-        //const dates = [];
-        //const minutes = [];
-        //const pages = [];
-        const dates = dailyGroupedData.map(d => d.date);
-        const minutes = dailyGroupedData.map(d => d.minutes);
-        const pages   = dailyGroupedData.map(d => d.pages);
+        const dates = [];
+        const minutes = [];
+        const pages = [];
         const hoverText = [];
         const entriesMap = new Map();
 
