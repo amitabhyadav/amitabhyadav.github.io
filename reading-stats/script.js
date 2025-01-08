@@ -516,13 +516,7 @@ document.addEventListener('DOMContentLoaded', () => {
             textangle: -90,
             hoverinfo: 'text',
             hovertext: months.map((m,i)=> {
-                return `
-                  Sum: ${monthSums[i]}<br>
-                  Mean: ${monthMeans[i].toFixed(2)}<br>
-                  Median: ${monthMedians[i]}<br>
-                  Min: ${monthMins[i]}<br>
-                  Max: ${monthMaxs[i]}
-                `;
+                return `Sum: ${monthSums[i]}<br>Mean: ${monthMeans[i].toFixed(2)}<br>Median: ${monthMedians[i]}<br>Min: ${monthMins[i]}<br>Max: ${monthMaxs[i]}`;
             })
         };
 
@@ -575,13 +569,7 @@ document.addEventListener('DOMContentLoaded', () => {
             textangle: -90,
             textposition: 'auto',
             hoverinfo: 'text',
-            hovertext: weekdays.map((w,i) => `
-              Sum: ${weekdaySums[i]}<br>
-              Mean: ${weekdayMeans[i].toFixed(2)}<br>
-              Median: ${weekdayMedians[i]}<br>
-              Min: ${weekdayMins[i]}<br>
-              Max: ${weekdayMaxs[i]}
-            `)
+            hovertext: weekdays.map((w,i) => `Sum: ${weekdaySums[i]}<br>Mean: ${weekdayMeans[i].toFixed(2)}<br>Median: ${weekdayMedians[i]}<br>Min: ${weekdayMins[i]}<br>Max: ${weekdayMaxs[i]}`)
         };
 
         Plotly.react('reading-per-weekday', [weekdayTrace], {
