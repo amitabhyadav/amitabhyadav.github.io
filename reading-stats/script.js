@@ -424,7 +424,7 @@ document.addEventListener('DOMContentLoaded', () => {
         /* --------------------------------------------------
            7g) LEFT TABLE: Reading Journal
          -------------------------------------------------- */
-        let leftTableHtml = '<h3>Reading Journal</h3><table><tr><th>Book Name</th><th>Author</th><th>Started</th><th>Ended</th><th>Days</th><th>Pages</th><th>Hours</th><th>Progress</th></tr>';
+        let leftTableHtml = '<h3>Reading Journal</h3><table><tr><th>Book</th><th>Author</th><th>Started</th><th>Ended</th><th>Days</th><th>Pages</th><th>Hours</th><th>Progress</th></tr>';
         bookMap.forEach((bookData, bookKey) => {
             const [book, author] = bookKey.split('-');
             const endDate   = bookData.endDate ? bookData.endDate : 'Currently Reading';
@@ -459,7 +459,7 @@ document.addEventListener('DOMContentLoaded', () => {
         /* --------------------------------------------------
            7h) RIGHT TABLE: Reading Wishlist
          -------------------------------------------------- */
-        let rightTableHtml = '<h3>Reading Wishlist</h3><table><tr><th>Book Name</th><th>Author</th><th>Genre</th></tr>';
+        let rightTableHtml = '<h3>Reading Wishlist</h3><table><tr><th>Book</th><th>Author</th><th>Genre</th></tr>';
         wishlistData.forEach(entry => {
             rightTableHtml += `
               <tr>
