@@ -260,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
             y: yMinutes,
             mode: 'lines+markers',
             name: 'Minutes',
-            hovertemplate: '%{x} : %{y} Minutes<extra></extra>',
+            hovertemplate: '%{y} Minutes (%{x})<extra></extra>',
             line: { color: 'red' },
             marker: { size: 6, color: 'red' }
         };
@@ -270,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
             y: yPages,
             mode: 'lines+markers',
             name: 'Pages',
-            hovertemplate: '%{x} : %{y} Pages<extra></extra>',
+            hovertemplate: '%{y} Pages (%{x})<extra></extra>',
             line: { color: 'blue' },
             marker: { size: 6, color: 'blue' }
         };
