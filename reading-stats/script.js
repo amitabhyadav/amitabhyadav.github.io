@@ -104,12 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const layout = {
           title: {
-            text: `Reading Rating Over Time 
-                   <span id="ratingInfo" 
-                         style="color:blue; font-size: 14px; cursor: pointer; margin-left: 8px;">
-                     [info]
-                   </span>`,
-            x: 0.02,   // move title a bit left or right if needed
+            text: `Reading Rating`,
           },
           xaxis: {
             title: 'Time',
@@ -122,23 +117,6 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         Plotly.newPlot('rating-chart', [trace], layout, {displayModeBar: false})
-            .then((chartDiv) => {
-            // chartDiv is the DOM node for #rating-chart
-            const infoSpan = chartDiv.querySelector('#ratingInfo');
-            if (infoSpan) {
-              infoSpan.addEventListener('click', () => {
-                // Show your "in window" popup with the explanation
-                // Option A: Just use alert()
-                alert(`Reading Rating System Explanation:
-
-        I assign myself a daily rating based on how much I read compared to a personal baseline. 
-        Each day, I record my reading progress. 
-        If I meet or exceed my baseline, the rating gradually goes up. 
-        If I skip days or read far below, my rating decreases until I rebuild the habit.
-                `);
-                });
-            }
-          });
     }
 
     function updateVisualizations(filter) {
