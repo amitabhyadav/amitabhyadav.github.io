@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // New rating
             currentRating = currentRating + delta;
             // clamp
-            currentRating = Math.max(MIN_R, Math.min(MAX_R, currentRating));
+            // currentRating = Math.max(MIN_R, Math.min(MAX_R, currentRating));
 
             // store rating along with date
             ratings.push({
