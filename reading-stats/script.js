@@ -105,14 +105,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const layout = {
             title: 'Reading Rating Over Time',
             xaxis: {
-                title: 'Date'
+                title: 'Time',
+                ticks: 'outside',     // show tick marks
+                showticklabels: false // hide the actual date text
             },
             yaxis: {
-                title: 'Rating',
-                range: [0, 100] // if you want 0-100 scale
+                title: 'Rating'
             }
         };
-
         Plotly.newPlot('rating-chart', [trace], layout, {displayModeBar: false});
     }
 
