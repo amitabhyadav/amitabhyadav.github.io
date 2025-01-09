@@ -228,8 +228,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 7b) Summaries
         const summaryText = `
-            <h2 style="text-align: center;">Overview</h2>
-            <p style="text-align: center;">
+            <h2 style="text-align: left;">Overview</h2>
+            <p style="text-align: left;">
             From <span style="color: #159BD6;">${startDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span>
             to <span style="color: #159BD6;">${endDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span>
             (${duration.totalYears} years ${duration.totalMonths} months and ${duration.totalDays} days),
