@@ -262,7 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
             name: 'Minutes',
             hovertemplate: '%{y} Minutes (%{x})<extra></extra>',
             line: { color: 'red' },
-            marker: { size: 6, color: 'red' }
+            marker: { size: 2, color: 'red' }
         };
 
         const lineTracePages = {
@@ -272,7 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
             name: 'Pages',
             hovertemplate: '%{y} Pages (%{x})<extra></extra>',
             line: { color: 'blue' },
-            marker: { size: 6, color: 'blue' }
+            marker: { size: 2, color: 'blue' }
         };
 
         // 7d) Highlight reading intervals for each book
