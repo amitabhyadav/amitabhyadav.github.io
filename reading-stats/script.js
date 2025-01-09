@@ -236,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
             I finished <span style="color: red;">${totalBooks}</span> books.<br>
             I read about <span style="color: red;">${totalPages}</span> pages in <span style="color: red;">${totalMinutes}</span> minutes,
             which is equivalent to <span style="color: red;">${Math.floor(totalMinutes / 60)}</span> hours and <span style="color: red;">${totalMinutes % 60}</span> minutes of non-stop reading. <br>
-            I missed <span style="color: red;">${missedDays}</span> days (no reading at all), and read less than ten minutes <span style="color: red;">${lessThanTenMinutes}</span> times.<br>...
+            I missed <span style="color: red;">${missedDays}</span> days (no reading at all), and read less than ten minutes <span style="color: red;">${lessThanTenMinutes}</span> times.<br><br>
             </p>
         `;
         document.getElementById('summary').innerHTML = summaryText;
