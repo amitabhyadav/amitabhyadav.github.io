@@ -279,9 +279,8 @@ document.addEventListener('DOMContentLoaded', () => {
         //  - We'll still look at the raw bookMap for start/end
         const shapes = [];
         const colors = [
-          'rgba(128, 0, 128, 0.5)', 'rgba(0, 128, 128, 0.5)',
-          'rgba(128, 128, 0, 0.5)', 'rgba(128, 0, 0, 0.5)',
-          'rgba(0, 0, 128, 0.5)'
+          'rgba(255, 255, 200, 0.5)',
+          'rgba(254, 117, 65, 0.4)'
         ];
         let colorIndex = 0;
 
@@ -290,7 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (bookData.startDate && bookData.endDate) {
                 let bookText = book;
                 if (bookText.length > 40) {
-                    bookText = bookText.substring(0, 40) + '...';
+                    bookText = bookText.substring(0, 35) + '...';
                 }
                 shapes.push({
                     type: 'rect',
@@ -343,7 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 text: shape.text,
                 showarrow: false,
                 textangle: -90,
-                font: { size: 12, color: 'black' },
+                font: {family: 'Helvetica, sans-serif', size: 12, color: 'black' },
                 align: 'left',
                 valign: 'middle',
                 xanchor: 'left'
