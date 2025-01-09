@@ -309,7 +309,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         const layout = {
-            title: 'Reading Progress (per Day)',
+            title: {
+          text: '<span style="font-size:18pt;"><b>Reading Progress (per Day)</b></span><br><span style="font-size:11pt;"><i>Click a point to see details</i></span>', // Bold title
+          font: {
+            family: 'Helvetica, sans-serif',
+            color: 'black'
+          }
+        },
             hovermode: 'closest',
             xaxis: {
                 title: 'Time',
@@ -366,7 +372,13 @@ document.addEventListener('DOMContentLoaded', () => {
             type: 'pie',
             textinfo: 'label+percent',
             showlegend: false
-        }], { title: 'Genre Distribution' }, config);
+        }], { title: {
+          text: '<span style="font-size:18pt;"><b>Genre Distribution</b></span>', // Bold title
+          font: {
+            family: 'Helvetica, sans-serif',
+            color: 'black'
+          }
+        } }, config);
 
         // 7f) Additional Pie Charts: Venue, Location, Booktype
         const venueCounts = {};
@@ -572,7 +584,13 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         Plotly.react('reading-per-weekday', [weekdayTrace], {
-            title: 'Reading Per Weekday',
+            title: {
+              text: '<span style="font-size:18pt;"><b>Reading per Weekday</b></span>', // Bold title
+              font: {
+                family: 'Helvetica, sans-serif',
+                color: 'black'
+              }
+            },
             xaxis: { title: 'Weekday' },
             yaxis: { title: 'Minutes' }
         }, config);
