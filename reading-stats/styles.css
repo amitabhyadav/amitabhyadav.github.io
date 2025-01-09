@@ -6,6 +6,7 @@
       align-items: center;
       margin: 0;
       box-sizing: border-box;
+      max-width: 1600px
     }
 
     a {
