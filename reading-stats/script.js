@@ -420,7 +420,12 @@ document.addEventListener('DOMContentLoaded', () => {
             hoverinfo: 'label+percent',
             textinfo: 'label+value',
             showlegend: false
-        }], { title: 'Book Type Distribution' }, { displayModeBar: false });
+        }], { title: '<span style="font-size:18pt;"><b>Genre Distribution</b></span>', // Bold title
+          font: {
+            family: 'Helvetica, sans-serif',
+            color: 'black'
+          }
+        } }, { displayModeBar: false });
 
         // Pie #3: Location
         Plotly.react('pie-location', [{
