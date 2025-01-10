@@ -83,7 +83,7 @@
     }
 
     #reading-per-month {
-      width: 80%;
+      width: 60%;
       height: 450px;
       margin: 2.5%;
     }
@@ -125,7 +125,6 @@
     /* Hide Unwanted Additional Charts */
     #pie-venue,
     #pie-location,
-    #reading-per-month,
     .pie-charts-container, 
     #right-table {
       display: none;
