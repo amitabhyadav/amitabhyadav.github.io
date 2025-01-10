@@ -420,7 +420,7 @@ document.addEventListener('DOMContentLoaded', () => {
             hoverinfo: 'label+percent',
             textinfo: 'label+value',
             showlegend: false
-        }], { title: '<span style="font-size:18pt;"><b>Genre Distribution</b></span>', // Bold title
+        }], { title: '<span style="font-size:18pt;"><b>Book Type Distribution</b></span>', // Bold title
           font: {
             family: 'Helvetica, sans-serif',
             color: 'black'
@@ -537,7 +537,12 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         Plotly.react('reading-per-month', [monthTrace], {
-            title: 'Reading Per Month',
+            title: '<span style="font-size:18pt;"><b>Reading per Month</b></span>', // Bold title
+          font: {
+            family: 'Helvetica, sans-serif',
+            color: 'black'
+          }
+        } ,
             xaxis: { title: 'Month' },
             yaxis: { title: 'Minutes' }
         }, config);
