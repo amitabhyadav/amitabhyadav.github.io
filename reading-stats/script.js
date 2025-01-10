@@ -537,7 +537,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         Plotly.react('reading-per-month', [monthTrace], {
-            title: '<span style="font-size:18pt;"><b>Reading per Month</b></span>', // Bold title
+            title: {'<span style="font-size:18pt;"><b>Reading per Month</b></span>', // Bold title
           font: {
             family: 'Helvetica, sans-serif',
             color: 'black'
