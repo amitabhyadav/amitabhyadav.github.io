@@ -420,7 +420,8 @@ document.addEventListener('DOMContentLoaded', () => {
             hoverinfo: 'label+percent',
             textinfo: 'label+value',
             showlegend: false
-        }], { title: '<span style="font-size:18pt;"><b>Book Type Distribution</b></span>', // Bold title
+        }], { title: {
+          text: '<span style="font-size:18pt;"><b>Book Type Distribution</b></span>', // Bold title
           font: {
             family: 'Helvetica, sans-serif',
             color: 'black'
