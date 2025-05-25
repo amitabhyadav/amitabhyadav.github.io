@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amitabh's Notes / Reading Stats</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <header>
+        <h3>Amitabh's Notes / Reading Stats</h3>
+    </header>
+    <main>
+        <div id="buttons" style="text-align: center; margin-bottom: 20px;">
+            <button onclick="filterData('all')">All</button>
+            <button onclick="filterData('last6months')">Last 6 months</button>
+            <button onclick="filterData('thisYear')">This Year</button>
+            <button onclick="filterData('2024')">2024</button>
+            <button onclick="filterData('2023')">2023</button>
+            <button onclick="filterData('2022')">2022</button>
+        </div>
+        <section id="summary"></section>
+        <div id="click-text" style="text-align: center; margin-bottom: 10px;"></div>
+        <section id="line-chart"></section>
+        <section id="reading-per-month"></section>
+        <div style="display: flex; justify-content: space-between;">
+            <section id="reading-per-weekday" style="flex: 1;"></section>
+            <section id="pie-chart" style="flex: 1;"></section>
+        </div>
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div id="left-table" style="flex: 1;"></div>
+            <div id="right-table" style="flex: 1;"></div>
+        </div>
+        <div><br>
+            <center style="font-size: 12px;">Page idea inspired by <a href="https://derlin.github.io/reading-stats/">Lucy Linder's Reading Stats</a></center>
+        </div>
+    </main>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Curriculum Vitae | Amitabh Yadav</title>
+<link rel="stylesheet" href="../assets/css/blog-style.css" />
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="../assets/media/images/favicon.svg" />
+
+<!-- MathJax CDN -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+
+<div class="content">
+  <div class="home-title"><h1>Curriculum Vitae (CV)</h1></div>
+  <h4 style="text-align: center; font-weight: normal;">My updated curriculum vitae is attached here</h4>
+  <div class="thin-line"></div>
+  <!-- Articles Table -->
+
+  <div>
+        <iframe src="mycv/cv-dummy.pdf" style="width: 100%; height: 600pt;"></iframe>
+  </div>
+
+
+
+  <div id="fixed-footer">
+    <div class="left-links">
+      <a href="../">Home</a> &#9474; <a href="../research/">Research</a> &#9474; <a href="" style="font-weight: bold; border: 2px solid #0074D9; padding: 4px 8px; border-radius: 4px; text-decoration: none; color: #0074D9;">Curriculum Vitae (CV)</a> &#9474; <a href="../contact/">Contact</a>
+    </div>
+    <div class="right-copy" style="padding-left: 5px;">
+    &#169; 2018–<span id="currentYear"></span> Amitabh Yadav.
+    </div>
+  </div>
+
+</div>
+
+<button id="modeToggle" aria-label="Toggle dark/light mode"></button>
+<script>
+  const year = new Date().getFullYear();
+  document.getElementById('currentYear').textContent = year - 2000;
+</script>
+<script src="../assets/js/blog-style.js" defer></script>
+</body>
+</html>

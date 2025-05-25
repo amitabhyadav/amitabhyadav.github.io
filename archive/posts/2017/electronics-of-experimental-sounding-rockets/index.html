@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="keywords" content="Amitabh Yadav, Home Page, Amitabh Yadav Website, Amitabh Yadav Portfolio, Amitabh Yadav CERN, Amitabh Yadav BARC, Amitabh Yadav NASA, Amitabh Yadav Profile, Amitabh Yadav Lockheed Martin, Amitabh Yadav Blog, Amitabh Yadav TU Delft, Amitabh Yadav UPES, Amitabh Yadav Lucknow, Amitabh Yadav India, Amitabh Yadav Engineer, Amitabh Yadav Electronics, Amitabh Yadav Quantum" />
+    <meta name="description" content="Electronics and Computer Engineer" />
+    <meta name="author" content="Amitabh Yadav">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="../../../assets/icons/favicon.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Amitabh's Notes / On the Electronics Systems of Experimental Sounding Rockets</title> <!-- Update Title -->
+    <link rel="stylesheet" href="../../../assets/style.css">
+    <!-- for mathjax -->
+    <script>
+        MathJax = {
+            loader: {
+             load: [
+              'input/tex-base', '[tex]/newcommand', '[tex]/action',
+              'output/chtml'
+             ]
+            },
+            tex: {
+             tags: "all", // should be 'ams', 'none', or 'all'
+             inlineMath: [['$', '$'], ['\\(', '\\)']],
+             packages: ['base', 'newcommand', 'action']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js"></script>
+    <!-- for code and syntax highlighting -->
+    <!-- Highlight.js Library -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <!-- Disqus Comments -->
+    <script src="//amitabhydv.disqus.com/embed.js" async></script>
+    <!-- jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
+    <!-- Google Analytics starts here -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MJFK7Q82Z8"></script   >
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-MJFK7Q82Z8');
+    </script>
+    <!-- Google Analytics ends here -->
+</head>
+<body>
+<header class="site-header">
+    <div class="header-content">
+        <div class="site-name"><a href="../../../" style="text-decoration: none; color:inherit;">Amitabh's Notes</a></div>
+        <span class="print-only" style="display: none;">&#169; 2023 Amitabh Yadav</span>
+        <div class="share-icons no-print">
+            <!-- Icons can be implemented using images, font icons like Font Awesome, or SVGs -->
+            <!--<a onclick="" id="subscribe-button" class="no-print">Subscribe</a>-->
+            <a href="../../../"><span style="color: #159BD6;">[ ARTICLES ]</span></a>
+            <!--<a href="../../../books">BOOKS</a>
+            <a href="../../../videos/">VIDEOS</a>
+            <a href="../../../photographs/">PHOTOGRAPHS</a> -->
+            <a href="https://www.linkedin.com/in/amitabhx"><img src="../../../assets/icons/linkedin-icon.svg" alt="LinkedIn" style="position: relative; top: 4px;"></a>
+            <a href="https://www.x.com/squareonehouse"><img src="../../../assets/icons/x-social-icon.svg" alt="Twitter" style="position: relative; top: 4px; left: -10px;"></a>
+            <a href="https://www.instagram.com/squareone.house"><img src="../../../assets/icons/instagram-icon.svg" alt="Instagram" style="position: relative; top: 4px; left: -21px;"></a>
+            <a href="https://www.youtube.com/@squareonehouse"><img src="../../../assets/icons/youtube-icon.svg" alt="Twitter" style="position: relative; top: 4px; left: -32px;"></a>
+            
+            <!-- Add more icons as needed -->
+        </div>
+    </div>
+</header>
+
+</br>
+
+<div class="article-container">
+<div class="all-articles">
+<div class="article" data-category="Technology" data-tags="Research">
+    <h1 class="article-title">On the Electronics Systems of Experimental Sounding Rockets</h1> <!-- Update Title -->
+    <h4>I wrote this article when I was working as a part of the Delft Aerospace Rocket Engineering (DARE) Team. I was responsible for designing the electronics systems for the flagship sounding rocket of that year, Stratos-III, that was being developed to break the then European altitude record for the student-built experimental sounding rocket.</h4> <!-- Update Description -->
+    <h5>October 17, 2017 &nbsp;&#x2022;&nbsp; <span id="reading-time"></span></h5> <!-- Update Date -->
+        <div class="image-caption-container">
+            <img src="assets/images/stratosiii.jpg" width="100%"></center></br> <!-- Update Header Image -->
+        <div class="img-caption">An artistic rendition of Strastos-III Sounding Rocket, Delft Aerospace Rocket Engineering (DARE), The Netherlands.</div>
+    </div>
+    <article>
+    <p> 
+    <!-- Start Writing Your Article here-->
+<p>The idea of rockets was conceived well before the idea of flight. It was well before even Sir Issac Newton gave his laws of motion. Interestingly, it is his third law of motion that governs the flight of a rocket.</br></br>
+
+<span style="color:#159BD6; font-style: italic;">For every action, there is an equal and opposite reaction.</span></br></br>
+
+The earliest mention of the rocket was in 400BC in a Greek story, where a character Archytas uses a wooden pigeon suspended by wires and propelled by steam to amaze and mystify the Tarentum locals. This is related to the history of rockets for the simple fact that it is the earliest known mention of a man using Newton’s Third Law of action and reaction as a means of propulsion.</br></br>
+
+The actual gun powered rocket that we know of today was developed first in China back in the 13th century. But is that possible? There were no computers back then!</br></br>
+
+With time, the idea of rocketry and rocket applications has undergone tremendous changes. First developed as a firework show and then warfare. Today’s rockets find applications in atmospheric research, space applications, payload/satellite launch and would someday in transportation. A <a href="https://www.reddit.com/r/spacex/comments/64ew8x/falcon_9_a_systems_overview/" style="color:#159BD6;"><u>systems overview of Falcon 9 rocket</u></a> will surely give you a good idea on the interdependencies of a rocket avionics systems. But, here we won’t be discussed too much on the rockets for space launch. We’ll start with something simpler, a Sounding Rocket.</br></br>
+
+It may be a simpler in design, but sounding rockets are extremely complicated to build, difficult to use and (often) risky to handle. According to definition by ISRO, the Indian Space Research Organisation,”Sounding Rockets are one or two-stage solid propellant rockets used for probing the upper atmospheric regions and for space research.” There are different altitude ranges for developing sounding rockets. The simplest cover the range from 1 to 10km. More complicated ones go beyond up till 20-30km. The sounding rockets developed by commercial space/rocket companies go beyond 500km (in space).</br></br>
+
+How do we determine the altitude to aim for, you ask? It depends on the application. If its atmospheric research, we aim for altitudes below the Karman line such an altitude of 50-80 km is apt. If it is space research, we go beyond 100km. For a comparison, you can imagine that the International Space Station revolves around the early at 408km altitude; and the space shuttle missions orbital altitudes were in the range of 304 kilometers to 528 kilometers. That’s the region you can experience microgravity.</br></br>
+
+A sounding rocket is launched by ‘ignition’ of the Rocket engine (or motor) which is often done through an e-match. But once a rocket is launched, how do we use it, operate it and possibly guide it? It is the sole responsibility of the onboard electronics system, sensing systems, telemetry systems, control system, payload deployment and recovery systems to check the state of rockets and take the necessary decisions, without a human supervision.</br></br>
+
+<a href="https://dare.tudelft.nl/stratos3/" style="color:#159BD6;"><u>An example of sounding rocket.</u></a></br>
+
+<center><iframe width="560" height="315" src="https://www.youtube.com/embed/_b_xWWojIiM?si=twZjP8ykackav_CB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></center></br>
+
+Let’s go through the basic operation of a rocket:</br>
+<ol>
+<li><span style="color:#159BD6; font-style: italic;">Rocket Launch:</span> A manually driven electronic system for igniting the rocket engine. Often this system is made with an engine valve control (as the Flight Termination System). A rocket launch can be dangerous and all necessary steps must be taken before any launch parameters considered. An inbuilt system check mechanism is made that checks for connectivity and proper functioning of each of the onboard electronics, sensor, and telemetry. Only after a successful check, it the launch allowed.
+
+<li><span style="color:#159BD6; font-style: italic;">Lift Off:</span> The ignition chamber of the rocket is the lowest and has a burnout time in seconds. Within seconds of burnout, the rocket gains enough inertia to cross miles in the sky. All this while, the sensor subsystem inside records and analyses the data from the various onboard sensor such as temperature, barometric pressure (for altitude), time, spin, acceleration, position (GPS) and others. All this data helps the rocket to be aware of its exact position and state at all points during a flight. This data is usually sampled every microsecond from each sensor.</br>
+
+It is essential that rocket behaves in the determined way else the consequences can be bad. For this purpose, a trajectory is predefined for a rocket and everything is designed to strictly achieve that. Advanced control of sounding rocket consists of canards, driven by a separate servo that allows the rocket to actively stabilize its flight trajectory.
+
+<li><span style="color:#159BD6; font-style: italic;">Apogee:</span> Rockets follow a projectile motion during flight, and no matter how fast it can go, face it, it comes to a rest at some point. This is the highest point, called apogee. To achieve, highest possible apogee, a correctly implemented trajectory, and a strongly stabilized flight are essential. At this point, we need our rockets to deploy the payload. It is necessary that the payload is deployed after ascent has ceased and preferably near the apogee. At this point, the computing system of the rocket decides (based on the sensor data) to actuate the payload release mechanism (often implemented by servos). This decision making is crucial. A wrong decision can completely sabotage the mission. Inaccurate release, say during ascent, can interfere with rocket trajectory and can misguide a rocket in habitated areas. No matter how small a rocket is, a fall from that height is extremely dangerous. Therefore, for advanced control, we implement a triple modular redundancy in the system for accurate decision making.
+
+<li><span style="color:#159BD6; font-style: italic;">Decent:</span> As soon as the decent of rocket begins, it is essential to keep a track of the rocket’s position, speed and orientation in the 3-dimensional space. A rocket falling from a height of 80km can easily cross the sound barrier while decent. To stop the devastating aftermath, we equip the rocket with parachutes. And interestingly there are two of these - the drogue-chute and the main-chute. Drogue-chute is bestowed by the responsibility for initial deacceleration. This is smaller than the main-chute, as a sudden impact on the rocket body due to parachute ejection can easily create an impulse to tear the rocket apart. Further, the high altitude wind currents can absurdly drift the rocket far away from the expected landing site. This is usually done at a predetermined altitude but along with a manual override from the ground station. The main chute is deployed only after a considerable decent has been achieved. This is again governed by the rocket’s electronics control system.
+
+<li><span style="color:#159BD6; font-style: italic;">Landing and Recovery:</span> Let’s assume, everything went well and we have landed safely. Know it and accept it, this is rocketry and even after all the cake and watermelon, there is a good chance that <span style="color:#159BD6; font-style: italic;">anything can go wrong</span>. Therefore, it is supremely important to take every possible step of caution.
+</ol>
+
+So, we have landed but we need data and recover the rocket body. It has survived and is well enough to be reused. The onboard GPS is always connected with the transmitter that lets the ground control be aware of the rocket’s position at all times and enables them to recover it after the successful landing.</br></br>
+
+The ground control is a completely electronic and computing system that always keeps a track of the rocket performance and trajectory. It is in constant contact with the rocket and often controls the functioning of the onboard systems such as flight stabilization using canards, manual parachute deployment, manual mission abort (closing engine valve to cut propellant supply), recovery etc.</br></br>
+
+After all these operations done successfully, can we say, we have mentioned all the important points of a rocket electronics system? But, we forget the most important of all. One without which, none of the systems can work. And that is power. All electronics run on power and in such an agitated environment, the power consideration is highly demanded. A single glitch from the power system can cause the system to power down or worst, reset. Not to mention, the consequences. Thus, power is at the pinnacle of rocket electronics design. One must always start with formulating a power budget for the complete system. I’d say it exclusively here, “This is the first step” in rocket electronics design.</br></br>
+
+A perfect rocket would also implement video recording and telemetry system (my opinion). Because after all the effort, one definitely want to see how well it performed and all the phases it went through - looking far on the straight horizon all across, to reaching the point where you see the earth getting its curve, to seeing the change in color of the sky from blue to dark horizon of space and to see the contrast of day and night in the sky as the rocket spins about its axis.</br></br>
+
+It is after all these efforts and constant work and support from all the divisions of the rocket team, that the magnificent flies. Contrary to my notion, that I would not be able to summarise a rocket electronic system in a general and ‘brief’ manner, I seem to have covered a considerable ground here. But, let me just give you a warm gist that rocket electronics is vast and complicated- it brings together the power electronics team, computing team, algorithms team, data handling team, embedded systems team, robotics team and RF and Microwave team to handle all the operations of the electronic system. But if it weren’t that complicated, the old joke <span style="color:#159BD6; font-style: italic;">‘It ain’t rocket science’</span> wouldn’t be so funny.</br></br>
+
+If you are interested into rocketry, <span style="font-style: italic;">Introduction to Rocket Science and Engineering</span>, Travis S. Taylor, CRC Press is an interesting read.</p>
+    <!-- All text in the article must end here -->
+    </p>
+</article><br>
+<a href="" class="comment-btn-click">Show Comments</a>
+<div id="disqus_thread" class="no-print comment-block"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    
+    var disqus_config = function () {
+        this.page.url = "http://localhost:4000/posts/2023/read-your-pdf-better/";  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = "http://localhost:4000/posts/2023/read-your-pdf-better/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://amitabhydv.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments.</a></noscript>
+                
+</div></div></div>
+
+
+
+<!-- Footer Stuff -->
+<button onclick="topFunction()" id="topbtn" title="Go to top" class="no-print" style="display: block;"><img src="../../../assets/icons/top-icon.svg" width="25px"></button>
+
+<div class="theme-toggle-container no-print">
+<div class="theme-switch">
+    <label id="switch" class="switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider round"></span>
+    </label>
+</div>
+</div>
+<img class="no-print no-show" src="../../../assets/mainImages/amitabhsnotes.png" style="position: fixed; bottom:-10px; right:0%; width: 160px; display: none;" >
+<span class="no-print no-show" style="position: fixed; bottom:0%; right:0%; display: none; color:lightgrey;">&#169; 2023 Amitabh Yadav</span>
+<script>hljs.highlightAll();</script>
+<script src="../../../assets/script.js"></script><!-- used for dark/light theme transition and reading time calculation-->
+<!-- Scroll to Top Script -->
+<script>
+//Get the button
+var mybutton = document.getElementById("topbtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+<!-- Comment block show/hide -->
+<script type="text/javascript">
+        var $clickme = $('.comment-btn-click'),
+    $box = $('.box');
+        //$box.hide();
+        $clickme.click(function (e) {
+            $(this).text(($(this).text() === 'Show Comments' ? 'Hide Comments' : 'Show Comments')).next('.comment-block').slideToggle(); ;
+            e.preventDefault();
+        });
+</script>
+</body>
+</html>
