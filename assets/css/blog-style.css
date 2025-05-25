@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Helvetica&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+
+body {
+  font-family: 'Karla', 'DM Sans', 'Helvetica', Arial, sans-serif;
+  margin: 20px;
+  background-color: #fff;
+  color: #111;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1.title {
+  font-weight: bold;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.home-title h1 {
+  font-weight: bold;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  background-image: url('../media/images/blkbg.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 40px 20px;
+  text-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.subtitle {
+  flex: 1 1 45%;
+  font-style: italic;
+  align-self: center;
+}
+
+.author-date {
+  flex: 1 1 45%;
+  text-align: right;
+}
+
+.author-date div {
+  margin: 0.2rem 0;
+}
+
+.content {
+  line-height: 1.6;
+  font-size: 1.1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+#fixed-footer {
+  position: fixed;
+  bottom: 0;
+  left: 50%;                     /* start from center */
+  transform: translateX(-50%);   /* shift left by half width to center exactly */
+  max-width: 900px;              /* same as .content */
+  width: 100%;                  /* allow it to shrink on smaller screens */
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 20px;
+  font-size: 0.9rem;
+  user-select: none;
+  box-sizing: border-box;
+  z-index: 9999;
+}
+
+/* Reading time text below title */
+.reading-time {
+  font-size: 0.9rem;
+  color: gray;
+  text-align: center;
+  margin: 0 0 1rem 0;
+  font-style: italic;
+}
+
+/* Responsive image style */
+.blog-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem auto;
+  border-radius: 8px;
+}
+
+.blog-figure figcaption {
+  font-size: 0.9rem;
+  color: gray;
+  margin-top: 0.4rem;
+  font-style: italic;
+  text-align: center;
+}
+
+.float-image {
+  float: left;
+  margin-right: 15px;
+  margin-bottom: 10px;
+  max-width: 250px;  /* adjust as needed */
+  height: auto;
+  border-radius: 6px; /* optional rounded corners */
+}
+
+
+a {
+    color: #0074D9;
+    text-decoration: none;
+    position: relative;       /* needed for ::after positioning */
+  }
+
+  a:visited {
+    color: #0074D9;
+  }
+
+  a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;      /* distance from text */
+    height: 1px;       /* thinner underline */
+    width: 0;
+    background-color: #0074D9;
+    transition: width 0.3s ease;
+  }
+
+  a:hover::after {
+    width: 100%;
+    background-color: #0074D9;   /* underline color changes on hover */
+  }
+
+  .thin-line {
+    height: 1px;            /* very thin */
+    background-color: black; /* light gray */
+    margin: 20px 0;         /* vertical spacing */
+    width: 100%;
+  }
+
+  .articles-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    padding: 10px;          /* padding around the table content */
+    box-sizing: border-box; /* ensure padding included in width */
+  }
+
+  .articles-table td {
+    padding: 12px 8px;      /* padding inside each cell */
+  }
+
+#modeToggle {
+  position: fixed;
+  top: 2%;
+  right: 2px;           /* move 2px left from the edge to show border */
+  width: 20px;
+  height: 30px;
+  padding: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  border: 1px solid red;
+  border-radius: 0;     /* no rounding on corners */
+  background: linear-gradient(135deg, white 50%, black 50%);
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  z-index: 1000;
+  user-select: none;
+  box-sizing: border-box; /* include border in width/height */
+  transform-origin: center center;
+}
+
+/* Dark mode styles for button */
+body.dark-mode #modeToggle {
+  background-color: #eee;
+  color: #121212;
+}
+
+button#modeToggle {
+  display: block;
+  margin: 2rem auto;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #111;
+  color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Citation sup styling */
+sup.citation {
+  cursor: help;
+  color: #0074D9;
+  font-weight: bold;
+  user-select: none;
+}
+
+/* Optional: style reference section header */
+#references-section {
+  font-size: 1rem;
+}
+#references-section h3 {
+  font-weight: bold;
+  /* border-bottom: 2px solid #ccc; */
+  padding-bottom: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+#references-list li::marker {
+  content: '[' counter(list-item) '] ';
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #eee;
+}
+
+body.dark-mode button#modeToggle {
+  background-color: #eee;
+  color: #121212;
+}
+
+body.dark-mode .thin-line {
+  background-color: white;
+}
+
+body.dark-mode #fixed-footer {
+  background-color: #121212;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .meta-row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .subtitle, .author-date {
+    flex: 1 1 100%;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .author-date {
+    margin-bottom: 1rem;
+  }
+}

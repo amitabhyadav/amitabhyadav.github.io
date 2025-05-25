@@ -1,0 +1,486 @@
+/* Default light theme */
+:root {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --card-background: #f0f0f0;
+    --border-color: #ccc;
+    --featured-bg-color: darkgrey;
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+    --background-color: #363537;
+    --text-color: #FAFAFA;
+    --card-background: #424242;
+    --border-color: #6b6b6b;
+    --featured-bg-color: white;
+}
+
+@font-face {
+    font-family: 'Nunito Sans';
+    src: url('fonts/NunitoSans_10pt-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'HelveticaNeueW01_45';
+    src: url('fonts/Helvetica_Neue_LT_W01_45_Light.ttf');
+}
+
+@font-face {
+    font-family: 'RobotoCondensed';
+    src: url('fonts/RobotoCondensed-Regular.ttf');
+}
+
+/* For mobile devices */
+@media (max-width: 768px) {
+    .no-show, .no-show *
+    {
+        display: none !important;
+    }
+}
+
+
+@media print
+{    
+    body {
+        background-color: white !important;
+        color: black !important;
+    }
+    .print-only, .print-only *
+    {
+        display: block !important;
+    }
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+}
+
+/** Header Styles */
+.site-header {
+    width: 100%;
+    padding: 10px 20px;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--text-color); /* Bottom border */
+    box-sizing: border-box;
+     /* background-image: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%), url('image-header.jpg'); */
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100vw; /* Adjust based on your design */
+    margin: 0 auto;
+}
+
+.site-name {
+    font-size: 1.5em; /* Adjust size as needed */
+    font-weight: bold;
+    font-family: 'RobotoCondensed', 'Asap Condensed', 'neue-haas-unica', sans-serif;
+    /* color: black; */
+    /* Additional styling */
+}
+
+.share-icons a {
+    margin: 0 5px; /* Spacing between icons */
+    text-decoration: none;
+    font-family: 'RobotoCondensed', 'Asap Condensed', 'neue-haas-unica', sans-serif;
+    color: inherit;
+    /* Additional styling */
+}
+
+.share-icons img {
+    height: 20px; /* Adjust size as needed */
+    width: auto;
+}
+
+
+/** Light and Dark Theme Slider **/
+/* toggle css */
+.theme-toggle-container{
+   position:fixed;
+   bottom:30px;
+   left:50px;
+
+}
+
+.switch {
+   position: absolute;
+   display: inline-block;
+   width: 52px; /*72*/
+   height: 28px; /*38*/
+   top:50%;
+   left:50%;
+   transform:translate(-50%, -50%);
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 110%;
+  width: 60%;
+  left: 0px;
+  bottom: 4px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  box-shadow: 0 0px 15px #2020203d;
+  background: white url('icons/sunny.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(78%);
+  -ms-transform: translateX(78%);
+  transform: translateX(78%);
+  background: white url('icons/night.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 50px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/** Light and Dark Theme Slider Ends here **/
+
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'HelveticaNeueW01_45', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/*Scroll to Top Button*/
+    #topbtn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 10px;
+      z-index: 99;
+      font-size: 18px;
+      border: solid black 0.5pt;
+      outline: none;
+      background-color: #fff;
+      cursor: pointer;
+      padding-top: 8px;
+      padding-bottom: 8pt;
+      padding-left: 10pt;
+      padding-right: 10pt;
+      border-radius: 6px;
+      font-family: inherit;
+    }
+
+/** Article CSS **/
+.article-container {
+    width:100%;
+}
+
+.all-articles{
+    max-width:800px;
+    margin:0 auto;
+    justify-content: center; /* Center image horizontally */
+    align-items: center; /* Center image vertically */
+}
+
+h2.article-title {
+    font-family: 'RobotoCondensed', 'Asap Condensed', 'neue-haas-unica', sans-serif;
+    margin-bottom: 0;
+}
+
+.article {
+    margin: 10px;
+    padding: 8px;
+    line-height: 1.5;
+    font-size:11pt;
+    border-bottom: 0px solid #ddd;
+    display: none; /* Hide by default */
+}
+
+.article h5 {
+    color: darkgray;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.article p {
+    margin-top:4pt;
+}
+
+.article a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Style for the image card container */
+.image-card {
+    width: 200px; /* Width of the card */
+    height: 200px; /* Height of the card */
+    border-radius: 15px; /* Rounded corners */
+    overflow: hidden; /* Ensures the content doesn't spill outside the border-radius */
+    display: flex;
+    justify-content: center; /* Center image horizontally */
+    align-items: center; /* Center image vertically */
+    border: 1px solid #ccc; /* Optional: border for the card */
+    border-color: var(--border-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: box shadow for a 3D effect */
+    background-color: var(--card-background);
+}
+
+/* Style for the image inside the card */
+.image-card img {
+    max-width: auto; /* Maximum width is the width of the container */
+    max-height: 100%; /* Maximum height is the height of the container */
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensures the image is scaled properly */
+}
+
+.category-button {
+    background-color: inherit;
+    color: #159BD6; /* var(--text-color); */
+    border: 0px solid #fff;
+    font-family: inherit;
+    cursor: pointer;
+
+}
+
+/** Featured Article **/
+.article-table {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.featured-article {
+    background: linear-gradient(to right, var(--featured-bg-color), rgba(255, 255, 0, 0));
+    color: black;
+    border-radius: 15px; /* Rounded corners */
+}
+
+.article-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.article-table td, th {
+    border-right: 0px solid var(--text-color); 
+    border-bottom: 0px solid var(--text-color);
+    vertical-align: middle; /* Aligns content vertically in the center */
+    padding: 10px;
+}
+
+.article-image {
+    width: 300px; /* Width of the card */
+    height: 200px; /* Height of the card */
+    border-radius: 15px; /* Rounded corners */
+    overflow: hidden; /* Ensures the content doesn't spill outside the border-radius */
+    display: flex;
+    justify-content: center; /* Center image horizontally */
+    align-items: center; /* Center image vertically */
+    border: 1px solid #ccc; /* Optional: border for the card */
+    border-color: var(--border-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: box shadow for a 3D effect */
+    background-color: var(--card-background);
+}
+
+.article-image img {
+    max-width: auto; /* Maximum width is the width of the container */
+    max-height: 110%; /* Maximum height is the height of the container */
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensures the image is scaled properly */
+}
+
+.article-content {
+    /* Additional styling if needed */
+}
+
+/* Table Styling: used in articles posts */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Ensures borders are shared between cells */
+}
+
+th, td {
+    border-right: 1px solid var(--text-color); /* Right border for cells */
+    border-bottom: 1px solid var(--text-color); /* Bottom border for cells */
+    padding: 8px;
+    text-align: left;
+}
+
+th:last-child, td:last-child {
+    border-right: none; /* Remove right border for the last cell */
+}
+
+tr:first-child th {
+    background-color: var(--background-color); /* Highlight for the top row */
+    filter:invert(10%);
+}
+
+tr:last-child td {
+    border-bottom: none; /* Remove bottom border for the last row */
+}
+
+/** Image captions in articles posts images **/
+.image-caption-container {
+    text-align: center; /* Center align image and caption */
+    margin: 20px; /* Add some space around the container */
+}
+
+.image-caption-container img {
+    max-width: 100%; /* Make image responsive */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.img-caption {
+    color: var(--text-color); /* Caption text color */
+    font-size: 14px; /* Caption text size */
+    font-style: italic;
+    margin-top: 8px; /* Space between image and caption */
+}
+
+/* Mail Chimp Subscribe */
+#mc_embed_signup{
+    background:var(--background-color); 
+    font-size:14px; 
+    font-family:inherit;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: none;
+}
+
+.mc-field-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+label {
+    flex: 0 0 120px; /* Fixed width for labels */
+    margin-right: 10px; /* Space between label and input */
+}
+
+input[type="text"],
+input[type="email"] {
+    flex: 1; /* Take up the remaining space */
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.foot {
+    display: flex;
+    justify-content: space-between; /* Spreads out items to start and end of the container */
+    align-items: center; /* Vertically centers items in the container */
+}
+
+.foot p {
+    margin: 0; /* Removes default margin */
+    flex: 1; /* Allows the paragraph to take up the remaining space */
+}
+
+.refferal_badge {
+    width: 220px; /* Fixed width */
+    height: 40px; /* Fixed height */
+    display: flex; /* Changes display from flex to block */
+    padding: 2px 0; /* Adjust padding as necessary */
+    /* opacity: 0; */
+}
+
+.foot input[type="submit"] {
+    flex: 0 0 auto; /* Do not grow or shrink */
+    margin-left: 130px; /* Optional: Adds some space between image and button */
+}
+
+
+.button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+#subscribe-button {
+    margin-right:5px; 
+    background: var(--background-color); 
+    color: var(--text-color);
+    border: 1pt solid var(--text-color); 
+    cursor: pointer; 
+    padding: 4pt 8pt 4pt 8pt;
+}
+
+#subscribe-button:hover {
+    background-color: var(--text-color);
+    color: var(--background-color);
+    border: 1pt solid var(--background-color); 
+}
+
+/* Comment show/hide */
+
+.comment-btn-click
+{
+    padding: 10px 20px;
+    min-width: 100px;
+    background-color: #f66464;
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50px;
+    font-size: 17px;
+}
+
+.comment-block {
+    display: none;
+}
+
+

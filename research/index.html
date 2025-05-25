@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Research | Periodic Perplexities</title>
+<link rel="stylesheet" href="../assets/css/blog-style.css" />
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="../assets/media/images/favicon.svg" />
+
+<!-- MathJax CDN -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+
+<div class="content">
+  <div class="home-title"><h1>Periodic Perplexities</h1></div>
+  <h4 style="text-align: center; font-weight: normal;">Research Notes and Letters</h4>
+  <div class="thin-line"></div>
+  <!-- Articles Table -->
+  <table class="articles-table">
+    <tbody>
+      <tr>
+        <td><a href="articles/2025/the-hardware-lottery/">The Hardware Lottery: We may be trying to build a ladder to the Moon</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="thin-line"></div>
+
+  <div id="fixed-footer">
+    <div class="left-links">
+      <a href="../">Home</a> &#9474; <a href="" style="font-weight: bold; border: 2px solid #0074D9; padding: 4px 8px; border-radius: 4px; text-decoration: none; color: #0074D9;">Research</a> &#9474; <a href="../cv/">Curriculum Vitae (CV)</a> &#9474; <a href="../contact/">Contact</a>
+    </div>
+    <div class="right-copy" style="padding-left: 5px;">
+    &#169; 2018–<span id="currentYear"></span> Amitabh Yadav.
+    </div>
+  </div>
+
+</div>
+
+<button id="modeToggle" aria-label="Toggle dark/light mode"></button>
+<script>
+  const year = new Date().getFullYear();
+  document.getElementById('currentYear').textContent = year - 2000;
+</script>
+<script src="../assets/js/blog-style.js" defer></script>
+</body>
+</html>
