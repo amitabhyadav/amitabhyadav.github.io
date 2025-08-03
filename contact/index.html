@@ -34,7 +34,7 @@
 
   <div id="fixed-footer">
     <div class="left-links">
-      <a href="../">Home</a> &#9474; <a href="../research/">Research</a> &#9474; <a href="../cv/">Curriculum Vitae (CV)</a> &#9474; <a href="" style="font-weight: bold; border: 2px solid #0074D9; padding: 4px 8px; border-radius: 4px; text-decoration: none; color: #0074D9;">Contact</a>
+      <a href="../">Home</a> &#9474; <a href="../research/">Research</a> &#9474; <a href="https://flora.squareone.house/amitabh" target="_blank">Reading Stats</a> &#9474; <a href="../cv/">CV</a> &#9474; <a href="" style="font-weight: bold; border: 2px solid #0074D9; padding: 4px 8px; border-radius: 4px; text-decoration: none; color: #0074D9;">Contact</a>
     </div>
     <div class="right-copy" style="padding-left: 5px;">
     &#169; 2018–<span id="currentYear"></span> Amitabh Yadav.
@@ -43,7 +43,13 @@
 
 </div>
 
-<button id="modeToggle" aria-label="Toggle dark/light mode"></button>
+<!-- Dark/Light Mode Toggle -->
+<div class="mode-toggle-container">
+  <label class="toggle-switch">
+    <input type="checkbox" id="modeToggle">
+    <span class="slider"></span>
+  </label>
+</div>
 <script>
   const year = new Date().getFullYear();
   document.getElementById('currentYear').textContent = year - 2000;

@@ -1,0 +1,225 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+  font-size: calc(1vw + 1vh + 0.5vmin);
+}
+
+@media (max-width: 450px) {
+  body {
+    font-size: 10px; /* Minimum font size */
+  }
+  .description-container {
+    width: 280px;
+  }
+}
+
+@media (min-width: 1200px) {
+  body {
+    font-size: 22px; /* Maximum font size */
+  }
+  .description-container {
+    width: 800px;
+  }
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 1.0s ease-in;
+}
+
+/* Menu Bar */
+.menuNavigation {
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    padding: 20px;
+	top: 20px;
+	left: 0;
+	position: fixed;
+    background: none;
+    width: 400px; 
+    /* height: 200px; */ 
+    display: flex;
+    align-items: left;
+ }
+
+ .list {
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+   text-align: left;
+ }
+
+ .list li {
+   margin: 5px 0; 
+ }
+
+a, a:hover, a:visited, a:active {
+  text-decoration: none;
+  color: inherit;
+  z-index: 10;
+}
+
+/* Video Background */
+
+#sqVideoBg {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 100%; /* Use width and height instead of min-width and min-height */
+  height: 100%;
+  object-fit: cover; /* This makes the video cover the available space without losing its aspect ratio */
+  overflow: hidden; /* Ensures no scrolling occurs if the video is bigger than the viewport */
+  z-index:-1;
+}
+
+.content {
+  position: fixed;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.0);
+  color: #FFF;
+  width: 100%;
+  padding: 20px;
+}
+.footer {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  background: rgba(255, 255, 255, 1.0);
+  color: #FFF;
+  padding: 20px;
+  align-items: center;
+  min-width: 100%;
+}
+
+.pagecontent {
+	display: flex;
+	flex-direction: column;
+  background: rgba(255, 255, 255, 1.0);
+  color: #000;
+  padding: 20px;
+  align-items: center;
+  min-width: 100%;
+}
+
+
+#sqButtonMain {
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+  padding: 5px;
+  border: none;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+}
+#sqButtonPages {
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+  padding: 5px;
+  border: none;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+#sqButtonMain:hover {
+  background: yellow;
+  color: black;
+}
+
+
+/* Bottom Menu */
+.bottomMenuContainer {
+  display: flex;
+  align-items: center; /* Align items vertically in the center */
+}
+
+ul.bottomMenu {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+	margin: 0;
+	color: black;
+    margin-left: 20px; 
+}
+
+#bottomMenuitem1, #bottomMenuitem2, #bottomMenuitem3, #bottomMenuitem4 { opacity: 0; transition: opacity 0.5s; margin-right: 10px; }
+#bottomMenuitemall1, #bottomMenuitemall2, #bottomMenuitemall3, #bottomMenuitemall4 { opacity: 1; transition: opacity 0.5s; margin-right: 10px; }
+
+.animated-underline {
+  position: relative;
+  text-decoration: none;
+  color: inherit; 
+  /*display: inline-block;*/ 
+}
+
+.animated-underline::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.animated-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+/*Set page width for rest of the pages*/
+.pagecontainer {
+  max-width: 1200px;
+  margin: 0 auto; 
+  padding: 20px; 
+  background-color: rgba(255, 255, 255, 0.8);
+  color: black;
+  min-height: 100vh;
+  box-sizing: border-box; 
+  overflow-y: auto; 
+}
+
+.pagebg {
+  /* background-image: url('../../assets/media/images/allres2.jpg'); 
+  background-position: center;
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  min-height: 100vh; 
+  min-width: 99vw; */
+  
+}
+
+.right-align-image {
+  width: 500px;
+  max-width: 100%; /* Ensures the image does not exceed the container's width */
+  height: auto; /* Maintains the image's aspect ratio */
+  box-shadow: 85px 85px 80px 0 white inset, -85px -85px 80px 0 white inset; 
+}
+
+hr {
+  border: none;
+  height: 1px; 
+  background-color: red;
+  margin: 0; 
+}
+
+.pagecontainer p {
+	text-align: justify;
+}
+
+.textcontent {
+	font-size: 0.75em;
+}

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Editor - Square One House</title>
+    
+    <!-- MathJax Configuration -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                processHtmlClass: 'tex2jax_process'
+            },
+            startup: {
+                ready() {
+                    MathJax.startup.defaultReady();
+                    console.log('MathJax is loaded and ready');
+                }
+            }
+        };
+    </script>
+    <!-- MathJax for equation rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <!-- Custom HTML Editor -->
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        
+        <div class="editor-container">
+            <!-- Article Metadata -->
+            <div class="metadata-section">
+                <div class="form-group">
+                    <label for="article-title">Title *</label>
+                    <input type="text" id="article-title" placeholder="Enter your article title" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="article-subtitle">Subtitle</label>
+                    <textarea id="article-subtitle" placeholder="Enter article subtitle or description" rows="3"></textarea>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="article-author">Author</label>
+                        <input type="text" id="article-author" placeholder="Author name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="article-date">Date</label>
+                        <input type="text" id="article-date" placeholder="e.g., January 15, 2024">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content Editor -->
+            <div class="content-section">
+                
+                <!-- Toolbar -->
+                <div class="editor-toolbar">
+                    <!-- Text Formatting -->
+                    <div class="toolbar-group">
+                        <button type="button" id="btn-bold" title="Bold"><b>B</b></button>
+                        <button type="button" id="btn-italic" title="Italic"><i>I</i></button>
+                        <button type="button" id="btn-underline" title="Underline"><u>U</u></button>
+                        <button type="button" id="btn-strike" title="Strikethrough"><s>S</s></button>
+                        <button type="button" id="btn-subscript" title="Subscript">x₂</button>
+                        <button type="button" id="btn-superscript" title="Superscript">x²</button>
+                    </div>
+                    
+                    <!-- Lists -->
+                    <div class="toolbar-group">
+                        <button type="button" id="btn-ordered-list" title="Ordered List">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <text x="1" y="3.5" font-family="Arial, sans-serif" font-size="6" font-weight="bold" fill="currentColor">1.</text>
+                                <text x="1" y="8.5" font-family="Arial, sans-serif" font-size="6" font-weight="bold" fill="currentColor">2.</text>
+                                <text x="1" y="13.5" font-family="Arial, sans-serif" font-size="6" font-weight="bold" fill="currentColor">3.</text>
+                                <path d="M6 1.5h9v0.8H6V1.5zm0 5h9v0.8H6v-0.8zm0 5h9v0.8H6v-0.8z"/>
+                            </svg>
+                        </button>
+                        <button type="button" id="btn-unordered-list" title="Unordered List">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <circle cx="2.5" cy="3.5" r="1"/>
+                                <circle cx="2.5" cy="6.5" r="1"/>
+                                <circle cx="2.5" cy="9.5" r="1"/>
+                                <circle cx="2.5" cy="12.5" r="1"/>
+                                <path d="M5 3h9v1H5V3zm0 3h9v1H5V6zm0 3h9v1H5V9zm0 3h9v1H5v-1z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Insert Elements -->
+                    <div class="toolbar-group">
+                        <button type="button" id="btn-image" title="Insert Image">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                                <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z"/>
+                            </svg>
+                        </button>
+                        <button type="button" id="btn-equation" title="Insert Equation">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <text x="8" y="11" text-anchor="middle" font-family="serif" font-size="14" font-weight="bold" fill="currentColor">∑</text>
+                            </svg>
+                        </button>
+                        <button type="button" id="btn-hyperlink" title="Insert Link">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
+                                <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
+                            </svg>
+                        </button>
+                        <button type="button" id="btn-citation" title="Add Citation">[cite]</button>
+                        <button type="button" id="btn-code" title="Insert Code Block">&lt;/&gt;</button>
+                    </div>
+                    
+                    <!-- Structure -->
+                    <div class="toolbar-group">
+                        <button type="button" id="btn-quote" title="Quote">❝</button>
+                        <select id="heading-select" title="Insert Heading">
+                            <option value="p">Normal Text</option>
+                            <option value="h4">Section Heading</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Alignment -->
+                    <div class="toolbar-group">
+                        <button type="button" id="btn-align-left" title="Align Left">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M2 3h12v1H2V3zm0 3h8v1H2V6zm0 3h10v1H2V9zm0 3h8v1H2v-1z"/>
+                            </svg>
+                        </button>
+                        <button type="button" id="btn-align-center" title="Align Center">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M4 3h8v1H4V3zm2 3h4v1H6V6zm-2 3h8v1H4V9zm2 3h4v1H6v-1z"/>
+                            </svg>
+                        </button>
+                        <button type="button" id="btn-align-right" title="Align Right">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M2 3h12v1H2V3zm6 3h6v1H8V6zm-4 3h10v1H4V9zm6 3h4v1h-4v-1z"/>
+                            </svg>
+                        </button>
+                        <button type="button" id="btn-align-justify" title="Justify">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M2 3h12v1H2V3zm0 3h12v1H2V6zm0 3h12v1H2V9zm0 3h12v1H2v-1z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Colors -->
+                    <div class="toolbar-group">
+                        <div class="color-dropdown-container">
+                            <button type="button" class="color-button" id="text-color-btn" title="Text Color">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <text x="8" y="11" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="currentColor">A</text>
+                                    <rect x="2" y="13" width="12" height="2" fill="#000000" id="text-color-bar"/>
+                                </svg>
+                            </button>
+                            <div class="color-dropdown" id="text-color-dropdown">
+                                <div class="color-picker-section">
+                                    <label>Select Color:</label>
+                                    <input type="color" id="text-color-picker" value="#000000">
+                                </div>
+                                <div class="color-preset-section">
+                                    <div class="color-presets" id="text-color-presets">
+                                        <div class="color-preset" data-color="#000000" style="background: #000000;" title="Black"></div>
+                                        <div class="color-preset" data-color="#dc3545" style="background: #dc3545;" title="Red"></div>
+                                        <div class="color-preset" data-color="#28a745" style="background: #28a745;" title="Green"></div>
+                                        <div class="color-preset" data-color="#007bff" style="background: #007bff;" title="Blue"></div>
+                                        <div class="color-preset" data-color="#ffc107" style="background: #ffc107;" title="Yellow"></div>
+                                        <div class="color-preset" data-color="#6f42c1" style="background: #6f42c1;" title="Purple"></div>
+                                        <div class="color-preset" data-color="#fd7e14" style="background: #fd7e14;" title="Orange"></div>
+                                        <div class="color-preset" data-color="#20c997" style="background: #20c997;" title="Teal"></div>
+                                    </div>
+                                </div>
+                                <div class="color-actions">
+                                    <button type="button" class="btn-apply" id="apply-text-color">Apply</button>
+                                    <button type="button" class="btn-cancel" id="cancel-text-color">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="color-dropdown-container">
+                            <button type="button" class="color-button" id="highlight-color-btn" title="Highlight Color">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path d="M11.096.644a2 2 0 0 1 2.791.036l1.433 1.433a2 2 0 0 1 .036 2.791l-1.75 1.867-3.24-3.24L11.096.644zm-2.15 2.366L2.98 9.875c-.35.35-.6.78-.737 1.258L1.17 14.97a.5.5 0 0 0 .606.606l3.837-1.074c.478-.137.908-.386 1.258-.737l6.864-5.966-3.24-3.24z"/>
+                                    <rect x="1" y="14" width="14" height="2" fill="#ffff00" id="highlight-color-bar"/>
+                                </svg>
+                            </button>
+                            <div class="color-dropdown" id="highlight-color-dropdown">
+                                <div class="color-picker-section">
+                                    <label>Select Color:</label>
+                                    <input type="color" id="highlight-color-picker" value="#ffff00">
+                                </div>
+                                <div class="color-preset-section">
+                                    <div class="color-presets" id="highlight-color-presets">
+                                        <div class="color-preset" data-color="#ffff00" style="background: #ffff00;" title="Yellow"></div>
+                                        <div class="color-preset" data-color="#00ff00" style="background: #00ff00;" title="Lime"></div>
+                                        <div class="color-preset" data-color="#00ffff" style="background: #00ffff;" title="Cyan"></div>
+                                        <div class="color-preset" data-color="#ff00ff" style="background: #ff00ff;" title="Magenta"></div>
+                                        <div class="color-preset" data-color="#ffc0cb" style="background: #ffc0cb;" title="Pink"></div>
+                                        <div class="color-preset" data-color="#ffa500" style="background: #ffa500;" title="Orange"></div>
+                                        <div class="color-preset" data-color="#90ee90" style="background: #90ee90;" title="Light Green"></div>
+                                        <div class="color-preset" data-color="#87ceeb" style="background: #87ceeb;" title="Sky Blue"></div>
+                                    </div>
+                                </div>
+                                <div class="color-actions">
+                                    <button type="button" class="btn-apply" id="apply-highlight-color">Apply</button>
+                                    <button type="button" class="btn-cancel" id="cancel-highlight-color">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- HTML Editor -->
+                <textarea id="html-editor" placeholder="Your HTML content will appear here...
+
+Example usage:
+<h4>Section Heading</h4>
+<p>Your paragraph text here.</p>
+<p>Text with <span class=&quot;citation&quot; data-citekey=&quot;ref1&quot; tabindex=&quot;0&quot;>[1]</span> citation.</p>
+
+<figure class=&quot;blog-figure&quot;>
+    <img src=&quot;&quot; alt=&quot;Image description&quot; class=&quot;blog-image&quot; />
+    <figcaption>Figure caption</figcaption>
+</figure>
+
+<p>Math equation: \(E=mc^2\)</p>
+
+Display equation:
+\[
+  \int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
+\]"></textarea>
+                
+                <!-- Image Modal -->
+                <div id="image-modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h3>Insert Image</h3>
+                        <div class="form-group">
+                            <label for="image-src">Image Source (URL or path)</label>
+                            <input type="text" id="image-src" placeholder="e.g., images/figure1.png">
+                        </div>
+                        <div class="form-group">
+                            <label for="image-alt">Alt Text</label>
+                            <input type="text" id="image-alt" placeholder="Description of the image">
+                        </div>
+                        <div class="form-group">
+                            <label for="image-caption">Caption (optional)</label>
+                            <input type="text" id="image-caption" placeholder="Figure caption">
+                        </div>
+                        <button id="insert-image" class="btn-primary">Insert Image HTML</button>
+                    </div>
+                </div>
+                
+                <!-- Citation Modal -->
+                <div id="citation-modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h3>Add Citation</h3>
+                        <div class="form-group">
+                            <label for="citation-key">Citation Key</label>
+                            <input type="text" id="citation-key" placeholder="e.g., ref1, smith2023">
+                        </div>
+                        <button id="insert-citation" class="btn-primary">Insert Citation</button>
+                    </div>
+                </div>
+                
+                <!-- Equation Modal -->
+                <div id="equation-modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h3>Add Equation</h3>
+                        <div class="form-group">
+                            <label>Equation Type</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="eq-type" value="inline" checked> Inline \\(equation\\)</label>
+                                <label><input type="radio" name="eq-type" value="display"> Display \\[equation\\]</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="equation-latex">LaTeX Code</label>
+                            <textarea id="equation-latex" placeholder="e.g., E = mc^2" rows="3"></textarea>
+                        </div>
+                        <div class="equation-preview tex2jax_process" id="equation-preview">
+                            Preview will appear here...
+                        </div>
+                        <button id="preview-equation" class="btn-secondary">Preview</button>
+                        <button id="insert-equation" class="btn-primary">Insert Equation</button>
+                    </div>
+                </div>
+                
+                <!-- Hyperlink Modal -->
+                <div id="hyperlink-modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h3>Insert Hyperlink</h3>
+                        <div class="form-group">
+                            <label for="link-text">Link Text</label>
+                            <input type="text" id="link-text" placeholder="Text to display">
+                        </div>
+                        <div class="form-group">
+                            <label for="link-url">URL</label>
+                            <input type="text" id="link-url" placeholder="https://example.com">
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="link-target"> Open in new tab
+                            </label>
+                        </div>
+                        <button id="insert-hyperlink" class="btn-primary">Insert Link HTML</button>
+                    </div>
+                </div>
+                
+                <!-- Code Block Modal -->
+                <div id="code-modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h3>Insert Code Block</h3>
+                        <div class="form-group">
+                            <label for="code-language-select">Programming Language</label>
+                            <select id="code-language-select">
+                                <option value="">-- Supported Languages (with syntax highlighting) --</option>
+                                <option value="c">C</option>
+                                <option value="cpp">C++</option>
+                                <option value="python">Python</option>
+                                <option value="javascript">JavaScript</option>
+                                <option value="bash">Bash/Shell</option>
+                                <option value="verilog">Verilog</option>
+                                <option value="systemverilog">SystemVerilog</option>
+                                <option value="vhdl">VHDL</option>
+                                <option value="skill">SKILL</option>
+                                <option value="matlab">MATLAB</option>
+                                <option value="text">Plain Text</option>
+                                <option value="custom">-- Other Language (no highlighting) --</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="custom-language-group" style="display: none;">
+                            <label for="custom-language">Custom Language Name</label>
+                            <input type="text" id="custom-language" placeholder="e.g., java, rust, go, etc.">
+                        </div>
+                        <div class="form-group">
+                            <label for="code-content">Code</label>
+                            <textarea id="code-content" placeholder="Enter your code here..." rows="10"></textarea>
+                        </div>
+                        <button id="insert-code" class="btn-primary">Insert Code Block</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- References Section -->
+            <div class="references-section">
+                <div id="references-list">
+                    <!-- References will be added dynamically -->
+                </div>
+                <button id="add-reference" class="btn-secondary">Add Reference</button>
+            </div>
+
+
+            <!-- Generate Button -->
+            <div class="generate-section">
+                <button id="generate-html" class="btn-generate">Generate HTML Article</button>
+                <div id="generation-status"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="editor.js"></script>
+</body>
+</html>

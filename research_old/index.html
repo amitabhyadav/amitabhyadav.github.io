@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Curriculum Vitae | Amitabh Yadav</title>
+<title>Research | Periodic Perplexities</title>
 <link rel="stylesheet" href="../assets/css/blog-style.css" />
 
 <!-- Favicon -->
@@ -15,20 +15,22 @@
 <body>
 
 <div class="content">
-  <div class="home-title"><h1>CV</h1></div>
-  <h4 style="text-align: center; font-weight: normal;">My updated curriculum vitae is attached here</h4>
+  <div class="home-title"><h1>Periodic Perplexities</h1></div>
+  <h4 style="text-align: center; font-weight: normal;">Research Notes and Letters</h4>
   <div class="thin-line"></div>
   <!-- Articles Table -->
-
-  <div>
-        <iframe src="mycv/cv-dummy.pdf" style="width: 100%; height: 600pt;"></iframe>
-  </div>
-
-
+  <table class="articles-table">
+    <tbody>
+      <tr>
+        <td><a href="articles/2025/the-hardware-lottery/">The Hardware Lottery: We may be trying to build a ladder to the Moon</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="thin-line"></div>
 
   <div id="fixed-footer">
     <div class="left-links">
-      <a href="../">Home</a> &#9474; <a href="../research/">Research</a> &#9474; <a href="https://flora.squareone.house/amitabh" target="_blank">Reading Stats</a> &#9474; <a href="" style="font-weight: bold; border: 2px solid #0074D9; padding: 4px 8px; border-radius: 4px; text-decoration: none; color: #0074D9;">CV</a> &#9474; <a href="../contact/">Contact</a>
+      <a href="../">Home</a> &#9474; <a href="" style="font-weight: bold; border: 2px solid #0074D9; padding: 4px 8px; border-radius: 4px; text-decoration: none; color: #0074D9;">Research</a> &#9474; <a href="../cv/">Curriculum Vitae (CV)</a> &#9474; <a href="../contact/">Contact</a>
     </div>
     <div class="right-copy" style="padding-left: 5px;">
     &#169; 2018–<span id="currentYear"></span> Amitabh Yadav.
@@ -37,13 +39,7 @@
 
 </div>
 
-<!-- Dark/Light Mode Toggle -->
-<div class="mode-toggle-container">
-  <label class="toggle-switch">
-    <input type="checkbox" id="modeToggle">
-    <span class="slider"></span>
-  </label>
-</div>
+<button id="modeToggle" aria-label="Toggle dark/light mode"></button>
 <script>
   const year = new Date().getFullYear();
   document.getElementById('currentYear').textContent = year - 2000;
