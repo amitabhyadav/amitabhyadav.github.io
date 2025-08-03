@@ -374,18 +374,6 @@ input:checked + .slider:hover::after {
   box-shadow: 0 0 10px rgba(192, 192, 192, 0.3);
 }
 
-button#modeToggle {
-  display: block;
-  margin: 2rem auto;
-  padding: 0.6rem 1.2rem;
-  font-size: 1rem;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  background-color: #111;
-  color: #fff;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
 
 /* Citation sup styling */
 sup.citation {
@@ -451,10 +439,6 @@ body.dark-mode::after {
   opacity: 0.5;
 }
 
-body.dark-mode button#modeToggle {
-  background-color: #eee;
-  color: #121212;
-}
 
 body.dark-mode .thin-line {
   background-color: white;

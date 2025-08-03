@@ -1,22 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // === Dark Mode Toggle ===
-  // === Dark Mode Toggle with persistence ===
-  const toggleBtn = document.getElementById('modeToggle');
+  // === Dark Mode Toggle Switch ===
+  const toggleInput = document.getElementById('modeToggle');
 
   // On page load: apply saved mode if any
   const savedMode = localStorage.getItem('darkModeEnabled');
   if (savedMode === 'true') {
     document.body.classList.add('dark-mode');
-    <!--toggleBtn.textContent = 'L'; -->
+    toggleInput.checked = true;
   } else {
-    <!--toggleBtn.textContent = 'D'; -->
+    toggleInput.checked = false;
   }
 
-  toggleBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    const isDark = document.body.classList.contains('dark-mode');
-    <!-- toggleBtn.textContent = isDark ? 'L' : 'D'; -->
-
+  toggleInput.addEventListener('change', () => {
+    const isDark = toggleInput.checked;
+    document.body.classList.toggle('dark-mode', isDark);
+    
     // Save preference
     localStorage.setItem('darkModeEnabled', isDark);
   });
