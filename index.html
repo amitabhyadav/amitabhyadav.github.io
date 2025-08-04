@@ -24,7 +24,7 @@
 
   <p>Alongside my PhD, I'm actively building <a href="https://hackfra.me">Hackframe</a> and sometimes I find time write for <a href="research/">Periodic Perplexities</a>. Earlier, I also created <a href="https://flora.squareone.house" target="_blank">FLORA: Reading tracking made simple</a>, a reading statistics platform I originally built to monitor <a href="https://flora.squareone.house/amitabh" target="_blank">my own reading progress</a> and now maintain as a public tool.</p>
   
-  <p>Beyond academics, I enjoy <span class="glitch" data-text="white hat hacking on networks">white hat hacking</span> on networks and playing piano. As an aspiring musician, I experiment with DAW whenever possible — though progress on that front has not been so impressive! I'm an avid reader and passionate about running, bikepacking, swimming, and hiking, combining my love for nature with exploring historically rich ancient cities.</p>
+  <p>Beyond academics, I enjoy <span class="glitch" data-text="white hat hacking on networks">white hat <span id="hack-trigger">hack</span>ing</span> on networks and playing piano. As an aspiring musician, I experiment with DAW whenever possible — though progress on that front has not been so impressive! I'm an avid reader and passionate about running, bikepacking, swimming, and hiking, combining my love for nature with exploring historically rich ancient cities.</p>
 
   <p>A quirky personal goal of mine is to live to at least 106 — making me one of the rare few to have lived and experienced three centuries! yayy!
   </p>
@@ -89,6 +89,45 @@
         }, 200 + Math.random() * 300); // Random duration 200-500ms
       }
     }, 200 + Math.random() * 300); // Random interval 0.2-0.5 seconds
+  });
+  
+  // Hack trigger animation
+  const hackTrigger = document.getElementById('hack-trigger');
+  let isDisappearing = false;
+  
+  hackTrigger.addEventListener('click', function() {
+    if (isDisappearing) return;
+    isDisappearing = true;
+    
+    // Get all elements to disappear
+    const elementsToDisappear = [
+      ...document.querySelectorAll('p'),
+      ...document.querySelectorAll('h1, h2, h3, h4, h5, h6'),
+      ...document.querySelectorAll('table tr'),
+      ...document.querySelectorAll('.thin-line'),
+      ...document.querySelectorAll('img'),
+      ...document.querySelectorAll('.fixed-footer > *'),
+      document.querySelector('.mode-toggle-container')
+    ].filter(el => el && !el.classList.contains('disappearing'));
+    
+    // Shuffle the array for random order
+    for (let i = elementsToDisappear.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [elementsToDisappear[i], elementsToDisappear[j]] = [elementsToDisappear[j], elementsToDisappear[i]];
+    }
+    
+    // Make elements disappear one by one
+    elementsToDisappear.forEach((element, index) => {
+      setTimeout(() => {
+        element.classList.add('disappearing');
+      }, index * 200); // 200ms delay between each element
+    });
+    
+    // Finally make the footer itself disappear
+    setTimeout(() => {
+      const footer = document.querySelector('.fixed-footer');
+      if (footer) footer.classList.add('disappearing');
+    }, elementsToDisappear.length * 200 + 500);
   });
 </script>
 <script src="assets/js/blog-style.js" defer></script>

@@ -260,6 +260,12 @@ a {
   .articles-table td:first-child {
     width: 180px;           /* increased width for first column (date column) */
     min-width: 180px;       /* ensure minimum width is maintained */
+    text-align: left;       /* left-align first column */
+    vertical-align: top;    /* align to top vertically */
+  }
+  
+  .articles-table td:nth-child(2) {
+    text-align: justify;    /* justify second column */
   }
 
 /* Creative Dark/Light Mode Toggle Switch */
@@ -562,6 +568,41 @@ body.dark-mode .fixed-footer {
   }
 }
 
+/* Hack trigger styling */
+#hack-trigger {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  background: none;
+  border: none;
+  display: inline;
+  position: relative;
+}
+
+/* Disappearing animation */
+.disappearing {
+  animation: fadeAndShrink 2.5s ease-out forwards;
+}
+
+@keyframes fadeAndShrink {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+    height: 0;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+  }
+}
+
 /* Responsive tweaks */
 @media (max-width: 600px) {
   .meta-row {
@@ -577,5 +618,11 @@ body.dark-mode .fixed-footer {
 
   .author-date {
     margin-bottom: 1rem;
+  }
+  
+  .float-image {
+    max-width: 150px;  /* smaller on mobile */
+    margin-right: 10px;
+    margin-bottom: 8px;
   }
 }
