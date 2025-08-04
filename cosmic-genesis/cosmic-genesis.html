@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cosmic Genesis - From Big Bang to Present</title>
+<link rel="stylesheet" href="../assets/css/blog-style.css" />
+<link rel="stylesheet" href="cosmic-genesis.css" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@100;200;300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- MathJax for equations -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    }
+  };
+</script>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="../assets/media/images/favicon.svg" />
+</head>
+<body>
+
+<!-- Info Modal -->
+<div class="info-modal" id="infoModal">
+  <div class="modal-content">
+    <button class="modal-close" id="modalClose">&times;</button>
+    <h3 class="modal-title" id="modalTitle"></h3>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<!-- Quantum Particle Field Background -->
+<canvas id="cosmic-canvas"></canvas>
+
+<!-- Era Navigation Circles -->
+<div class="era-navigation" id="eraNavigation">
+  <div class="nav-circle" data-era="0" title="The Singularity">0</div>
+  <div class="nav-circle" data-era="1" title="Planck Epoch">1</div>
+  <div class="nav-circle" data-era="2" title="Grand Unification">2</div>
+  <div class="nav-circle" data-era="3" title="Baryogenesis">3</div>
+  <div class="nav-circle" data-era="4" title="Cosmic Inflation">4</div>
+  <div class="nav-circle" data-era="5" title="Electroweak Breaking">5</div>
+  <div class="nav-circle" data-era="6" title="Quark-Gluon Plasma">6</div>
+  <div class="nav-circle" data-era="7" title="Neutrino Decoupling">7</div>
+  <div class="nav-circle" data-era="8" title="Big Bang Nucleosynthesis">8</div>
+  <div class="nav-circle" data-era="9" title="Matter-Radiation Equality">9</div>
+  <div class="nav-circle" data-era="10" title="Recombination">10</div>
+  <div class="nav-circle" data-era="11" title="Dark Ages">11</div>
+  <div class="nav-circle" data-era="12" title="First Stars">12</div>
+  <div class="nav-circle" data-era="13" title="Reionization">13</div>
+  <div class="nav-circle" data-era="14" title="Galaxy Formation">14</div>
+  <div class="nav-circle" data-era="15" title="Supermassive Black Holes">15</div>
+  <div class="nav-circle" data-era="16" title="Structure Formation">16</div>
+  <div class="nav-circle" data-era="17" title="Solar System Formation">17</div>
+  <div class="nav-circle" data-era="18" title="Quantum Gravity Theory">18</div>
+  <div class="nav-circle" data-era="19" title="String Theory">19</div>
+  <div class="nav-circle" data-era="20" title="Galaxy Clusters">20</div>
+  <div class="nav-circle" data-era="21" title="Dark Energy Domination">21</div>
+  <div class="nav-circle" data-era="22" title="Cosmological Observations">22</div>
+  <div class="nav-circle" data-era="23" title="Gravitational Waves">23</div>
+  <div class="nav-circle" data-era="24" title="Multiverse Theory">24</div>
+</div>
+
+<!-- Main Timeline Container -->
+<div class="cosmic-timeline-container" id="cosmicContainer">
+  
+  <!-- Era 0: The Singularity (t = 0) -->
+  <section class="cosmic-era era-singularity" data-era="0" data-time="t = 0">
+    <div class="era-background singularity-bg"></div>
+    <div class="era-content">
+      <div class="singularity-point">
+        <div class="quantum-singularity"></div>
+        <div class="spacetime-curvature"></div>
+      </div>
+      <div class="era-info">
+        <h2 class="era-title">The Singularity</h2>
+        <div class="era-timeline">t = 0</div>
+        <div class="era-physics">
+          <p class="physics-desc">All matter, energy, space and time compressed to infinite density</p>
+          <div class="equation">
+            $$\rho \to \infty \text{ g/cm}^3, \quad T \to \infty \text{ K}$$
+          </div>
+          <div class="equation">
+            $$R_{\mu\nu} - \frac{1}{2}g_{\mu\nu}R = \frac{8\pi G}{c^4}T_{\mu\nu}$$
+          </div>
+          <p class="equation-desc">Einstein Field Equations break down</p>
+        </div>
+        <button class="info-btn" data-era="0" aria-label="More information">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12" y2="8"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Era 1: Planck Epoch (10^-43 s) -->
+  <section class="cosmic-era era-planck" data-era="1" data-time="10^-43 s">
+    <div class="era-background planck-bg"></div>
+    <div class="era-content">
+      <div class="planck-physics">
+        <div class="quantum-foam">
+          <div class="foam-bubble"></div>
+          <div class="foam-bubble"></div>
+          <div class="foam-bubble"></div>
+        </div>
+        <div class="planck-scale">
+          <div class="length-scale">$l_P = \sqrt{\frac{\hbar G}{c^3}} = 1.6 \times 10^{-35}$ m</div>
+          <div class="time-scale">$t_P = \sqrt{\frac{\hbar G}{c^5}} = 5.4 \times 10^{-44}$ s</div>
+          <div class="energy-scale">$E_P = \sqrt{\frac{\hbar c^5}{G}} = 1.2 \times 10^{19}$ GeV</div>
+        </div>
+      </div>
+      <div class="era-info">
+        <h2 class="era-title">Planck Epoch</h2>
+        <div class="era-timeline">t = 10⁻⁴³ s</div>
+        <div class="era-temperature">T = 10³² K</div>
+        <div class="era-physics">
+          <p class="physics-desc">Quantum gravity dominates. All four fundamental forces unified.</p>
+          <div class="equation">
+            $$G_{unified} = G_{strong} = G_{weak} = G_{EM} = G_{gravity}$$
+          </div>
+          <div class="equation">
+            $$\Lambda_{GUT} \approx 10^{16} \text{ GeV}$$
+          </div>
+          <p class="equation-desc">Theory of Everything required</p>
+        </div>
+        <button class="info-btn" data-era="1" aria-label="More information">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12" y2="8"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Era 2: Grand Unification (10^-36 s) -->
+  <section class="cosmic-era era-gut" data-era="2" data-time="10^-36 s">
+    <div class="era-background gut-bg"></div>
+    <div class="era-content">
+      <div class="gut-symmetry">
+        <div class="unified-force-field"></div>
+        <div class="symmetry-breaking">
+          <div class="force-line gravity-separates"></div>
+          <div class="force-line gut-unified"></div>
+        </div>
+        <div class="x-boson-decay">
+          <div class="x-boson"></div>
+          <div class="decay-products"></div>
+        </div>
+      </div>
+      <div class="era-info">
+        <h2 class="era-title">Grand Unification</h2>
+        <div class="era-timeline">t = 10⁻³⁶ s</div>
+        <div class="era-temperature">T = 10²⁸ K</div>
+        <div class="era-physics">
+          <p class="physics-desc">Gravity separates. Strong, weak, and EM forces remain unified in GUT.</p>
+          <div class="equation">
+            $$SU(5) \text{ or } SO(10) \to SU(3) \times SU(2) \times U(1)$$
+          </div>
+          <div class="equation">
+            $$M_X \sim 10^{16} \text{ GeV}/c^2$$
+          </div>
+          <p class="equation-desc">X-boson mass scale, proton decay possible</p>
+        </div>
+        <button class="info-btn" data-era="2" aria-label="More information">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12" y2="8"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW Era: Baryogenesis (10^-36 to 10^-10 s) -->
+  <section class="cosmic-era era-baryogenesis" data-era="3" data-time="10^-36 to 10^-10 s">
+    <div class="era-background baryogenesis-bg"></div>
+    <div class="era-content">
+      <div class="baryon-asymmetry">
+        <div class="antimatter-annihilation">
+          <div class="particle-pair">
+            <div class="particle">p</div>
+            <div class="antiparticle">p̄</div>
+          </div>
+          <div class="annihilation-flash"></div>
+        </div>
+        <div class="cp-violation">
+          <div class="cp-symbol">CP</div>
+          <div class="violation-arrow">⤫</div>
+        </div>
+      </div>
+      <div class="era-info">
+        <h2 class="era-title">Baryogenesis</h2>
+        <div class="era-timeline">t = 10⁻³⁶ → 10⁻¹⁰ s</div>
+        <div class="era-temperature">T = 10²⁸ → 10¹⁶ K</div>
+        <div class="era-physics">
+          <p class="physics-desc">CP violation and out-of-equilibrium conditions create slight excess of baryons over antibaryons.</p>
+          <div class="equation">
+            $$\eta = \frac{n_B - n_{\bar{B}}}{n_\gamma} \approx 6.1 \times 10^{-10}$$
+          </div>
+          <div class="equation">
+            $$\text{Sakharov conditions:}$$
+            $$1. \text{ Baryon number violation } (\Delta B \neq 0)$$
+            $$2. \text{ CP symmetry violation}$$
+            $$3. \text{ Departure from thermal equilibrium}$$
+          </div>
+          <p class="equation-desc">Baryon-to-photon ratio sets matter content</p>
+        </div>
+        <button class="info-btn" data-era="3" aria-label="More information">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12" y2="8"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Era 4: Cosmic Inflation (10^-32 s) -->
+  <section class="cosmic-era era-inflation" data-era="4" data-time="10^-32 s">
+    <div class="era-background inflation-bg"></div>
+    <div class="era-content">
+      <div class="inflation-field">
+        <div class="inflaton-potential"></div>
+        <div class="expansion-visualization">
+          <div class="space-grid expanding"></div>
+          <div class="horizon-problem"></div>
+        </div>
+        <div class="scalar-field-roll">
+          <div class="potential-well"></div>
+          <div class="field-value"></div>
+        </div>
+      </div>
+      <div class="era-info">
+        <h2 class="era-title">Cosmic Inflation</h2>
+        <div class="era-timeline">t = 10⁻³² s → 10⁻²⁸ s</div>
+        <div class="era-temperature">T = 10²⁷ K → 10²² K</div>
+        <div class="era-physics">
+          <p class="physics-desc">Exponential expansion driven by inflaton field. Universe grows by factor of 10²⁶.</p>
+          <div class="equation">
+            $$a(t) = a_0 e^{H(t-t_0)}$$
+          </div>
+          <div class="equation">
+            $$H^2 = \frac{8\pi G}{3}\rho_\phi$$
+            $$\rho_\phi = \frac{1}{2}\dot{\phi}^2 + V(\phi) \text{ GeV}^4$$
+          </div>
+          <p class="equation-desc">Hubble parameter H ≈ 10¹⁴ GeV during inflation</p>
+        </div>
+        <button class="info-btn" data-era="4" aria-label="More information">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12" y2="8"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Era 5: Electroweak Symmetry Breaking (10^-12 s) -->
+  <section class="cosmic-era era-ewsb" data-era="5" data-time="10^-12 s">
+    <div class="era-background ewsb-bg"></div>
+    <div class="era-content">
+      <div class="higgs-mechanism">
+        <div class="higgs-field-vev"></div>
+        <div class="gauge-bosons">
+          <div class="w-boson">W±</div>
+          <div class="z-boson">Z⁰</div>
+          <div class="photon">γ</div>
+        </div>
+        <div class="mass-generation">
+          <div class="fermion-masses"></div>
+        </div>
+      </div>
+      <div class="era-info">
+        <h2 class="era-title">Electroweak Breaking</h2>
+        <div class="era-timeline">t = 10⁻¹² s</div>
+        <div class="era-temperature">T = 10¹⁵ K (100 GeV)</div>
+        <div class="era-physics">
+          <p class="physics-desc">Higgs mechanism gives mass to W and Z bosons. EM and weak forces separate.</p>
+          <div class="equation">
+            $$SU(2)_L \times U(1)_Y \to U(1)_{EM}$$
+          </div>
+          <div class="equation">
+            $$m_W = \frac{gv}{2} = 80.4 \text{ GeV}/c^2$$
+            $$m_Z = \frac{\sqrt{g^2+g'^2}v}{2} = 91.2 \text{ GeV}/c^2$$
+          </div>
+          <p class="equation-desc">W and Z boson masses from Higgs VEV v = 246 GeV</p>
+        </div>
+        <button class="info-btn" data-era="5" aria-label="More information">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12" y2="8"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Era 6: Quark-Gluon Plasma → Hadron Formation (10^-6 s) -->
+  <section class="cosmic-era era-qcd" data-era="6" data-time="10^-6 s">
+    <div class="era-background qcd-bg"></div>
+    <div class="era-content">
+      <div class="qcd-transition">
+        <div class="quark-gluon-plasma">
+          <div class="quark up-quark">u</div>
+          <div class="quark down-quark">d</div>
+          <div class="quark strange-quark">s</div>
+          <div class="gluon-field"></div>
+        </div>
+        <div class="confinement-arrow">→</div>
+        <div class="hadron-formation">
+          <div class="proton">
+            <span class="quark">u</span>
+            <span class="quark">u</span>
+            <span class="quark">d</span>
+          </div>
+          <div class="neutron">
+            <span class="quark">u</span>
+            <span class="quark">d</span>
+            <span class="quark">d</span>
+          </div>
+        </div>
+      </div>
+      <div class="era-info">
+        <h2 class="era-title">Quark-Gluon Plasma → Hadron Formation</h2>
+        <div class="era-timeline">t = 10⁻⁶ s</div>
+        <div class="era-temperature">T = 10¹² K (150 MeV)</div>
+        <div class="era-physics">
+          <p class="physics-desc">Universe cools below QCD scale. Quark-gluon plasma undergoes confinement transition to form hadrons.</p>
+          <div class="equation">
+            $$\Lambda_{QCD} \approx 200 \text{ MeV}$$
+          </div>
+          <div class="equation">
+            $$m_p = 938.3 \text{ MeV}/c^2$$
+            $$m_n = 939.6 \text{ MeV}/c^2$$
+          </div>
+          <p class="equation-desc">QCD scale and nucleon masses</p>
+        </div>
+        <button class="info-btn" data-era="6" aria-label="More information">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12" y2="8"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW Era: Neutrino Decoupling (1 s) -->
+  <section class="cosmic-era era-neutrino" data-era="7" data-time="1 s">
+    <div class="era-background neutrino-bg"></div>
+    <div class="era-content">
+      <div class="neutrino-decoupling">
+        <div class="neutrino-field">
+          <div class="neutrino-particle">ν<sub>e</sub></div>
+          <div class="neutrino-particle">ν<sub>μ</sub></div>
+          <div class="neutrino-particle">ν<sub>τ</sub></div>
+        </div>
+        <div class="weak-interaction-cease">
+          <div class="interaction-line weakening"></div>
+          <div class="decoupling-boundary"></div>
+        </div>
+      </div>
+      <div class="era-info">
+        <h2 class="era-title">Neutrino Decoupling</h2>
+        <div class="era-timeline">t ≈ 1 s</div>
+        <div class="era-temperature">T = 10¹⁰ K (1 MeV)</div>
+        <div class="era-physics">
+          <p class="physics-desc">Neutrinos cease interacting with matter, forming cosmic neutrino background (CνB).</p>
+          <div class="equation">
+            $$\Gamma_\nu = n \langle \sigma v \rangle < H$$
+          </div>
+          <div class="equation">
+            $$T_{\nu,0} = \left(\frac{4}{11}\right)^{1/3} T_{\gamma,0} \approx 1.95 \text{ K}$$
+          </div>
+          <p class="equation-desc">Present-day neutrino temperature, n<sub>ν</sub> ≈ 112 cm⁻³ per species</p>
+        </div>
+        <button class="info-btn" data-era="7" aria-label="More information">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12" y2="8"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Era 8: Big Bang Nucleosynthesis (1 s - 20 min) -->
+  <section class="cosmic-era era-bbn" data-era="8" data-time="1 s - 20 min">
+    <div class="era-background bbn-bg"></div>
+    <div class="era-content">
+      <div class="nucleosynthesis">
+        <div class="nuclear-reactions">
+          <div class="reaction">
+            <span class="reactants">p + n</span>
+            <span class="arrow">→</span>
+            <span class="products">D + γ</span>
+          </div>
+          <div class="reaction">
+            <span class="reactants">D + D</span>
+            <span class="arrow">→</span>
+            <span class="products">³He + n</span>
+          </div>
+          <div class="reaction">
+            <span class="reactants">³He + n</span>
+            <span class="arrow">→</span>
+            <span class="products">⁴He + γ</span>
+          </div>
+        </div>
+        <div class="abundance-chart">
+          <div class="element hydrogen">
+            <span class="symbol">H</span>
+            <span class="abundance">75%</span>
+          </div>
+          <div class="element helium">
+            <span class="symbol">⁴He</span>
+            <span class="abundance">25%</span>
+          </div>
+          <div class="element deuterium">
+            <span class="symbol">D</span>
+            <span class="abundance">0.01%</span>
+          </div>
+          <div class="element lithium">
+            <span class="symbol">⁷Li</span>
+            <span class="abundance">10⁻⁹</span>
+          </div>
+        </div>
+      </div>
+      <div class="era-info">
+        <h2 class="era-title">Big Bang Nucleosynthesis</h2>
+        <div class="era-timeline">t = 1 s → 20 min</div>
+        <div class="era-temperature">T = 10⁹ K → 10⁸ K</div>
+        <div class="era-physics">
+          <p class="physics-desc">Light element synthesis. Protons and neutrons fuse to form deuterium, helium, lithium.</p>
+          <div class="equation">
+            $$n/p = e^{-\Delta m c^2/kT} \approx 1/7$$
+          </div>
+          <div class="equation">
+            $$Y_p = \frac{2(n/p)}{1+(n/p)} \approx 0.25$$
+          </div>
+          <p class="equation-desc">Neutron-proton ratio determines helium abundance</p>
+        </div>
+        <button class="info-btn" data-era="8" aria-label="More information">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12" y2="8"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Era 9: Matter-Radiation Equality (50,000 years) -->
+  <section class="cosmic-era era-equality" data-era="9" data-time="50 kyr">
+    <div class="era-background equality-bg"></div>
+    <div class="era-content">
+      <div class="density-evolution">
+        <div class="radiation-density">
+          <div class="density-curve radiation-curve"></div>
+          <div class="density-label">Radiation: ρ<sub>r</sub> ∝ a⁻⁴</div>
+        </div>
+        <div class="matter-density">
+          <div class="density-curve matter-curve"></div>
+          <div class="density-label">Matter: ρ<sub>m</sub> ∝ a⁻³</div>
+        </div>
+        <div class="intersection-point"></div>
+      </div>
+      <div class="era-info">
+        <h2 class="era-title">Matter-Radiation Equality</h2>
+        <div class="era-timeline">t = 50 kyr</div>
+        <div class="era-temperature">T = 9,000 K</div>
+        <div class="era-physics">
+          <p class="physics-desc">Matter density equals radiation density. Universe becomes matter-dominated.</p>
+          <div class="equation">
+            $$\rho_m = \rho_r$$
+          </div>
+          <div class="equation">
+            $$z_{eq} = \frac{\Omega_m h^2}{2.5 \times 10^{-5}} - 1 + \Delta z_{eq} \approx 3,400 \pm 100$$
+          </div>
+          <div class="equation">
+            $$\Delta z_{eq} = \frac{0.3 \Omega_b h^2}{2.5 \times 10^{-5}}$$
+          </div>
+          <p class="equation-desc">Equality redshift with baryon correction term</p>
+        </div>
+        <button class="info-btn" data-era="9" aria-label="More information">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12" y2="8"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Era 10: Recombination (380,000 years) -->
+  <section class="cosmic-era era-recombination" data-era="10" data-time="380 kyr">
+    <div class="era-background recombination-bg"></div>
+    <div class="era-content">
+      <div class="recombination-process">
+        <div class="plasma-state">
+          <div class="ion hydrogen-ion">H⁺</div>
+          <div class="ion helium-ion">He²⁺</div>
+          <div class="electron free-electron">e⁻</div>
+          <div class="photon scattered-photon">γ</div>
+        </div>
+        <div class="recombination-arrow">→</div>
+        <div class="neutral-state">
+          <div class="atom hydrogen-atom">H</div>
+          <div class="atom helium-atom">He</div>
+          <div class="photon free-photon cmb-photon">γ</div>
+        </div>
+      </div>
+      <div class="cmb-release">
+        <div class="photon-decoupling"></div>
+        <div class="last-scattering-surface"></div>
+      </div>
+      <div class="era-info">
+        <h2 class="era-title">Recombination Era</h2>
+        <div class="era-timeline">t = 380 kyr</div>
+        <div class="era-temperature">T = 3,000 K</div>
+        <div class="era-physics">
+          <p class="physics-desc">Electrons combine with nuclei to form neutral atoms. CMB photons decouple.</p>
+          <div class="equation">
+            $$X_e = \frac{n_e}{n_H} \approx \sqrt{\frac{\pi}{12}}\frac{m_e c^2}{kT}e^{-E_I/kT}$$
+          </div>
+          <div class="equation">
+            $$z_{rec} \approx 1090$$
+            $$T_{CMB,0} = 2.725 \text{ K}$$
+          </div>
+          <p class="equation-desc">Saha equation for ionization fraction</p>
+        </div>
+        <button class="info-btn" data-era="10" aria-label="More information">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12" y2="8"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Era 11: Dark Ages (380,000 - 2 million years) -->
+  <section class="cosmic-era era-dark-ages" data-era="11" data-time="2 Myr">
+    <div class="era-background dark-ages-bg"></div>
+    <div class="era-content">
+      <div class="dark-matter-structure">
+        <div class="dm-halo halo-1"></div>
+        <div class="dm-halo halo-2"></div>
+        <div class="dm-halo halo-3"></div>
+        <div class="gas-collapse">
+          <div class="hydrogen-gas"></div>
+          <div class="helium-gas"></div>
+        </div>
+      </div>
+      <div class="era-info">
+        <h2 class="era-title">Dark Ages</h2>
+        <div class="era-timeline">t = 380 kyr → 2 Myr</div>
+        <div class="era-temperature">T = 3,000 K → 60 K</div>
+        <div class="era-physics">
+          <p class="physics-desc">No stars yet. Dark matter halos grow via gravitational collapse.</p>
+          <div class="equation">
+            $$\delta(z) = \delta_0 \frac{g(z)}{1+z}$$
+          </div>
+          <div class="equation">
+            $$M_{halo} \sim 10^6 M_\odot \text{ (first star formation)}$$
+          </div>
+          <p class="equation-desc">Linear growth of density perturbations</p>
+        </div>
+        <button class="info-btn" data-era="11" aria-label="More information">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12" y2="8"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Era 12: First Stars (200 million years) -->
+  <section class="cosmic-era era-first-stars" data-era="12" data-time="200 Myr">
+    <div class="era-background first-stars-bg"></div>
+    <div class="era-content">
+      <div class="stellar-formation">
+        <div class="population-iii">
+          <div class="pop-iii-star">
+            <div class="stellar-core"></div>
+            <div class="nuclear-burning"></div>
+          </div>
+          <div class="mass-range">100-300 M☉</div>
+        </div>
+        <div class="nucleosynthesis-process">
+          <div class="fusion-chain">
+            <span>H → He → C → O → Si → Fe</span>
+          </div>
+          <div class="supernova-explosion">
+            <div class="core-collapse"></div>
+            <div class="metal-enrichment"></div>
+          </div>
+        </div>
+      </div>
+      <div class="era-info">
+        <h2 class="era-title">First Stars (Pop III)</h2>
+        <div class="era-timeline">t = 200 Myr</div>
+        <div class="era-temperature">T = 60 K</div>
+        <div class="era-physics">
+          <p class="physics-desc">First stars ignite. Metal-free, very massive. End in supernovae, create heavy elements.</p>
+          <div class="equation">
+            $$M_{Jeans} = \left(\frac{5kT}{G\mu m_H}\right)^{3/2}\left(\frac{3}{4\pi\rho}\right)^{1/2}$$
+          </div>
+          <div class="equation">
+            $$t_{MS} \approx 3 \text{ Myr} \left(\frac{M}{100M_\odot}\right)^{-2.5}$$
+          </div>
+          <p class="equation-desc">Jeans mass and main sequence lifetime</p>
+        </div>
+        <button class="info-btn" data-era="12" aria-label="More information">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12" y2="8"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+  <!-- NEW Era: Reionization Epoch (400 Myr - 1 Byr) -->
+  <section class="cosmic-era era-reionization" data-era="13" data-time="400 Myr - 1 Byr">
+    <div class="era-background reionization-bg"></div>
+    <div class="era-content">
+      <div class="reionization-process">
+        <div class="ionization-bubbles">
+          <div class="hii-region bubble-1">
+            <div class="uv-source"></div>
+            <div class="ionization-front"></div>
+          </div>
+          <div class="hii-region bubble-2">
+            <div class="uv-source"></div>
+            <div class="ionization-front"></div>
+          </div>
+          <div class="hii-region bubble-3">
+            <div class="uv-source"></div>
+            <div class="ionization-front"></div>
+          </div>
+        </div>
+        <div class="igm-ionization">
+          <div class="neutral-igm"></div>
+          <div class="ionized-igm"></div>
+        </div>
+      </div>
+      <div class="era-info">
+        <h2 class="era-title">Epoch of Reionization</h2>
+        <div class="era-timeline">t = 400 Myr → 1 Byr</div>
+        <div class="era-temperature">T = 30 K → 19 K</div>
+        <div class="era-physics">
+          <p class="physics-desc">UV photons from first stars and galaxies ionize the IGM. Universe becomes transparent again to UV.</p>
+          <div class="equation">
+            $$\dot{n}_{ion} = \epsilon f_{esc} \dot{n}_* - \alpha n_e^2 - \frac{n_{HI}}{t_{rec}}$$
+          </div>
+          <div class="equation">
+            $$z_{reion} \approx 7.7 \pm 0.7$$
+            $$\tau_e = 0.054 \pm 0.007$$
+          </div>
+          <p class="equation-desc">Ionization balance and optical depth to reionization</p>
+        </div>
+        <button class="info-btn" data-era="13" aria-label="More information">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12" y2="8"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Era 14: Galaxy Formation (500 million years) -->
+  <section class="cosmic-era era-galaxies" data-era="14" data-time="500 Myr">
+    <div class="era-background galaxies-bg"></div>
+    <div class="era-content">
+      <div class="galaxy-formation">
+        <div class="hierarchical-formation">
+          <!-- Stage 1: Dark Matter Halo Formation -->
+          <div class="dm-halo-evolution">
+            <div class="dm-halo-core"></div>
+            <div class="dm-subhalos">
+              <div class="subhalo"></div>
+              <div class="subhalo"></div>
+              <div class="subhalo"></div>
+            </div>
+          </div>
+          
+          <!-- Stage 2: Gas Infall and Cooling -->
+          <div class="gas-dynamics">
+            <div class="hot-gas-halo"></div>
+            <div class="cooling-flows">
+              <div class="gas-stream stream-1"></div>
+              <div class="gas-stream stream-2"></div>
+              <div class="gas-stream stream-3"></div>
+            </div>
+            <div class="gas-disk"></div>
+          </div>
+          
+          <!-- Stage 3: Star Formation and Feedback -->
+          <div class="stellar-evolution">
+            <div class="star-forming-regions">
+              <div class="sf-clump active"></div>
+              <div class="sf-clump forming"></div>
+              <div class="sf-clump dormant"></div>
+            </div>
+            <div class="stellar-feedback">
+              <div class="supernova-bubble"></div>
+              <div class="stellar-winds"></div>
+            </div>
+          </div>
+          
+          <!-- Stage 4: Spiral Structure Development -->
+          <div class="disk-galaxy">
+            <div class="galactic-disk"></div>
+            <div class="spiral-arms">
+              <div class="spiral-arm arm-1"></div>
+              <div class="spiral-arm arm-2"></div>
+            </div>
+            <div class="central-bulge"></div>
+            <div class="bar-structure"></div>
+          </div>
+        </div>
+        
+        <!-- Different Galaxy Types -->
+        <div class="galaxy-morphology">
+          <div class="morphology-sequence">
+            <div class="elliptical-type">
+              <div class="elliptical-core"></div>
+              <div class="stellar-halo"></div>
+            </div>
+            <div class="spiral-type">
+              <div class="spiral-disk"></div>
+              <div class="spiral-pattern"></div>
+            </div>
+            <div class="irregular-type">
+              <div class="clumpy-structure"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="era-info">
+        <h2 class="era-title">Galaxy Formation</h2>
+        <div class="era-timeline">t = 500 Myr → 1 Byr</div>
+        <div class="era-temperature">T = 30 K</div>
+        <div class="era-physics">
+          <p class="physics-desc">First galaxies form in dark matter halos. Gas cools and forms stars.</p>
+          <div class="equation">
+            $$M_{halo} \sim 10^{11} - 10^{12} M_\odot$$
+          </div>
+          <div class="equation">
+            $$SFR \propto M_{gas}^{1.4} \text{ (Kennicutt-Schmidt law)}$$
+          </div>
+          <p class="equation-desc">Typical halo masses and star formation rate</p>
+        </div>
+        <button class="info-btn" data-era="14" aria-label="More information">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12" y2="8"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Era 15: Supermassive Black Holes (1 Byr) -->
+  <section class="cosmic-era era-smbh" data-era="15" data-time="1 Byr">
+    <div class="era-background smbh-bg"></div>
+    <div class="era-content">
+      <div class="black-hole-formation">
+        <div class="smbh-center">
+          <div class="event-horizon">
+            <div class="shadow-silhouette"></div>
+            <div class="photon-sphere"></div>
+          </div>
+          <div class="accretion-disk">
+            <div class="disk-ring disk-ring-1"></div>
+            <div class="disk-ring disk-ring-2"></div>
+            <div class="disk-ring disk-ring-3"></div>
+            <div class="disk-ring disk-ring-4"></div>
+            <div class="gravitational-lensing"></div>
+          </div>
+          <div class="doppler-effects">
+            <div class="approaching-side"></div>
+            <div class="receding-side"></div>
+          </div>
+          <div class="relativistic-jets">
+            <div class="jet jet-north">
+              <div class="jet-core"></div>
+              <div class="jet-plume"></div>
+              <div class="jet-shock"></div>
+            </div>
+            <div class="jet jet-south">
+              <div class="jet-core"></div>
+              <div class="jet-plume"></div>
+              <div class="jet-shock"></div>
+            </div>
+          </div>
+          <div class="spacetime-distortion">
+            <div class="distortion-ring ring-1"></div>
+            <div class="distortion-ring ring-2"></div>
+            <div class="distortion-ring ring-3"></div>
+          </div>
+        </div>
+        <div class="mass-growth">
+          <div class="eddington-limit">$L_{Edd} = \frac{4\pi GMm_p c}{\sigma_T} = 1.3 \times 10^{38} \left(\frac{M}{M_\odot}\right)$ erg/s</div>
+        </div>
+      </div>
+      <div class="era-info">
+        <h2 class="era-title">Supermassive Black Holes</h2>
+        <div class="era-timeline">t = 1 Byr</div>
+        <div class="era-temperature">T = 19 K</div>
+        <div class="era-physics">
+          <p class="physics-desc">Supermassive black holes grow at galaxy centers. Quasars light up the universe.</p>
+          <div class="equation">
+            $$M_{BH} \approx 10^6 - 10^{10} M_\odot$$
+          </div>
+          <div class="equation">
+            $$r_s = \frac{2GM}{c^2}$$
+            $$t_{growth} = \frac{M}{\dot{M}} = \frac{\epsilon c^2}{\lambda L_{Edd}} t_{Salpeter}$$
+          </div>
+          <p class="equation-desc">Schwarzschild radius and growth timescale</p>
+        </div>
+        <button class="info-btn" data-era="15" aria-label="More information">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12" y2="8"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW Era: Structure Formation Epochs (1 Byr - 13.8 Byr) -->
+  <section class="cosmic-era era-structure-formation" data-era="16" data-time="1 Byr - 13.8 Byr">
+    <div class="era-background structure-formation-bg"></div>
+    <div class="era-content">
+      <div class="structure-evolution">
+        <div class="linear-growth">
+          <div class="density-perturbations">
+            <div class="perturbation mode-1"></div>
+            <div class="perturbation mode-2"></div>
+            <div class="perturbation mode-3"></div>
+          </div>
+        </div>
+        <div class="nonlinear-collapse">
+          <div class="halo-merger">
+            <div class="halo-small"></div>
+            <div class="halo-small"></div>
+            <div class="merger-arrow">→</div>
+            <div class="halo-large"></div>
+          </div>
+        </div>
+        <div class="lcdm-simulation">
+          <div class="simulation-box">
+            <div class="dark-matter-particles"></div>
+            <div class="filament-structure"></div>
+          </div>
+        </div>
+      </div>
+      <div class="era-info">
+        <h2 class="era-title">Structure Formation</h2>
+        <div class="era-timeline">t = 1 Byr → 13.8 Byr</div>
+        <div class="era-temperature">T = 19 K → 2.725 K</div>
+        <div class="era-physics">
+          <p class="physics-desc">Hierarchical structure formation. Small objects merge to form larger structures in ΛCDM model.</p>
+          <div class="equation">
+            $$\delta_c = 1.686 \text{ (spherical collapse threshold)}$$
+          </div>
+          <div class="equation">
+            $$\sigma_8 = 0.811 \pm 0.006 \text{ (Planck 2018)}$$
+          </div>
+          <p class="equation-desc">Critical density contrast and power spectrum normalization</p>
+        </div>
+        <button class="info-btn" data-era="16" aria-label="More information">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12" y2="8"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Era 17: Solar System (4.6 Byr ago) -->
+  <section class="cosmic-era era-solar-system" data-era="17" data-time="9.2 Byr">
+    <div class="era-background solar-system-bg"></div>
+    <div class="era-content">
+      <div class="solar-nebula">
+        <div class="proto-sun">
+          <div class="stellar-ignition"></div>
+          <div class="t-tauri-phase"></div>
+        </div>
+        <div class="protoplanetary-disk">
+          <div class="dust-grains"></div>
+          <div class="planetesimals"></div>
+          <div class="planet-formation">
+            <div class="terrestrial-planets">
+              <div class="planet mercury">☿</div>
+              <div class="planet venus">♀</div>
+              <div class="planet earth">🌍</div>
+              <div class="planet mars">♂</div>
+            </div>
+            <div class="gas-giants">
+              <div class="planet jupiter">♃</div>
+              <div class="planet saturn">♄</div>
+              <div class="planet uranus">⛢</div>
+              <div class="planet neptune">♆</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="era-info">
+        <h2 class="era-title">Solar System Formation</h2>
+        <div class="era-timeline">t = 9.2 Byr (4.6 Bya)</div>
+        <div class="era-temperature">T = 8 K</div>
+        <div class="era-physics">
+          <p class="physics-desc">Solar nebula collapse forms Sun and planets. Rocky planets inner, gas giants outer.</p>
+          <div class="equation">
+            $$M_{\odot} = 1.989 \times 10^{30} \text{ kg}$$
+          </div>
+          <div class="equation">
+            $$r_{snow} \approx 2.7 \text{ AU}, \quad T_{snow} \approx 150 \text{ K}$$
+          </div>
+          <p class="equation-desc">Solar mass and snow line location</p>
+        </div>
+        <button class="info-btn" data-era="17" aria-label="More information">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12" y2="8"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Era 18: Quantum Gravity Theory (Modern Physics) -->
+  <section class="cosmic-era era-quantum-gravity" data-era="18" data-time="Modern Theory">
+    <div class="era-background quantum-gravity-bg"></div>
+    <div class="era-content">
+      <div class="quantum-gravity-visualization">
+        <div class="spacetime-foam">
+          <div class="foam-bubble"></div>
+          <div class="foam-bubble"></div>
+          <div class="foam-bubble"></div>
+          <div class="foam-bubble"></div>
+        </div>
+        <div class="planck-scale">
+          <div class="planck-length-indicator">
+            <div class="scale-marker">10⁻³⁵ m</div>
+          </div>
+          <div class="quantum-fluctuations">
+            <div class="fluctuation"></div>
+            <div class="fluctuation"></div>
+            <div class="fluctuation"></div>
+          </div>
+        </div>
+        <div class="gravity-quantization">
+          <div class="graviton-field">
+            <div class="graviton"></div>
+            <div class="graviton"></div>
+            <div class="graviton"></div>
+          </div>
+          <div class="curved-spacetime">
+            <div class="curvature-grid"></div>
+          </div>
+        </div>
+      </div>
+      <div class="era-info">
+        <h2 class="era-title">Quantum Gravity</h2>
+        <div class="era-timeline">Theoretical Framework</div>
+        <div class="era-temperature">Planck Scale Physics</div>
+        <div class="era-physics">
+          <p class="physics-desc">Unification of quantum mechanics and general relativity at the Planck scale.</p>
+          <div class="equation">
+            $$l_P = \sqrt{\frac{\hbar G}{c^3}} \approx 1.616 \times 10^{-35} \text{ m}$$
+          </div>
+          <div class="equation">
+            $$t_P = \sqrt{\frac{\hbar G}{c^5}} \approx 5.391 \times 10^{-44} \text{ s}$$
+          </div>
+          <div class="equation">
+            $$E_P = \sqrt{\frac{\hbar c^5}{G}} \approx 1.956 \times 10^9 \text{ J}$$
+          </div>
+          <p class="equation-desc">Planck length, time, and energy scales where quantum gravity dominates</p>
+        </div>
+        <button class="info-btn" data-era="18" aria-label="More information">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12.01" y2="8"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Era 19: String Theory (Modern Physics) -->
+  <section class="cosmic-era era-string-theory" data-era="19" data-time="Modern Theory">
+    <div class="era-background string-theory-bg"></div>
+    <div class="era-content">
+      <div class="string-theory-visualization">
+        <div class="extra-dimensions">
+          <div class="dimension-slice">
+            <div class="calabi-yau-manifold">
+              <div class="yau-structure"></div>
+              <div class="compactified-dims">
+                <div class="compact-circle"></div>
+                <div class="compact-circle"></div>
+                <div class="compact-circle"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="vibrating-strings">
+          <div class="string-fundamental">
+            <div class="string-segment"></div>
+            <div class="vibration-mode mode-1"></div>
+          </div>
+          <div class="string-fundamental">
+            <div class="string-segment"></div>
+            <div class="vibration-mode mode-2"></div>
+          </div>
+          <div class="string-fundamental">
+            <div class="string-segment"></div>
+            <div class="vibration-mode mode-3"></div>
+          </div>
+        </div>
+        <div class="m-theory-branes">
+          <div class="brane-world">
+            <div class="three-brane"></div>
+            <div class="bulk-space"></div>
+          </div>
+        </div>
+      </div>
+      <div class="era-info">
+        <h2 class="era-title">String Theory</h2>
+        <div class="era-timeline">Theoretical Framework</div>
+        <div class="era-temperature">11-Dimensional Physics</div>
+        <div class="era-physics">
+          <p class="physics-desc">Fundamental particles as vibrating strings in 11-dimensional spacetime with compactified extra dimensions.</p>
+          <div class="equation">
+            $$S = \frac{1}{4\pi\alpha'} \int d^2\sigma \sqrt{-h} h^{ab} \partial_a X^\mu \partial_b X_\mu$$
+          </div>
+          <div class="equation">
+            $$\alpha' = \frac{l_s^2}{2\pi} \approx 10^{-66} \text{ m}^2$$
+          </div>
+          <div class="equation">
+            $$d = 11 \text{ (M-theory dimensions)}$$
+          </div>
+          <p class="equation-desc">String action, string length parameter, and M-theory dimensional structure</p>
+        </div>
+        <button class="info-btn" data-era="19" aria-label="More information">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12.01" y2="8"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Era 20: Galaxy Clusters (Present) -->
+  <section class="cosmic-era era-clusters" data-era="20" data-time="Present">
+    <div class="era-background clusters-bg"></div>
+    <div class="era-content">
+      <div class="large-scale-structure">
+        <div class="galaxy-cluster">
+          <div class="cluster-galaxies">
+            <div class="galaxy galaxy-1"></div>
+            <div class="galaxy galaxy-2"></div>
+            <div class="galaxy galaxy-3"></div>
+            <div class="galaxy galaxy-4"></div>
+          </div>
+          <div class="intracluster-medium"></div>
+          <div class="dark-matter-distribution"></div>
+        </div>
+        <div class="cosmic-web-structure">
+          <div class="filaments"></div>
+          <div class="voids"></div>
+          <div class="nodes"></div>
+        </div>
+      </div>
+      <div class="era-info">
+        <h2 class="era-title">Large Scale Structure</h2>
+        <div class="era-timeline">t = 13.8 Byr (Present)</div>
+        <div class="era-temperature">T = 2.725 K</div>
+        <div class="era-physics">
+          <p class="physics-desc">Cosmic web fully formed. Galaxy clusters, filaments, and voids define structure.</p>
+          <div class="equation">
+            $$\Omega_m = 0.315 \pm 0.007$$
+            $$\Omega_\Lambda = 0.685 \pm 0.007$$
+          </div>
+          <div class="equation">
+            $$H_0 = 67.4 \pm 0.5 \text{ km s}^{-1}\text{ Mpc}^{-1}$$
+          </div>
+          <p class="equation-desc">Current cosmological parameters (Planck 2018)</p>
+        </div>
+        <button class="info-btn" data-era="20" aria-label="More information">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12" y2="8"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Era 22: Modern Cosmological Observations -->
+  <section class="cosmic-era era-observations" data-era="22" data-time="Present">
+    <div class="era-background observations-bg"></div>
+    <div class="era-content">
+      <div class="cosmological-probes">
+        <div class="cmb-anisotropies">
+          <div class="power-spectrum">
+            <div class="acoustic-peaks"></div>
+            <div class="damping-tail"></div>
+          </div>
+        </div>
+        <div class="bao-signal">
+          <div class="correlation-function"></div>
+          <div class="bao-scale">150 Mpc</div>
+        </div>
+        <div class="type-ia-supernovae">
+          <div class="hubble-diagram"></div>
+          <div class="acceleration-evidence"></div>
+        </div>
+      </div>
+      <div class="era-info">
+        <h2 class="era-title">Cosmological Observations</h2>
+        <div class="era-timeline">t = 13.8 Byr (Present)</div>
+        <div class="era-temperature">T = 2.725 K</div>
+        <div class="era-physics">
+          <p class="physics-desc">Modern precision cosmology. CMB, BAO, SNe Ia constrain cosmological parameters.</p>
+          <div class="equation">
+            $$n_s = 0.9649 \pm 0.0042, \quad r < 0.056$$
+          </div>
+          <div class="equation">
+            $$N_{eff} = 2.99 \pm 0.17, \quad \sum m_\nu < 0.12 \text{ eV}$$
+          </div>
+          <p class="equation-desc">Spectral index, tensor-scalar ratio, neutrino parameters</p>
+        </div>
+        <button class="info-btn" data-era="22" aria-label="More information">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12" y2="8"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Era 23: Gravitational Wave Background -->
+  <section class="cosmic-era era-gravitational-waves" data-era="23" data-time="All epochs">
+    <div class="era-background gw-bg"></div>
+    <div class="era-content">
+      <div class="gw-sources">
+        <div class="primordial-gw">
+          <div class="inflation-tensor-modes">
+            <div class="tensor-perturbation"></div>
+            <div class="gw-propagation"></div>
+          </div>
+        </div>
+        <div class="astrophysical-gw">
+          <div class="binary-merger">
+            <div class="inspiral-phase"></div>
+            <div class="merger-ringdown"></div>
+          </div>
+        </div>
+        <div class="gw-detectors">
+          <div class="ligo-virgo">LIGO/Virgo</div>
+          <div class="lisa">LISA</div>
+          <div class="pta">PTA</div>
+        </div>
+      </div>
+      <div class="era-info">
+        <h2 class="era-title">Gravitational Wave Background</h2>
+        <div class="era-timeline">All cosmic epochs</div>
+        <div class="era-physics">
+          <p class="physics-desc">GWs from inflation, phase transitions, and astrophysical sources. New window on the universe.</p>
+          <div class="equation">
+            $$h_{ij} = A_{ij} e^{ik \cdot x}$$
+            $$\Omega_{GW}(f) = \frac{1}{\rho_c} \frac{d\rho_{GW}}{d \ln f}$$
+          </div>
+          <div class="equation">
+            $$f_{LIGO} \sim 10-10^3 \text{ Hz}, \quad f_{LISA} \sim 10^{-4}-10^{-1} \text{ Hz}$$
+          </div>
+          <p class="equation-desc">GW strain and energy density spectrum</p>
+        </div>
+        <button class="info-btn" data-era="23" aria-label="More information">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12" y2="8"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Era 21: Dark Energy Domination (Future) -->
+  <section class="cosmic-era era-dark-energy" data-era="21" data-time="Future">
+    <div class="era-background dark-energy-bg"></div>
+    <div class="era-content">
+      <div class="accelerated-expansion">
+        <div class="expansion-visualization">
+          <div class="scale-factor-curve"></div>
+          <div class="acceleration-phase"></div>
+        </div>
+        <div class="dark-energy-field">
+          <div class="vacuum-energy"></div>
+          <div class="cosmological-constant">Λ</div>
+        </div>
+      </div>
+      <div class="era-info">
+        <h2 class="era-title">Dark Energy Era</h2>
+        <div class="era-timeline">t > 13.8 Byr</div>
+        <div class="era-temperature">T → 0 K</div>
+        <div class="era-physics">
+          <p class="physics-desc">Universe accelerates forever. Galaxies drift apart. Heat death approaches.</p>
+          <div class="equation">
+            $$\ddot{a} = -\frac{4\pi G}{3}(\rho + 3p)a + \frac{\Lambda c^2}{3}a$$
+          </div>
+          <div class="equation">
+            $$w = \frac{p}{\rho c^2} = -1 \text{ (cosmological constant)}$$
+          </div>
+          <p class="equation-desc">Acceleration equation and dark energy equation of state</p>
+        </div>
+        <button class="info-btn" data-era="21" aria-label="More information">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12" y2="8"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Era 24: Multiverse Theory (Theoretical) -->
+  <section class="cosmic-era era-multiverse" data-era="24" data-time="Theoretical">
+    <div class="era-background multiverse-bg"></div>
+    <div class="era-content">
+      <div class="multiverse-structure">
+        <div class="level-1-multiverse">
+          <div class="bubble-universe bubble-1"></div>
+          <div class="bubble-universe bubble-2"></div>
+          <div class="bubble-universe bubble-3"></div>
+          <div class="bubble-universe bubble-4"></div>
+          <div class="bubble-universe bubble-5"></div>
+        </div>
+        <div class="eternal-inflation">
+          <div class="inflation-field"></div>
+          <div class="quantum-tunneling"></div>
+        </div>
+        <div class="anthropic-principle">
+          <div class="fine-tuning-parameters">
+            <div class="parameter cosmological-constant">Λ</div>
+            <div class="parameter fine-structure">α</div>
+            <div class="parameter strong-force">α_s</div>
+          </div>
+        </div>
+      </div>
+      <div class="era-info">
+        <h2 class="era-title">Multiverse Theory</h2>
+        <div class="era-timeline">t = Theoretical</div>
+        <div class="era-temperature">T = Various</div>
+        <div class="era-physics">
+          <p class="physics-desc">Eternal inflation creates infinite bubble universes with different physical constants.</p>
+          <div class="equation">
+            $$\mathcal{L} = -\frac{1}{2}(\partial_\mu \phi)^2 - V(\phi) + \frac{\xi}{2} R \phi^2$$
+          </div>
+          <div class="equation">
+            $$P(\Lambda) = \frac{d\text{Vol}}{d\Lambda} \cdot P_{\text{obs}}(\Lambda)$$
+          </div>
+          <p class="equation-desc">Inflaton Lagrangian and anthropic probability distribution</p>
+        </div>
+        <button class="info-btn" data-era="24" aria-label="More information">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12" y2="8"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- Timeline Navigation -->
+<div class="timeline-navigation">
+  <div class="nav-track">
+    <div class="nav-progress"></div>
+    <div class="nav-markers">
+      <div class="nav-marker" data-era="0" title="Singularity">
+        <span class="marker-time">t=0</span>
+      </div>
+      <div class="nav-marker" data-era="1" title="Planck Epoch">
+        <span class="marker-time">10⁻⁴³s</span>
+      </div>
+      <div class="nav-marker" data-era="2" title="GUT">
+        <span class="marker-time">10⁻³⁶s</span>
+      </div>
+      <div class="nav-marker" data-era="3" title="Baryogenesis">
+        <span class="marker-time">10⁻³⁶s</span>
+      </div>
+      <div class="nav-marker" data-era="4" title="Inflation">
+        <span class="marker-time">10⁻³²s</span>
+      </div>
+      <div class="nav-marker" data-era="5" title="EW Breaking">
+        <span class="marker-time">10⁻¹²s</span>
+      </div>
+      <div class="nav-marker" data-era="6" title="Quark-Gluon Plasma">
+        <span class="marker-time">10⁻⁶s</span>
+      </div>
+      <div class="nav-marker" data-era="7" title="ν Decoupling">
+        <span class="marker-time">1s</span>
+      </div>
+      <div class="nav-marker" data-era="8" title="BBN">
+        <span class="marker-time">1s-20m</span>
+      </div>
+      <div class="nav-marker" data-era="9" title="Equality">
+        <span class="marker-time">50kyr</span>
+      </div>
+      <div class="nav-marker" data-era="10" title="Recombination">
+        <span class="marker-time">380kyr</span>
+      </div>
+      <div class="nav-marker" data-era="11" title="Dark Ages">
+        <span class="marker-time">2Myr</span>
+      </div>
+      <div class="nav-marker" data-era="12" title="First Stars">
+        <span class="marker-time">200Myr</span>
+      </div>
+      <div class="nav-marker" data-era="13" title="Reionization">
+        <span class="marker-time">400Myr</span>
+      </div>
+      <div class="nav-marker" data-era="14" title="Galaxies">
+        <span class="marker-time">500Myr</span>
+      </div>
+      <div class="nav-marker" data-era="15" title="SMBH">
+        <span class="marker-time">1Byr</span>
+      </div>
+      <div class="nav-marker" data-era="16" title="Structure">
+        <span class="marker-time">1-3Byr</span>
+      </div>
+      <div class="nav-marker" data-era="17" title="Solar System">
+        <span class="marker-time">4.6Gya</span>
+      </div>
+      <div class="nav-marker" data-era="18" title="Present">
+        <span class="marker-time">13.8Byr</span>
+      </div>
+      <div class="nav-marker" data-era="19" title="Observations">
+        <span class="marker-time">Now</span>
+      </div>
+      <div class="nav-marker" data-era="20" title="GW">
+        <span class="marker-time">All</span>
+      </div>
+      <div class="nav-marker" data-era="21" title="Future">
+        <span class="marker-time">∞</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Controls -->
+<div class="cosmic-controls">
+  <button class="control-btn play-pause" id="playPause">
+    <span class="play-icon">▶</span>
+    <span class="pause-icon" style="display: none;">⏸</span>
+  </button>
+  <button class="control-btn speed-control" id="speedControl">1x</button>
+  <button class="control-btn fullscreen-btn" id="fullscreenBtn">⛶</button>
+</div>
+
+<!-- Footer with Attribution and Support -->
+<div class="footer-container">
+  <div class="data-attribution">
+    <p>Based on CERN research and current cosmological models</p>
+  </div>
+  <div class="support-button">
+    <a href="https://buymeacoffee.com/amitabhyadav" target="_blank" rel="noopener noreferrer" class="buy-coffee-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17 8H18C19.1046 8 20 8.89543 20 10V12C20 13.1046 19.1046 14 18 14H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M3 8H15C16.1046 8 17 8.89543 17 10V16C17 17.1046 16.1046 18 15 18H5C3.89543 18 3 17.1046 3 16V8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M7 4V8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M10 4V8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M13 4V8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span>Buy me a coffee</span>
+    </a>
+  </div>
+</div>
+
+<script src="../assets/js/blog-style.js" defer></script>
+<script src="cosmic-genesis.js" defer></script>
+<script src="cosmic-genesis-modal.js" defer></script>
+</body>
+</html>
