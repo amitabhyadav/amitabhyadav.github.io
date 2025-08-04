@@ -2282,6 +2282,7 @@ body {
 
 /* Timeline Navigation */
 .timeline-navigation {
+  display: none;
   position: fixed;
   bottom: 60px;
   left: 50%;
