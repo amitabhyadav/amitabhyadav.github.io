@@ -824,23 +824,23 @@ body.dark-mode .go-to-top:hover {
   height: 100%;
 }
 
-.home-button:hover {
+.:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(107, 140, 174, 0.4);
   background: linear-gradient(135deg, #4A6B8A 0%, #3A5B7A 100%);
 }
 
-.home-button:active {
+.:active {
   transform: translateY(-1px);
 }
 
 /* Dark mode styles for home button */
-body.dark-mode .home-button {
+body.dark-mode . {
   background: linear-gradient(135deg, #8BB3D9 0%, #6B93C0 100%);
   box-shadow: 0 4px 15px rgba(139, 179, 217, 0.3);
 }
 
-body.dark-mode .home-button:hover {
+body.dark-mode .:hover {
   background: linear-gradient(135deg, #6B93C0 0%, #5A82AF 100%);
   box-shadow: 0 6px 20px rgba(139, 179, 217, 0.4);
 }
@@ -1617,6 +1617,7 @@ body.dark-mode .builtin { color: #dcdcaa; }
     height: 40px;
     right: 15px;
     font-size: 16px;
+    display: none;
   }
   
   .go-to-top {
