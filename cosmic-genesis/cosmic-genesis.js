@@ -31,7 +31,6 @@ class CosmicGenesis {
     // Start with first era and ensure proper positioning
     // Add a small delay to ensure DOM is fully loaded
     setTimeout(() => {
-      console.log('Initializing cosmic genesis timeline...');
       this.forceLayoutRecalculation();
       this.navigateToEra(0);
       // Ensure dropdown is initialized with correct era
@@ -159,12 +158,10 @@ class CosmicGenesis {
     });
 
     // Era navigation circles click handlers
-    console.log(`Setting up ${this.navCircles.length} navigation circles`);
     this.navCircles.forEach((circle, index) => {
       circle.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
-        console.log(`Navigation circle ${index} clicked`);
         this.navigateToEra(index);
       });
       
@@ -204,13 +201,11 @@ class CosmicGenesis {
           e.preventDefault();
           e.stopPropagation();
           const eraIndex = parseInt(item.dataset.era);
-          console.log(`Dropdown item ${eraIndex} clicked`);
           this.navigateToEra(eraIndex);
           this.closeDropdown();
         });
       });
 
-      console.log(`Setting up dropdown with ${this.dropdownItems.length} items`);
     }
   }
 
@@ -244,8 +239,6 @@ class CosmicGenesis {
         if (entry.isIntersecting && entry.intersectionRatio > 0.7 && !this.isProgrammaticNavigation) {
           const eraIndex = parseInt(entry.target.dataset.era);
           if (this.currentEra !== eraIndex) {
-            console.log(`📜 Intersection observer detected manual scroll: Era ${this.currentEra} → ${eraIndex} (ratio: ${entry.intersectionRatio.toFixed(2)})`);
-            
             // Debounce rapid changes to prevent flickering
             clearTimeout(this.intersectionTimeout);
             this.intersectionTimeout = setTimeout(() => {
@@ -345,10 +338,9 @@ class CosmicGenesis {
       era.style.fontSize = '1rem'; // Reset font size for content
       era.style.boxSizing = 'border-box';
       
-      // Debug: log each era's computed width
+      // Force layout calculation
       setTimeout(() => {
         const computedWidth = window.getComputedStyle(era).width;
-        console.log(`Era ${index} computed width: ${computedWidth}, offsetWidth: ${era.offsetWidth}px`);
       }, 50);
     });
     
@@ -373,14 +365,6 @@ class CosmicGenesis {
       this.updateCurrentEraFromScroll(scrollLeft);
     });
     
-    // Also add a throttled version for debugging
-    let scrollTimeout;
-    this.container.addEventListener('scroll', (e) => {
-      if (scrollTimeout) clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        console.log(`📜 Throttled scroll check at ${this.container.scrollLeft}px`);
-      }, 100);
-    });
   }
 
   setupTooltips() {
@@ -455,7 +439,6 @@ class CosmicGenesis {
 
   navigateToEra(eraIndex, isAutoplay = false) {
     if (eraIndex < 0 || eraIndex >= this.totalEras) {
-      console.warn(`Invalid era index: ${eraIndex}. Valid range is 0-${this.totalEras - 1}`);
       return;
     }
     
@@ -478,13 +461,7 @@ class CosmicGenesis {
     // Calculate exact scroll position to fit the era page perfectly
     const targetEra = document.querySelector(`[data-era="${eraIndex}"]`);
     
-    if (!targetEra) {
-      console.error(`Era element not found for index ${eraIndex}`);
-      return;
-    }
-    
-    if (!this.container) {
-      console.error('Container element not found');
+    if (!targetEra || !this.container) {
       return;
     }
     
@@ -497,14 +474,11 @@ class CosmicGenesis {
     // Use the offset method, but verify it's reasonable compared to fallback
     const difference = Math.abs(targetLeft - fallbackLeft);
     if (difference > window.innerWidth * 0.1) { // If more than 10% off, use fallback
-      console.warn(`Era ${eraIndex} offset seems incorrect (${targetLeft} vs expected ${fallbackLeft}), using fallback`);
       targetLeft = fallbackLeft;
     }
     
     // Ensure pixel-perfect alignment
     const preciseLeft = Math.round(targetLeft);
-    
-    console.log(`Navigating to Era ${eraIndex}: "${targetEra.querySelector('.era-title')?.textContent || 'Unknown'}" at position ${preciseLeft}px`);
     
     // Smooth scroll to the exact position
     try {
@@ -521,7 +495,6 @@ class CosmicGenesis {
         const actualScrollLeft = this.container.scrollLeft;
         const scrollDifference = Math.abs(actualScrollLeft - preciseLeft);
         if (scrollDifference > 10) {
-          console.warn(`Scroll verification failed. Expected: ${preciseLeft}, Actual: ${actualScrollLeft}, Difference: ${scrollDifference}px`);
           // Try immediate scroll as fallback
           this.container.scrollLeft = preciseLeft;
         }
@@ -532,7 +505,6 @@ class CosmicGenesis {
       }, 300); // Reduced timeout for faster responsiveness
       
     } catch (error) {
-      console.error('Error during scroll:', error);
       // Fallback to immediate scroll
       this.container.scrollLeft = preciseLeft;
       // Clear flag even if error occurred (with delay)
@@ -543,57 +515,17 @@ class CosmicGenesis {
   }
 
   testNavigation() {
-    console.log('=== Navigation System Test ===');
-    console.log(`Total eras: ${this.totalEras}`);
-    console.log(`Container element:`, this.container);
-    console.log(`Container scroll width: ${this.container?.scrollWidth}px`);
-    console.log(`Window width: ${window.innerWidth}px`);
-    console.log(`Expected total width: ${this.totalEras * window.innerWidth}px`);
-    console.log(`Navigation circles found: ${this.navCircles?.length || 0}`);
-    
-    // Test all era elements
-    console.log('--- Era Position Analysis ---');
-    let totalWidthSum = 0;
-    for (let i = 0; i < this.totalEras; i++) {
-      const era = document.querySelector(`[data-era="${i}"]`);
-      if (era) {
-        const computedStyle = window.getComputedStyle(era);
-        const actualWidth = era.offsetWidth;
-        const expectedLeft = i * window.innerWidth;
-        const actualLeft = era.offsetLeft;
-        const difference = actualLeft - expectedLeft;
-        
-        console.log(`Era ${i}: offsetLeft=${actualLeft}px (expected=${expectedLeft}px, diff=${difference}px), width=${actualWidth}px (computed=${computedStyle.width})`);
-        totalWidthSum += actualWidth;
-      } else {
-        console.warn(`Era ${i}: element not found!`);
-      }
-    }
-    
-    console.log(`Total width sum: ${totalWidthSum}px vs container scroll width: ${this.container?.scrollWidth}px`);
-    
-    // Test navigation circle functionality
-    if (this.navCircles && this.navCircles.length > 0) {
-      console.log('Navigation circles are properly initialized');
-      console.log('Click any navigation circle to test navigation');
-    } else {
-      console.error('Navigation circles not found or not initialized!');
-    }
-    
-    // Layout diagnosis
-    if (this.container?.scrollWidth < this.totalEras * window.innerWidth * 0.9) {
-      console.warn('⚠️  LAYOUT ISSUE DETECTED: Container scroll width is much smaller than expected!');
-      console.log('This suggests eras are not taking full 100vw width as intended.');
-      console.log('Check CSS and inline-block whitespace issues.');
-    } else {
-      console.log('✅ Layout appears correct - eras are taking proper width');
-    }
-    
-    console.log('=== End Navigation Test ===');
+    // Navigation system diagnostic function
+    return {
+      totalEras: this.totalEras,
+      containerScrollWidth: this.container?.scrollWidth,
+      windowWidth: window.innerWidth,
+      expectedTotalWidth: this.totalEras * window.innerWidth,
+      navigationCircles: this.navCircles?.length || 0
+    };
   }
 
   forceLayoutRecalculation() {
-    console.log('🔄 Forcing layout recalculation...');
     
     // Force a reflow by accessing offsetHeight
     this.container.offsetHeight;
@@ -614,8 +546,6 @@ class CosmicGenesis {
       // Force reflow for each era
       era.offsetWidth;
     });
-    
-    console.log(`After recalculation: Container scroll width: ${this.container.scrollWidth}px`);
     
     // Re-run test
     setTimeout(() => this.testNavigation(), 100);
@@ -640,7 +570,6 @@ class CosmicGenesis {
     }
     
     if (newEra !== this.currentEra && newEra >= 0 && newEra < this.totalEras) {
-      console.log(`🎯 Scroll navigation: Era ${this.currentEra} → Era ${newEra} (scroll: ${scrollLeft}px)`);
       this.currentEra = newEra;
       this.updateTimeline();
       this.updateActiveNavCircle(newEra); // Update navigation circle highlighting
@@ -662,11 +591,6 @@ class CosmicGenesis {
         }
       });
       
-      if (changedCircles.length > 0) {
-        console.log(`🔘 Circle updates: ${changedCircles.join(', ')}`);
-      }
-    } else {
-      console.error('❌ No navigation circles found in updateActiveNavCircle');
     }
     
     // Update dropdown active state
@@ -686,8 +610,6 @@ class CosmicGenesis {
     const clampedEra = Math.max(0, Math.min(currentEraFromScroll, this.totalEras - 1));
     
     if (this.currentEra !== clampedEra) {
-      console.log(`🖱️ Scroll-based detection: Era ${this.currentEra} → ${clampedEra} (scrollLeft: ${scrollLeft}px)`);
-      
       // Clear any pending intersection observer updates to prevent conflicts
       clearTimeout(this.intersectionTimeout);
       
@@ -1768,9 +1690,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.testScrollHighlighting = (scrollPos) => window.cosmicGenesis.updateCurrentEraFromScroll(scrollPos || window.cosmicGenesis.container.scrollLeft);
   window.highlightCircle = (index) => window.cosmicGenesis.updateActiveNavCircle(index);
   
-  console.log('Cosmic Genesis initialized.');
-  console.log('Available commands: testNavigation(), navigateToEra(index), forceLayoutRecalculation()');
-  console.log('Scroll debugging: testScrollHighlighting(), highlightCircle(index)');
+  // Cosmic Genesis initialized
 });
 
 // Handle page visibility change

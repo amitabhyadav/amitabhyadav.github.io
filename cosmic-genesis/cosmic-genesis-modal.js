@@ -53,7 +53,7 @@ class CosmicModal {
     // Re-render MathJax equations in the modal
     if (window.MathJax && window.MathJax.typesetPromise) {
       window.MathJax.typesetPromise([this.modalBody]).catch((err) => {
-        console.log('MathJax typeset error:', err);
+        // MathJax typeset error handled silently
       });
     }
   }
