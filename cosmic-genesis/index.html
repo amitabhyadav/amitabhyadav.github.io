@@ -37,33 +37,114 @@
 <!-- Quantum Particle Field Background -->
 <canvas id="cosmic-canvas"></canvas>
 
-<!-- Era Navigation Circles -->
-<div class="era-navigation" id="eraNavigation">
-  <div class="nav-circle" data-era="0" title="The Singularity">0</div>
-  <div class="nav-circle" data-era="1" title="Planck Epoch">1</div>
-  <div class="nav-circle" data-era="2" title="Grand Unification">2</div>
-  <div class="nav-circle" data-era="3" title="Baryogenesis">3</div>
-  <div class="nav-circle" data-era="4" title="Cosmic Inflation">4</div>
-  <div class="nav-circle" data-era="5" title="Electroweak Breaking">5</div>
-  <div class="nav-circle" data-era="6" title="Quark-Gluon Plasma">6</div>
-  <div class="nav-circle" data-era="7" title="Neutrino Decoupling">7</div>
-  <div class="nav-circle" data-era="8" title="Big Bang Nucleosynthesis">8</div>
-  <div class="nav-circle" data-era="9" title="Matter-Radiation Equality">9</div>
-  <div class="nav-circle" data-era="10" title="Recombination">10</div>
-  <div class="nav-circle" data-era="11" title="Dark Ages">11</div>
-  <div class="nav-circle" data-era="12" title="First Stars">12</div>
-  <div class="nav-circle" data-era="13" title="Reionization">13</div>
-  <div class="nav-circle" data-era="14" title="Galaxy Formation">14</div>
-  <div class="nav-circle" data-era="15" title="Supermassive Black Holes">15</div>
-  <div class="nav-circle" data-era="16" title="Structure Formation">16</div>
-  <div class="nav-circle" data-era="17" title="Solar System Formation">17</div>
-  <div class="nav-circle" data-era="18" title="Quantum Gravity Theory">18</div>
-  <div class="nav-circle" data-era="19" title="String Theory">19</div>
-  <div class="nav-circle" data-era="20" title="Galaxy Clusters">20</div>
-  <div class="nav-circle" data-era="21" title="Dark Energy Domination">21</div>
-  <div class="nav-circle" data-era="22" title="Cosmological Observations">22</div>
-  <div class="nav-circle" data-era="23" title="Gravitational Waves">23</div>
-  <div class="nav-circle" data-era="24" title="Multiverse Theory">24</div>
+<!-- Era Navigation Dropdown -->
+<div class="era-dropdown" id="eraDropdown">
+  <button class="dropdown-toggle" id="dropdownToggle">
+    <span class="current-era-text">The Singularity</span>
+    <span class="dropdown-arrow">▼</span>
+  </button>
+  <div class="dropdown-menu" id="dropdownMenu">
+    <div class="dropdown-item" data-era="0" title="The Singularity">
+      <span class="era-number">0</span>
+      <span class="era-name">The Singularity</span>
+    </div>
+    <div class="dropdown-item" data-era="1" title="Planck Epoch">
+      <span class="era-number">1</span>
+      <span class="era-name">Planck Epoch</span>
+    </div>
+    <div class="dropdown-item" data-era="2" title="Grand Unification">
+      <span class="era-number">2</span>
+      <span class="era-name">Grand Unification</span>
+    </div>
+    <div class="dropdown-item" data-era="3" title="Baryogenesis">
+      <span class="era-number">3</span>
+      <span class="era-name">Baryogenesis</span>
+    </div>
+    <div class="dropdown-item" data-era="4" title="Cosmic Inflation">
+      <span class="era-number">4</span>
+      <span class="era-name">Cosmic Inflation</span>
+    </div>
+    <div class="dropdown-item" data-era="5" title="Electroweak Breaking">
+      <span class="era-number">5</span>
+      <span class="era-name">Electroweak Breaking</span>
+    </div>
+    <div class="dropdown-item" data-era="6" title="Quark-Gluon Plasma">
+      <span class="era-number">6</span>
+      <span class="era-name">Quark-Gluon Plasma</span>
+    </div>
+    <div class="dropdown-item" data-era="7" title="Neutrino Decoupling">
+      <span class="era-number">7</span>
+      <span class="era-name">Neutrino Decoupling</span>
+    </div>
+    <div class="dropdown-item" data-era="8" title="Big Bang Nucleosynthesis">
+      <span class="era-number">8</span>
+      <span class="era-name">Big Bang Nucleosynthesis</span>
+    </div>
+    <div class="dropdown-item" data-era="9" title="Matter-Radiation Equality">
+      <span class="era-number">9</span>
+      <span class="era-name">Matter-Radiation Equality</span>
+    </div>
+    <div class="dropdown-item" data-era="10" title="Recombination">
+      <span class="era-number">10</span>
+      <span class="era-name">Recombination</span>
+    </div>
+    <div class="dropdown-item" data-era="11" title="Dark Ages">
+      <span class="era-number">11</span>
+      <span class="era-name">Dark Ages</span>
+    </div>
+    <div class="dropdown-item" data-era="12" title="First Stars">
+      <span class="era-number">12</span>
+      <span class="era-name">First Stars</span>
+    </div>
+    <div class="dropdown-item" data-era="13" title="Reionization">
+      <span class="era-number">13</span>
+      <span class="era-name">Reionization</span>
+    </div>
+    <div class="dropdown-item" data-era="14" title="Galaxy Formation">
+      <span class="era-number">14</span>
+      <span class="era-name">Galaxy Formation</span>
+    </div>
+    <div class="dropdown-item" data-era="15" title="Supermassive Black Holes">
+      <span class="era-number">15</span>
+      <span class="era-name">Supermassive Black Holes</span>
+    </div>
+    <div class="dropdown-item" data-era="16" title="Structure Formation">
+      <span class="era-number">16</span>
+      <span class="era-name">Structure Formation</span>
+    </div>
+    <div class="dropdown-item" data-era="17" title="Solar System Formation">
+      <span class="era-number">17</span>
+      <span class="era-name">Solar System Formation</span>
+    </div>
+    <div class="dropdown-item" data-era="18" title="Quantum Gravity Theory">
+      <span class="era-number">18</span>
+      <span class="era-name">Quantum Gravity Theory</span>
+    </div>
+    <div class="dropdown-item" data-era="19" title="String Theory">
+      <span class="era-number">19</span>
+      <span class="era-name">String Theory</span>
+    </div>
+    <div class="dropdown-item" data-era="20" title="Galaxy Clusters">
+      <span class="era-number">20</span>
+      <span class="era-name">Galaxy Clusters</span>
+    </div>
+    <div class="dropdown-item" data-era="21" title="Dark Energy Domination">
+      <span class="era-number">21</span>
+      <span class="era-name">Dark Energy Domination</span>
+    </div>
+    <div class="dropdown-item" data-era="22" title="Cosmological Observations">
+      <span class="era-number">22</span>
+      <span class="era-name">Cosmological Observations</span>
+    </div>
+    <div class="dropdown-item" data-era="23" title="Gravitational Waves">
+      <span class="era-number">23</span>
+      <span class="era-name">Gravitational Waves</span>
+    </div>
+    <div class="dropdown-item" data-era="24" title="Multiverse Theory">
+      <span class="era-number">24</span>
+      <span class="era-name">Multiverse Theory</span>
+    </div>
+  </div>
 </div>
 
 <!-- Main Timeline Container -->
@@ -91,11 +172,7 @@
           <p class="equation-desc">Einstein Field Equations break down</p>
         </div>
         <button class="info-btn" data-era="0" aria-label="More information">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="12" y1="16" x2="12" y2="12"/>
-            <line x1="12" y1="8" x2="12" y2="8"/>
-          </svg>
+          i
         </button>
       </div>
     </div>
@@ -132,11 +209,7 @@
           <p class="equation-desc">Theory of Everything required</p>
         </div>
         <button class="info-btn" data-era="1" aria-label="More information">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="12" y1="16" x2="12" y2="12"/>
-            <line x1="12" y1="8" x2="12" y2="8"/>
-          </svg>
+          i
         </button>
       </div>
     </div>
@@ -172,11 +245,7 @@
           <p class="equation-desc">X-boson mass scale, proton decay possible</p>
         </div>
         <button class="info-btn" data-era="2" aria-label="More information">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="12" y1="16" x2="12" y2="12"/>
-            <line x1="12" y1="8" x2="12" y2="8"/>
-          </svg>
+          i
         </button>
       </div>
     </div>
@@ -217,11 +286,7 @@
           <p class="equation-desc">Baryon-to-photon ratio sets matter content</p>
         </div>
         <button class="info-btn" data-era="3" aria-label="More information">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="12" y1="16" x2="12" y2="12"/>
-            <line x1="12" y1="8" x2="12" y2="8"/>
-          </svg>
+          i
         </button>
       </div>
     </div>
@@ -258,11 +323,7 @@
           <p class="equation-desc">Hubble parameter H ≈ 10¹⁴ GeV during inflation</p>
         </div>
         <button class="info-btn" data-era="4" aria-label="More information">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="12" y1="16" x2="12" y2="12"/>
-            <line x1="12" y1="8" x2="12" y2="8"/>
-          </svg>
+          i
         </button>
       </div>
     </div>
@@ -299,11 +360,7 @@
           <p class="equation-desc">W and Z boson masses from Higgs VEV v = 246 GeV</p>
         </div>
         <button class="info-btn" data-era="5" aria-label="More information">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="12" y1="16" x2="12" y2="12"/>
-            <line x1="12" y1="8" x2="12" y2="8"/>
-          </svg>
+          i
         </button>
       </div>
     </div>
@@ -350,11 +407,7 @@
           <p class="equation-desc">QCD scale and nucleon masses</p>
         </div>
         <button class="info-btn" data-era="6" aria-label="More information">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="12" y1="16" x2="12" y2="12"/>
-            <line x1="12" y1="8" x2="12" y2="8"/>
-          </svg>
+          i
         </button>
       </div>
     </div>
@@ -390,11 +443,7 @@
           <p class="equation-desc">Present-day neutrino temperature, n<sub>ν</sub> ≈ 112 cm⁻³ per species</p>
         </div>
         <button class="info-btn" data-era="7" aria-label="More information">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="12" y1="16" x2="12" y2="12"/>
-            <line x1="12" y1="8" x2="12" y2="8"/>
-          </svg>
+          i
         </button>
       </div>
     </div>
@@ -456,11 +505,7 @@
           <p class="equation-desc">Neutron-proton ratio determines helium abundance</p>
         </div>
         <button class="info-btn" data-era="8" aria-label="More information">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="12" y1="16" x2="12" y2="12"/>
-            <line x1="12" y1="8" x2="12" y2="8"/>
-          </svg>
+          i
         </button>
       </div>
     </div>
@@ -499,11 +544,7 @@
           <p class="equation-desc">Equality redshift with baryon correction term</p>
         </div>
         <button class="info-btn" data-era="9" aria-label="More information">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="12" y1="16" x2="12" y2="12"/>
-            <line x1="12" y1="8" x2="12" y2="8"/>
-          </svg>
+          i
         </button>
       </div>
     </div>
@@ -547,11 +588,7 @@
           <p class="equation-desc">Saha equation for ionization fraction</p>
         </div>
         <button class="info-btn" data-era="10" aria-label="More information">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="12" y1="16" x2="12" y2="12"/>
-            <line x1="12" y1="8" x2="12" y2="8"/>
-          </svg>
+          i
         </button>
       </div>
     </div>
@@ -585,11 +622,7 @@
           <p class="equation-desc">Linear growth of density perturbations</p>
         </div>
         <button class="info-btn" data-era="11" aria-label="More information">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="12" y1="16" x2="12" y2="12"/>
-            <line x1="12" y1="8" x2="12" y2="8"/>
-          </svg>
+          i
         </button>
       </div>
     </div>
@@ -632,11 +665,7 @@
           <p class="equation-desc">Jeans mass and main sequence lifetime</p>
         </div>
         <button class="info-btn" data-era="12" aria-label="More information">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="12" y1="16" x2="12" y2="12"/>
-            <line x1="12" y1="8" x2="12" y2="8"/>
-          </svg>
+          i
         </button>
       </div>
     </section>
@@ -681,11 +710,7 @@
           <p class="equation-desc">Ionization balance and optical depth to reionization</p>
         </div>
         <button class="info-btn" data-era="13" aria-label="More information">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="12" y1="16" x2="12" y2="12"/>
-            <line x1="12" y1="8" x2="12" y2="8"/>
-          </svg>
+          i
         </button>
       </div>
     </div>
@@ -775,11 +800,7 @@
           <p class="equation-desc">Typical halo masses and star formation rate</p>
         </div>
         <button class="info-btn" data-era="14" aria-label="More information">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="12" y1="16" x2="12" y2="12"/>
-            <line x1="12" y1="8" x2="12" y2="8"/>
-          </svg>
+          i
         </button>
       </div>
     </div>
@@ -844,11 +865,7 @@
           <p class="equation-desc">Schwarzschild radius and growth timescale</p>
         </div>
         <button class="info-btn" data-era="15" aria-label="More information">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="12" y1="16" x2="12" y2="12"/>
-            <line x1="12" y1="8" x2="12" y2="8"/>
-          </svg>
+          i
         </button>
       </div>
     </div>
@@ -896,11 +913,7 @@
           <p class="equation-desc">Critical density contrast and power spectrum normalization</p>
         </div>
         <button class="info-btn" data-era="16" aria-label="More information">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="12" y1="16" x2="12" y2="12"/>
-            <line x1="12" y1="8" x2="12" y2="8"/>
-          </svg>
+          i
         </button>
       </div>
     </div>
@@ -949,11 +962,7 @@
           <p class="equation-desc">Solar mass and snow line location</p>
         </div>
         <button class="info-btn" data-era="17" aria-label="More information">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="12" y1="16" x2="12" y2="12"/>
-            <line x1="12" y1="8" x2="12" y2="8"/>
-          </svg>
+          i
         </button>
       </div>
     </div>
@@ -1009,11 +1018,7 @@
           <p class="equation-desc">Planck length, time, and energy scales where quantum gravity dominates</p>
         </div>
         <button class="info-btn" data-era="18" aria-label="More information">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="12" y1="16" x2="12" y2="12"/>
-            <line x1="12" y1="8" x2="12.01" y2="8"/>
-          </svg>
+          i
         </button>
       </div>
     </div>
@@ -1075,11 +1080,7 @@
           <p class="equation-desc">String action, string length parameter, and M-theory dimensional structure</p>
         </div>
         <button class="info-btn" data-era="19" aria-label="More information">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="12" y1="16" x2="12" y2="12"/>
-            <line x1="12" y1="8" x2="12.01" y2="8"/>
-          </svg>
+          i
         </button>
       </div>
     </div>
@@ -1122,11 +1123,7 @@
           <p class="equation-desc">Current cosmological parameters (Planck 2018)</p>
         </div>
         <button class="info-btn" data-era="20" aria-label="More information">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="12" y1="16" x2="12" y2="12"/>
-            <line x1="12" y1="8" x2="12" y2="8"/>
-          </svg>
+          i
         </button>
       </div>
     </div>
@@ -1167,11 +1164,7 @@
           <p class="equation-desc">Spectral index, tensor-scalar ratio, neutrino parameters</p>
         </div>
         <button class="info-btn" data-era="22" aria-label="More information">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="12" y1="16" x2="12" y2="12"/>
-            <line x1="12" y1="8" x2="12" y2="8"/>
-          </svg>
+          i
         </button>
       </div>
     </div>
@@ -1215,11 +1208,7 @@
           <p class="equation-desc">GW strain and energy density spectrum</p>
         </div>
         <button class="info-btn" data-era="23" aria-label="More information">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="12" y1="16" x2="12" y2="12"/>
-            <line x1="12" y1="8" x2="12" y2="8"/>
-          </svg>
+          i
         </button>
       </div>
     </div>
@@ -1254,11 +1243,7 @@
           <p class="equation-desc">Acceleration equation and dark energy equation of state</p>
         </div>
         <button class="info-btn" data-era="21" aria-label="More information">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="12" y1="16" x2="12" y2="12"/>
-            <line x1="12" y1="8" x2="12" y2="8"/>
-          </svg>
+          i
         </button>
       </div>
     </div>
@@ -1304,11 +1289,7 @@
           <p class="equation-desc">Inflaton Lagrangian and anthropic probability distribution</p>
         </div>
         <button class="info-btn" data-era="24" aria-label="More information">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="12" y1="16" x2="12" y2="12"/>
-            <line x1="12" y1="8" x2="12" y2="8"/>
-          </svg>
+          i
         </button>
       </div>
     </div>
@@ -1404,7 +1385,7 @@
 <!-- Footer with Attribution and Support -->
 <div class="footer-container">
   <div class="data-attribution">
-    <p>Based on CERN research and current cosmological models</p>
+    <p>Based on CERN research</p>
   </div>
   <div class="support-button">
     <a href="https://buymeacoffee.com/amitabhyadav" target="_blank" rel="noopener noreferrer" class="buy-coffee-btn">

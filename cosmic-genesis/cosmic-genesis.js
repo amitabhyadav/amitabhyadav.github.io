@@ -12,6 +12,7 @@ class CosmicGenesis {
     this.playbackSpeed = 1;
     this.animationTimeouts = [];
     this.observerInstances = [];
+    this.isProgrammaticNavigation = false; // Flag to prevent scroll conflict
     
     this.init();
   }
@@ -33,6 +34,8 @@ class CosmicGenesis {
       console.log('Initializing cosmic genesis timeline...');
       this.forceLayoutRecalculation();
       this.navigateToEra(0);
+      // Ensure dropdown is initialized with correct era
+      this.updateDropdownActiveState(0);
     }, 100);
   }
 
@@ -44,9 +47,16 @@ class CosmicGenesis {
     this.markers = document.querySelectorAll('.nav-marker');
     this.eras = document.querySelectorAll('.cosmic-era');
     
-    // Era navigation circles
+    // Era navigation circles (legacy)
     this.eraNavigation = document.getElementById('eraNavigation');
     this.navCircles = document.querySelectorAll('.nav-circle');
+    
+    // Era dropdown navigation
+    this.eraDropdown = document.getElementById('eraDropdown');
+    this.dropdownToggle = document.getElementById('dropdownToggle');
+    this.dropdownMenu = document.getElementById('dropdownMenu');
+    this.dropdownItems = document.querySelectorAll('.dropdown-item');
+    this.currentEraText = document.querySelector('.current-era-text');
     
     // Control buttons
     this.playBtn = document.getElementById('playPause');
@@ -171,6 +181,37 @@ class CosmicGenesis {
         circle.style.transform = 'scale(1)';
       });
     });
+
+    // Era dropdown navigation handlers
+    if (this.dropdownToggle && this.dropdownMenu) {
+      // Toggle dropdown on button click
+      this.dropdownToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        this.toggleDropdown();
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!this.eraDropdown.contains(e.target)) {
+          this.closeDropdown();
+        }
+      });
+
+      // Handle dropdown item clicks
+      this.dropdownItems.forEach((item, index) => {
+        item.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const eraIndex = parseInt(item.dataset.era);
+          console.log(`Dropdown item ${eraIndex} clicked`);
+          this.navigateToEra(eraIndex);
+          this.closeDropdown();
+        });
+      });
+
+      console.log(`Setting up dropdown with ${this.dropdownItems.length} items`);
+    }
   }
 
   setupControls() {
@@ -194,16 +235,27 @@ class CosmicGenesis {
     const options = {
       root: null,
       rootMargin: '0px',
-      threshold: 0.5
+      threshold: [0.1, 0.5, 0.9] // Multiple thresholds for better detection
     };
 
     this.observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
+        // Only update if era is significantly visible (>70%) and not during programmatic navigation
+        if (entry.isIntersecting && entry.intersectionRatio > 0.7 && !this.isProgrammaticNavigation) {
           const eraIndex = parseInt(entry.target.dataset.era);
-          this.currentEra = eraIndex;
-          this.updateTimeline();
-          this.triggerEraAnimations(eraIndex);
+          if (this.currentEra !== eraIndex) {
+            console.log(`📜 Intersection observer detected manual scroll: Era ${this.currentEra} → ${eraIndex} (ratio: ${entry.intersectionRatio.toFixed(2)})`);
+            
+            // Debounce rapid changes to prevent flickering
+            clearTimeout(this.intersectionTimeout);
+            this.intersectionTimeout = setTimeout(() => {
+              this.currentEra = eraIndex;
+              this.updateTimeline();
+              this.updateActiveNavCircle(eraIndex);
+              this.updateDropdownActiveState(eraIndex);
+              this.triggerEraAnimations(eraIndex);
+            }, 100);
+          }
         }
       });
     }, options);
@@ -211,6 +263,42 @@ class CosmicGenesis {
     this.eras.forEach(era => {
       this.observer.observe(era);
     });
+
+    // Additional scroll listener for more precise detection
+    let scrollTimeout;
+    this.container.addEventListener('scroll', () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        this.detectCurrentEraFromScroll();
+      }, 50); // Reduced debounce for faster response
+    });
+
+    // Enhanced wheel event for page snapping
+    this.container.addEventListener('wheel', (e) => {
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+        // Horizontal scroll detected - let CSS scroll-snap handle it
+        return;
+      }
+      
+      if (Math.abs(e.deltaY) > 50) { // Significant vertical scroll
+        e.preventDefault();
+        
+        let targetEra = null;
+        if (e.deltaY > 0 && this.currentEra < this.totalEras - 1) {
+          // Scroll down/right - next era
+          targetEra = this.currentEra + 1;
+        } else if (e.deltaY < 0 && this.currentEra > 0) {
+          // Scroll up/left - previous era
+          targetEra = this.currentEra - 1;
+        }
+        
+        if (targetEra !== null) {
+          // Immediate dropdown update to prevent flickering
+          this.updateDropdownActiveState(targetEra);
+          this.navigateToEra(targetEra);
+        }
+      }
+    }, { passive: false });
   }
 
   setupKeyboardControls() {
@@ -365,16 +453,22 @@ class CosmicGenesis {
     });
   }
 
-  navigateToEra(eraIndex) {
+  navigateToEra(eraIndex, isAutoplay = false) {
     if (eraIndex < 0 || eraIndex >= this.totalEras) {
       console.warn(`Invalid era index: ${eraIndex}. Valid range is 0-${this.totalEras - 1}`);
       return;
     }
     
-    // Stop any current auto-play
-    if (this.isPlaying) {
+    // Only stop auto-play if this is not an autoplay navigation
+    if (this.isPlaying && !isAutoplay) {
       this.stopAutoplay();
     }
+    
+    // Set flag to prevent scroll detection conflicts
+    this.isProgrammaticNavigation = true;
+    
+    // Update dropdown IMMEDIATELY to prevent flickering
+    this.updateDropdownActiveState(eraIndex);
     
     this.currentEra = eraIndex;
     this.showEra(eraIndex);
@@ -431,12 +525,20 @@ class CosmicGenesis {
           // Try immediate scroll as fallback
           this.container.scrollLeft = preciseLeft;
         }
-      }, 500);
+        // Clear programmatic navigation flag after scroll is complete
+        setTimeout(() => {
+          this.isProgrammaticNavigation = false;
+        }, 50); // Shorter delay for autoplay compatibility
+      }, 300); // Reduced timeout for faster responsiveness
       
     } catch (error) {
       console.error('Error during scroll:', error);
       // Fallback to immediate scroll
       this.container.scrollLeft = preciseLeft;
+      // Clear flag even if error occurred (with delay)
+      setTimeout(() => {
+        this.isProgrammaticNavigation = false;
+      }, 350);
     }
   }
 
@@ -565,6 +667,82 @@ class CosmicGenesis {
       }
     } else {
       console.error('❌ No navigation circles found in updateActiveNavCircle');
+    }
+    
+    // Update dropdown active state
+    this.updateDropdownActiveState(eraIndex);
+  }
+
+  detectCurrentEraFromScroll() {
+    if (!this.container || this.isProgrammaticNavigation) return;
+    
+    const scrollLeft = this.container.scrollLeft;
+    const viewportWidth = window.innerWidth;
+    
+    // Calculate which era is currently most visible
+    const currentEraFromScroll = Math.round(scrollLeft / viewportWidth);
+    
+    // Ensure era index is within valid range
+    const clampedEra = Math.max(0, Math.min(currentEraFromScroll, this.totalEras - 1));
+    
+    if (this.currentEra !== clampedEra) {
+      console.log(`🖱️ Scroll-based detection: Era ${this.currentEra} → ${clampedEra} (scrollLeft: ${scrollLeft}px)`);
+      
+      // Clear any pending intersection observer updates to prevent conflicts
+      clearTimeout(this.intersectionTimeout);
+      
+      this.currentEra = clampedEra;
+      this.updateTimeline();
+      this.updateActiveNavCircle(clampedEra);
+      this.updateDropdownActiveState(clampedEra);
+      this.triggerEraAnimations(clampedEra);
+    }
+  }
+
+  toggleDropdown() {
+    const isOpen = this.dropdownMenu.classList.contains('show');
+    if (isOpen) {
+      this.closeDropdown();
+    } else {
+      this.openDropdown();
+    }
+  }
+
+  openDropdown() {
+    this.dropdownMenu.classList.add('show');
+    this.dropdownToggle.classList.add('open');
+  }
+
+  closeDropdown() {
+    this.dropdownMenu.classList.remove('show');
+    this.dropdownToggle.classList.remove('open');
+  }
+
+  updateDropdownActiveState(eraIndex) {
+    // Update active state for dropdown items
+    if (this.dropdownItems) {
+      this.dropdownItems.forEach((item, index) => {
+        const itemEra = parseInt(item.dataset.era);
+        item.classList.toggle('active', itemEra === eraIndex);
+      });
+    }
+
+    // Update current era text in dropdown toggle
+    if (this.currentEraText) {
+      const eraNames = [
+        'The Singularity', 'Planck Epoch', 'Grand Unification', 'Baryogenesis',
+        'Cosmic Inflation', 'Electroweak Breaking', 'Quark-Gluon Plasma',
+        'Neutrino Decoupling', 'Big Bang Nucleosynthesis', 'Matter-Radiation Equality',
+        'Recombination', 'Dark Ages', 'First Stars', 'Reionization',
+        'Galaxy Formation', 'Supermassive Black Holes', 'Structure Formation',
+        'Solar System Formation', 'Quantum Gravity Theory', 'String Theory',
+        'Galaxy Clusters', 'Dark Energy Domination', 'Cosmological Observations',
+        'Gravitational Waves', 'Multiverse Theory'
+      ];
+      
+      if (eraNames[eraIndex]) {
+        this.currentEraText.textContent = eraNames[eraIndex];
+      }
     }
   }
 
@@ -1463,17 +1641,25 @@ class CosmicGenesis {
     
     if (this.isPlaying) {
       this.startAutoplay();
-      this.playBtn.innerHTML = '<span class="pause-icon">⏸</span>';
+      if (this.playBtn) {
+        this.playBtn.innerHTML = '<span class="pause-icon">⏸</span>';
+      }
     } else {
       this.stopAutoplay();
-      this.playBtn.innerHTML = '<span class="play-icon">▶</span>';
+      if (this.playBtn) {
+        this.playBtn.innerHTML = '<span class="play-icon">▶</span>';
+      }
     }
   }
 
   startAutoplay() {
+    if (this.autoplayInterval) {
+      clearInterval(this.autoplayInterval);
+    }
+    
     this.autoplayInterval = setInterval(() => {
       if (this.currentEra < this.totalEras - 1) {
-        this.nextEra();
+        this.nextEra(true); // Pass true to indicate this is autoplay navigation
       } else {
         this.stopAutoplay();
       }
@@ -1486,7 +1672,9 @@ class CosmicGenesis {
       this.autoplayInterval = null;
     }
     this.isPlaying = false;
-    this.playBtn.innerHTML = '<span class="play-icon">▶</span>';
+    if (this.playBtn) {
+      this.playBtn.innerHTML = '<span class="play-icon">▶</span>';
+    }
   }
 
   cycleSpeed() {
@@ -1515,15 +1703,15 @@ class CosmicGenesis {
     }
   }
 
-  nextEra() {
+  nextEra(isAutoplay = false) {
     if (this.currentEra < this.totalEras - 1) {
-      this.navigateToEra(this.currentEra + 1);
+      this.navigateToEra(this.currentEra + 1, isAutoplay);
     }
   }
 
-  previousEra() {
+  previousEra(isAutoplay = false) {
     if (this.currentEra > 0) {
-      this.navigateToEra(this.currentEra - 1);
+      this.navigateToEra(this.currentEra - 1, isAutoplay);
     }
   }
 
