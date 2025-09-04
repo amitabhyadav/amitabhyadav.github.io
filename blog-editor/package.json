@@ -30,7 +30,7 @@
     "uuid": "^11.1.0"
   },
   "devDependencies": {
-    "electron": "^33.0.0",
+    "electron": "^35.7.5",
     "electron-builder": "^25.1.8"
   },
   "build": {
