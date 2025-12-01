@@ -22,7 +22,7 @@
   "type": "commonjs",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^5.1.0",
+    "express": "^5.2.0",
     "fs-extra": "^11.3.0",
     "multer": "^2.0.2",
     "path": "^0.12.7",
